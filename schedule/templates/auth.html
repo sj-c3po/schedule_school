@@ -1,0 +1,22 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block autoriz %}
+    Hello:3 <br>
+    <img src="{% static "cool.jpg" %}">
+    <p>
+        Авторизуйтесь:
+        <form action="/login/" method="post">
+{#            {% csrf_token %}#}
+            <p>
+                Логин: <input type="text" name="login"><br>
+            </p>
+            <p>
+                Пароль: <input type="password" name="password"><br>
+            </p>
+            <label>{{ login_error }}</label>
+            <input type="hidden" name="next" value="main.html" />
+            <input type="submit" name="auth" value="Подтвердить">
+        </form>
+    </p>
+{% endblock %}

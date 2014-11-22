@@ -1,0 +1,44 @@
+{% extends 'new.html' %}
+{% load staticfiles %}
+
+{% block classes %}
+    {% if not data %}
+        Выберите классы и диапазоны букв в параллели:
+        <form id="classes_form" name>
+            {% for class in class_number %}
+                <input type="text" name='name{{ class }}' value="{{ class }}">
+                <select name="letters_first{{ class }}">
+                    <option>-</option> <!--такого класса нет-->
+                    <option selected>а</option>
+                    <option>б</option>
+                    <option>в</option>
+                    <option>г</option>
+                    <option>д</option>
+                    <option>е</option>
+                    <option>ж</option>
+                    <option>з</option>
+                    <option>и</option>
+                    <option>к</option>
+                </select>
+                <select name="letters_last{{ class }}">
+                    <option>-</option>
+                    <option>а</option>
+                    <option selected>б</option>
+                    <option>в</option>
+                    <option>г</option>
+                    <option>д</option>
+                    <option>е</option>
+                    <option>ж</option>
+                    <option>з</option>
+                    <option>и</option>
+                    <option>к</option>
+                </select> <br>
+            {% endfor %}
+            <input type="button" value="Ок" onClick="getData()">  <!--button - обычная, submit - отправляет на сервер-->
+        </form>
+        <div id="classes_table"></div>
+        <input class="accept" type="button" value="Принять" onclick="sendData()">
+    {% else %}
+        Вы добавили классы
+    {% endif %}
+{% endblock %}

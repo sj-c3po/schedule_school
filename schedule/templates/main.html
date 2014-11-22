@@ -1,0 +1,16 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block hello %}
+    Привет, {{ username }}!
+
+    <section>
+        <article>
+            <a href="new">Создать новое расписание</a>
+        </article>
+        <article>
+            <a href="">Просмотреть архив<br> расписаний</a>
+        </article>
+
+    </section>
+{% endblock %}

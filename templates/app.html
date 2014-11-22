@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/style.css' %}"/>
+    <script src="{% static 'static/js/jquery-1.11.1.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'static/js/jquery.steps.min.js' %}" type="text/javascript"></script>
+    <script type="text/javascript" src="{% static 'static/js/scripts.js' %}"></script>
+    <title>Расписание занятий</title>
+</head>
+<body>
+    {% block autoriz %}{% endblock %}
+    {% block hello %}{% endblock %}
+    {% block test %}{% endblock %}
+    {% block new %}{% endblock %}
+</body>
+</html>
