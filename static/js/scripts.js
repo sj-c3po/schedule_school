@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    $("#example-vertical").steps({
+    $("#steps").steps({
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "slideLeft",
         stepsOrientation: "vertical"
-    })
+    });
 });
 var parallels_alphabet = [];
     function getData() {

@@ -1,4 +1,5 @@
 from django.shortcuts import render, render_to_response, redirect
+from django.template.loader import get_template
 from django.contrib import auth
 import json
 
@@ -11,12 +12,13 @@ def show_auth(request):
 
 def show_main(request):
     username = request.user.get_username()
-    return render_to_response('main.html', {'username':username})
+    return render_to_response('main.html', {'username': username})
 
 # Страница добавления
 def new(request):
     args = {}
     args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
+    args['username'] = request.user.get_username()
     return render_to_response('new.html', args)
 
 def example_steps(request):
@@ -75,3 +77,6 @@ def login(request):
 
 
        # user = User.objects.create_user(user_login, None, user_password) - строка для регистрации пользователя
+
+def logout(request):
+    return render_to_response('auth.html')

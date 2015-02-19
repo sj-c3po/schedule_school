@@ -1,43 +1,37 @@
-{% extends 'new.html' %}
-{% load staticfiles %}
+<script>
+    function getName() {
+        name = document.forms["reg"].elements["name"].value;
+        alert(name)
+    }
+</script>
+<div class="add">
+    <a href="#" onclick="change_visible">+ Добавить список<br>учителей</a>
+    <form action="." method="post">
+        Количество учителей: <input type="text" name="t_count"/>
+         <label>{{ error }}</label>
+        <input type="submit" name='t_count_ok' value="Ок">
+    </form>
 
-{% block teachers %}
-    <script>
-        function getName() {
-            name = document.forms["reg"].elements["name"].value;
-            alert(name)
-        }
-    </script>
-    <div class="add">
-        <a href="#" onclick="change_visible">+ Добавить список<br>учителей</a>
-        <form action="." method="post">
-            Количество учителей: <input type="text" name="t_count"/>
-             <label>{{ error }}</label>
-            <input type="submit" name='t_count_ok' value="Ок">
-        </form>
-
-    <!--Сделать не таблицу, а форму! А таблица уже будет генерироваться в конце-->
-        <table class="change_visible">
+<!--Сделать не таблицу, а форму! А таблица уже будет генерироваться в конце-->
+    <table class="change_visible">
+        <tr>
+            <th>#</th>
+            <th>Фамилия</th>
+            <th>Имя Отчество</th>
+            <th>Предмет</th>
+            <th>Класс</th>
+            <th>Кабинет</th>
+        </tr>
+        {% for t in count %}
             <tr>
-                <th>#</th>
-                <th>Фамилия</th>
-                <th>Имя Отчество</th>
-                <th>Предмет</th>
-                <th>Класс</th>
-                <th>Кабинет</th>
+                <td> {{ t }} </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
-            {% for t in count %}
-                <tr>
-                    <td> {{ t }} </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
 
-            {% endfor %}
-        </table>
-    </div>
-
-{% endblock %}
+        {% endfor %}
+    </table>
+</div>
