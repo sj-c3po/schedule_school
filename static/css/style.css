@@ -24,6 +24,45 @@ main {
     display: block;
     float:right;
 }
+
+#teachers_form th, #teachers_form td{
+    text-align: left;
+}
+#teachers_form th:first-child {
+    text-align: center;
+    width:5%;
+}
+#teachers_form input[type=text] {
+    width:100px;
+}
+#teachers_form input[type=text][name=class] {
+    width:30px;
+}
+#teachers_form input[type=text][name=classroom] {
+    width:30px;
+}
+
+#classrooms_form th, #classrooms_form td{
+    text-align: left;
+}
+#classrooms_form th:first-child {
+    text-align: center;
+    width:10%;
+}
+#classrooms_form input[type=text] {
+    width:30px;
+}
+
+#lessons_form th {
+    text-align: center;
+}
+#lessons_form th:first-child, #lessons_form td:first-child {
+    width:20%;
+    text-align: left;
+}
+#lessons_form input {
+    width:30px;
+}
 #steps {
     width:1000px;
     height:620px;
@@ -53,7 +92,7 @@ main {
     text-align: center;
 }
 .bar {
-    height:60px;
+    height:30px;
     background: #9999CC;
     margin-bottom:20px;
     color: #ffffff;
@@ -70,7 +109,7 @@ main {
     float: left;
     color: white;
     vertical-align: middle;
-    padding: 20px;
+    padding: 5px;
 }
 
 .change_visible {

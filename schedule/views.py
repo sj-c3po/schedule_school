@@ -3,27 +3,6 @@ from django.template.loader import get_template
 from django.contrib import auth
 import json
 
-
-def show_auth(request):
-    if request.user.is_authenticated():
-        return redirect('/main')
-    else:
-        return render_to_response('auth.html')
-
-def show_main(request):
-    username = request.user.get_username()
-    return render_to_response('main.html', {'username': username})
-
-# Страница добавления
-def new(request):
-    args = {}
-    args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
-    args['username'] = request.user.get_username()
-    return render_to_response('new.html', args)
-
-def example_steps(request):
-    return render_to_response('example.html')
-
 def add_teachers(request):
     args = {}
     if request.method == "POST":
@@ -38,11 +17,10 @@ def add_teachers(request):
     else:
         return render_to_response('add_teachers.html')
 
-
-
 def add_classes(request):
     args = {}
     args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
+    args['subjects'] = [1]
     if request.is_ajax():
          if request.method == "POST":
             args['data'] = json.loads(request.POST['data']); # from json to object
@@ -58,6 +36,17 @@ def add_lessons(request):
 def add_classrooms(request):
     print("Кабинеты")
     return render_to_response('add_classrooms.html')
+
+def example_steps(request):
+    return render_to_response('example.html')
+
+# Страница добавления
+def new(request):
+    args = {}
+    args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
+    args['username'] = request.user.get_username()
+    return render_to_response('new.html', args)
+
 
 def login(request):
     args = {}
@@ -80,3 +69,27 @@ def login(request):
 
 def logout(request):
     return render_to_response('auth.html')
+
+def schedule(request):
+    args = {}
+    args['username'] = request.user.get_username()
+    args['schedule']
+    return render_to_response('schedule.html', args)
+
+def schedule_main(request):
+    args = {}
+    args['username'] = request.user.get_username()
+    args['schedule']
+    return render_to_response('schedule_main.html', args)
+
+
+def show_auth(request):
+    if request.user.is_authenticated():
+        return redirect('/main')
+    else:
+        return render_to_response('auth.html')
+
+def show_main(request):
+    username = request.user.get_username()
+    return render_to_response('main.html', {'username': username})
+

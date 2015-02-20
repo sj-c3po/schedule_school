@@ -1,1 +1,55 @@
-Предметы
+{% if not data %}
+    <h4>Заполните предметную нагрузку по классам</h4>
+
+    <a href="javascript:void(0);">Добавить предметы</a>
+
+    <form id="lessons_form">
+        <table cellspacing="0">
+            <tr>
+                <th>Класс/<br/>Предмет</th>
+                {% for class in class_number %}
+                    <th>{{ class }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>
+                    Математика
+                </td>
+                {% for class in class_number %}
+                    <td><input type="text"> </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>
+                    Русский язык
+                </td>
+                {% for class in class_number %}
+                    <td><input type="text"> </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>
+                    Литература
+                </td>
+                {% for class in class_number %}
+                    <td><input type="text"> </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>
+                    История
+                </td>
+                {% for class in class_number %}
+                    <td><input type="text"> </td>
+                {% endfor %}
+            </tr>
+
+        </table>
+    </form>
+
+    <div id="classes_table"></div>
+    <input class="accept" type="button" value="Принять" onclick="sendData()">
+{% else %}
+    Вы добавили классы
+{% endif %}
+

@@ -1,37 +1,122 @@
-<script>
-    function getName() {
-        name = document.forms["reg"].elements["name"].value;
-        alert(name)
-    }
-</script>
-<div class="add">
-    <a href="#" onclick="change_visible">+ Добавить список<br>учителей</a>
-    <form action="." method="post">
-        Количество учителей: <input type="text" name="t_count"/>
-         <label>{{ error }}</label>
-        <input type="submit" name='t_count_ok' value="Ок">
-    </form>
+{% if not data %}
+    <h4>Добавить список учителей</h4>
 
-<!--Сделать не таблицу, а форму! А таблица уже будет генерироваться в конце-->
-    <table class="change_visible">
-        <tr>
-            <th>#</th>
-            <th>Фамилия</th>
-            <th>Имя Отчество</th>
-            <th>Предмет</th>
-            <th>Класс</th>
-            <th>Кабинет</th>
-        </tr>
-        {% for t in count %}
+    <a href="javascript:void(0);">Добавить строки в таблицу</a>
+    <a href="javascript:void(0);">Удалить</a>
+
+    <form id="teachers_form">
+        <table cellspacing="0">
             <tr>
-                <td> {{ t }} </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th><input type="checkbox"/></th>
+                <th>Фамилия</th>
+                <th>Имя Отчество</th>
+                <th>Предмет</th>
+                <th>Классное руководство</th>
+                <th>Кабинет</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>
+                    <input type="text" placeholder="Иванова"/>
+                </td>
+                <td>
+                    <input type="text" placeholder="Марь Иванна"/>
+                </td>
+                <td>
+                    <select>
+                        <option selected>Математика</option>
+                        <option>Русский</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="class">
+                </td>
+                <td>
+                    <input type="text" name="classroom">
+                </td>
             </tr>
 
-        {% endfor %}
-    </table>
-</div>
+        </table>
+    </form>
+    <div id="classes_table"></div>
+    <input class="accept" type="button" value="Принять" onclick="sendData()">
+{% else %}
+    Вы добавили классы
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#<script>#}
+{#    function getName() {#}
+{#        name = document.forms["reg"].elements["name"].value;#}
+{#        alert(name)#}
+{#    }#}
+{#</script>#}
+{#<div class="add">#}
+{#    <a href="#" onclick="change_visible">+ Добавить список<br>учителей</a>#}
+{#    <form action="." method="post">#}
+{#        Количество учителей: <input type="text" name="t_count"/>#}
+{#         <label>{{ error }}</label>#}
+{#        <input type="submit" name='t_count_ok' value="Ок">#}
+{#    </form>#}
+{##}
+{#<!--Сделать не таблицу, а форму! А таблица уже будет генерироваться в конце-->#}
+{#    <table class="change_visible">#}
+{#        <tr>#}
+{#            <th>#</th>#}
+{#            <th>Фамилия</th>#}
+{#            <th>Имя Отчество</th>#}
+{#            <th>Предмет</th>#}
+{#            <th>Класс</th>#}
+{#            <th>Кабинет</th>#}
+{#        </tr>#}
+{#        {% for t in count %}#}
+{#            <tr>#}
+{#                <td> {{ t }} </td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#                <td></td>#}
+{#            </tr>#}
+{##}
+{#        {% endfor %}#}
+{#    </table>#}
+{#</div>#}

@@ -1,1 +1,66 @@
-Кабинеты
+{% if not data %}
+    <h4>Внесите данные о кабинетах</h4>
+
+    <a href="javascript:void(0);">Сгенерировать номера кабинетов</a>
+    <a href="javascript:void(0);">Удалить</a>
+
+    <form id="classrooms_form">
+        <table cellspacing="0">
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th>Кабинет</th>
+                <th>Предмет, к которому он относится</th>
+                <th>Действия</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td><input type="text"/></td>
+                <td>Математика</td>
+                <td>
+                    <a href="javascript:void(0);">Редактировать</a>
+                    <a href="javascript:void(0);">Удалить</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td><input type="text"/></td>
+                <td>Математика</td>
+                <td>
+                    <a href="javascript:void(0);">Редактировать</a>
+                    <a href="javascript:void(0);">Удалить</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td><input type="text"/></td>
+                <td>Математика</td>
+                <td>
+                    <a href="javascript:void(0);">Редактировать</a>
+                    <a href="javascript:void(0);">Удалить</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td><input type="text"/></td>
+                <td>Математика</td>
+                <td>
+                    <a href="javascript:void(0);">Редактировать</a>
+                    <a href="javascript:void(0);">Удалить</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="classes_table"></div>
+    <input class="accept" type="button" value="Принять" onclick="sendData()">
+{% else %}
+    Вы добавили классы
+{% endif %}
+

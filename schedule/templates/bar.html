@@ -1,6 +1,12 @@
 <div class="bar">
     <ul>
         <a href="main"><li>На главную страницу</li></a>
+        <a href="schedule"><li>Перейти к расписанию</li></a>
+        {% if schedule %}
+            <a href="schedule_main"><li>Показать расписание по классам</li></a>
+        {% endif %}
         <a href="logout"><li>Выйти</li></a>
+
+
     </ul>
 </div>
