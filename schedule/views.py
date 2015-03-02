@@ -73,14 +73,14 @@ def logout(request):
 def schedule(request):
     args = {}
     args['username'] = request.user.get_username()
-    args['schedule']
+    args['schedule'] = 1
     return render_to_response('schedule.html', args)
 
-def schedule_main(request):
+def schedule_detailed(request):
     args = {}
     args['username'] = request.user.get_username()
-    args['schedule']
-    return render_to_response('schedule_main.html', args)
+    args['schedule'] = 1
+    return render_to_response('schedule_detailed.html', args)
 
 
 def show_auth(request):

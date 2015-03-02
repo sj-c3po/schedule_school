@@ -1,0 +1,71 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block schedule_detailed %}
+    <div class="schedule_detailed">
+
+        <section class="warning">
+{#            Либо изначальные ошибки расписания, либо те, которые завуч допустит в процессе редактирования #}
+            <span>Здесь будут отображатся предупреждения о несоответствии расписания нормам или ошибки</span>
+        </section>
+
+        <section class="load_hours">Тут нагрузка в часах</section>
+
+        <section class="week">
+            <select>
+                <option selected>Выберите класс</option>
+                <option>5a</option>
+                <option>6б</option>
+                <option>11</option>
+            </select>
+            <table class="class_schedule" cellspacing="20">
+                <tr>
+                    <td>
+                        <div>Пн</div>
+                        1.  Русский<br/>
+                        2.  Русский<br/>
+                        3.  Русский<br/>
+                    </td>
+                    <td>
+                        <div>Вт</div>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                    </td>
+                    <td>
+                        <div>Ср</div>
+                        Русский язык<br/>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Чт</div>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                    </td>
+                    <td>
+                        <div>Пт</div>
+                        Русский<br/>
+                        Русский<br/>
+                        Русский<br/>
+                    </td>
+                    <td>
+                        <div>Сб</div>
+                        -
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="load_cabinets">Тут по аудиториям</section>
+        <input type="button" value="Сохранить изменения"/>
+    </div>
+{% endblock %}

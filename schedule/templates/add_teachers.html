@@ -2,27 +2,23 @@
     <h4>Добавить список учителей</h4>
 
     <a href="javascript:void(0);">Добавить строки в таблицу</a>
-    <a href="javascript:void(0);">Удалить</a>
+    <a href="javascript:void(0);">Отсортировать</a>
 
     <form id="teachers_form">
         <table cellspacing="0">
             <tr>
-                <th><input type="checkbox"/></th>
                 <th>Фамилия</th>
                 <th>Имя Отчество</th>
                 <th>Предмет</th>
-                <th>Классное руководство</th>
+                <th>Кл.рук.</th>
                 <th>Кабинет</th>
             </tr>
             <tr>
                 <td>
-                    <input type="checkbox"/>
+                    <input type="text" name="F" placeholder="Иванова"/>
                 </td>
                 <td>
-                    <input type="text" placeholder="Иванова"/>
-                </td>
-                <td>
-                    <input type="text" placeholder="Марь Иванна"/>
+                    <input type="text" name="IO" placeholder="Марь Иванна"/>
                 </td>
                 <td>
                     <select>
@@ -40,8 +36,6 @@
 
         </table>
     </form>
-    <div id="classes_table"></div>
-    <input class="accept" type="button" value="Принять" onclick="sendData()">
 {% else %}
     Вы добавили классы
 {% endif %}

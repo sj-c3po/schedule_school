@@ -13,10 +13,6 @@ article {
     width: 150px;
     padding: 50px;
 }
-input {
-    width:50px;
-    text-align: center;
-}
 main {
     border: 1px solid;
     height: 500px;
@@ -25,65 +21,110 @@ main {
     float:right;
 }
 
-#teachers_form th, #teachers_form td{
-    text-align: left;
+table {
+    width:100%;
 }
-#teachers_form th:first-child {
-    text-align: center;
-    width:5%;
+table td {
+    padding:5px 10px;
+    font-weight: normal;
+    font-size: 0.9em;
 }
-#teachers_form input[type=text] {
-    width:100px;
-}
-#teachers_form input[type=text][name=class] {
-    width:30px;
-}
-#teachers_form input[type=text][name=classroom] {
-    width:30px;
-}
-
-#classrooms_form th, #classrooms_form td{
-    text-align: left;
-}
-#classrooms_form th:first-child {
-    text-align: center;
-    width:10%;
-}
-#classrooms_form input[type=text] {
-    width:30px;
+table th {
+    padding:5px 10px;
+    background: #5b5b89;
+    color:white;
+    font-weight: normal;
+    font-size: 0.9em;
 }
 
-#lessons_form th {
+.create_schedule {
+    border-radius: 5px;
+    display: block;
+    margin:50px auto;
+    width:210px;
+    padding:20px 30px;
+    color:white;
+    font-size: 1.1em;
+    font-weight: bold;
+    background: #00007c;
+    box-shadow: 2px 2px 3px grey;
+}
+.create_schedule:hover {
+    padding: 21px 31px;
+}
+.create_schedule:active {
+    padding: 19px 29px;
+}
+/* addClasses */
+#classes_form th {
+    text-align: left;
+}
+#classes_form th:first-child {
+    width:20%;
+}
+#classes_form td {
+    text-align: center;
+    padding:10px 20px;
+}
+#classes_form input {
+    width:100%;
+    height:20px;
+    border:1px solid lightgrey;
+    border-radius: 3px;
+}
+/* end addClasses */
+
+/* addLessons */
+#lessons_form th:first-child {
     text-align: center;
 }
 #lessons_form th:first-child, #lessons_form td:first-child {
     width:20%;
     text-align: left;
 }
+#lessons_form td:not(:first-child) {
+    text-align: center;
+    padding:5px 20px;
+}
 #lessons_form input {
     width:30px;
 }
+/* end addLessons */
+
+/* addClassrooms */
+#classrooms_form th {
+    text-align: left;
+}
+#classrooms_form th:first-child {
+    width:15%;
+}
+#classrooms_form input[type=text] {
+    width:30px;
+    text-align: center;
+}
+/* end addClassrooms */
+
+/* addTeachers */
+#teachers_form th, #teachers_form td{
+    text-align: left;
+}
+#teachers_form input[type=text] {
+    width:100px;
+}
+#teachers_form input[name=IO] {
+    width:200px;
+}
+#teachers_form input[name=class], #teachers_form input[name=classroom] {
+    width:30px;
+    margin: auto;
+}
+/* end addTeachers */
+
+
 #steps {
     width:1000px;
     height:620px;
     margin:auto;
-}
-.accept {
-    width: 100px;
-    position: absolute;
-    top:550px;
-    left:1050px;
-}
-.add {
-    border:1px solid darkgreen;
-    margin:3%;
-    height:92%;
-}
-
-.add a {
-    display: block;
-    border:1px solid red;
-    width: 150px;
 }
 .auth {
     display:block;
@@ -91,9 +132,10 @@ main {
     width:200px;
     text-align: center;
 }
+/* Navigation */
 .bar {
     height:30px;
-    background: #9999CC;
+    background: green;
     margin-bottom:20px;
     color: #ffffff;
 }
@@ -105,16 +147,24 @@ main {
 }
 .bar ul a {
     display:inline-block;
-    border-right:1px solid;
     float: left;
     color: white;
     vertical-align: middle;
-    padding: 5px;
+    padding: 5px 15px;
 }
+.bar ul a:hover {
+    text-decoration: underline;
+}
+.bar ul a:active {
+    text-decoration: none;
+    color:yellow;
+}
+.bar .logout {
+    float:right;
+}
+/* end Navigation */
 
-.change_visible {
-    display: block;
-}
+/* editBlock */
 .set {
     color: #5b5b89;
 }
@@ -123,29 +173,110 @@ main {
     font-size: 1.1em;
     font-weight:normal;
 }
+.set table {
+    border: 1px solid;
+    box-shadow: 2px 2px 3px grey;
+}
+.set td {
+    background: #f4f4f4;
+}
+/* end editBlock */
 
-table {
-    width:100%;
+/* main Schedule */
+.schedule th:first-child {
+    width:3%;
 }
-table tr {
-    border-top:1px solid black;
+.schedule th {
+    border:none;
 }
-table th {
-    padding:5px 10px;
-    background: #5b5b89;
-    color:white;
-    text-align: left;
-    font-weight: normal;
-    font-size: 0.9em;
+.schedule td {
+    padding: 3px 10px;
+    border:none;
 }
-table th:first-child {
-    width:15%;
+.schedule tr:nth-child(even) {
+    background: #f4f3f3;
 }
-table td {
-    text-align: center;
-    padding:10px 15px;
+.schedule tr:nth-child(odd) {
+    background: #fff;
 }
-table td input {
-    width:100%;
-    text-align: left;
+.schedule tr:hover td{
+    /*box-shadow: 3px 1px 2px 1px #3b3f80;*/
 }
+/* end main Schedule */
+
+/*parted Schedule*/
+.schedule_detailed {
+    width:97%;
+    margin:auto;
+    position:relative;
+}
+.schedule_detailed:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+/* hours */
+.schedule_detailed .load_hours {
+    border-radius:5px;
+    width:47%;
+    padding: 0.5%;
+    float: right;
+    min-height: 220px;
+    background: #f2f2c1;
+    margin:0 0 15px 0;
+}
+/* end hours */
+.schedule_detailed .load_cabinets {
+    border-radius:5px;
+    width:47%;
+    padding: 0.5%;
+    float: right;
+    min-height: 230px;
+    background: #d3d8eb;
+}
+
+/* warning */
+.schedule_detailed .warning {
+    border-radius:5px;
+    width:49%;
+    height:100px;
+    float:left;
+    display:block;
+    overflow-y:auto;
+    margin:0 15px 15px 0;
+    background: #fbda52;    /*когда не ок*/
+    /*background: #85fb76;  когда все ок*/
+    padding: 0.5%;
+}
+.schedule_detailed .warning span {
+    width:70%;
+    display:block;
+    margin:4% auto 0;
+}
+/* end warning */
+
+.schedule_detailed .week {
+    border-radius:5px;
+    padding: 0.5%;
+    width:49%;
+    float:left;
+    display:block;
+    min-height: 350px;
+    background: #e5e5e5;
+    margin:0 15px 0 0;
+}
+.schedule_detailed .week .class_schedule {
+    width:70%;
+    margin: auto;
+}
+.schedule_detailed .week .class_schedule td {
+    border-radius:5px;
+    background: white;
+    vertical-align: top;
+    width:30%;
+}
+.schedule_detailed .week .class_schedule td>div {
+    color:blue;
+    text-decoration: underline;
+}
+/*end parted Schedule*/
