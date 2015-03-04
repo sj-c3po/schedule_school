@@ -61,7 +61,7 @@
 {
     display: inline;
     float: left;
-    width: 30%;
+    width: 20%;
 }
 
 .wizard > .steps .number
@@ -155,7 +155,7 @@
     display: inline;
     float: left;
     margin: 0 2.5% 0.5em 2.5%;
-    width: 65%;
+    width: 75%;
 }
 
 .wizard > .content > .body
@@ -355,7 +355,7 @@
     display: inline-block;
     width: 100%;
     height: 35em;
-    overflow: hidden;
+    overflow: auto;
     border-top: 1px solid #bbb;
     padding-top: 20px;
 }

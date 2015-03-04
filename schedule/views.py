@@ -44,6 +44,7 @@ def example_steps(request):
 def new(request):
     args = {}
     args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
+    args['alphabet'] = ['а','б','в','г','д','е','ж','з','и','к','л','м','н','о','п','р','с','т','у','ф','х'] #,'ц','ч','ш','щ','э','ю','я'
     args['username'] = request.user.get_username()
     return render_to_response('new.html', args)
 

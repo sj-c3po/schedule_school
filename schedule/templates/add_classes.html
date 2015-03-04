@@ -1,21 +1,26 @@
 {% if not data %}
-    <h4>Впишите напротив каждой параллели буквы имеющихся классов</h4>
+    <h4>Отмечать плюсами</h4>
 
     <form id="classes_form">
         <table cellspacing="0">
             <tr>
                 <th>Параллель</th>
-                <th>Классы</th>
+                {% for letter in alphabet %}
+                    <th>{{ letter }}</th>
+                {% endfor %}
             </tr>
             {% for class in class_number %}
             <tr>
                 <td>{{ class }}</td>
-                <td>
-                    <input type="text" placeholder="а, б, в,..."/>
-                </td>
+                {% for letter in alphabet %}
+                    <td>
+                        <input class="classname" type="text" maxlength="1" name="{{ class }}_{{ letter }}"/>
+                    </td>
+                {% endfor %}
             </tr>
             {% endfor %}
         </table>
+        <input type="button" value="Отправить" onclick="send_classes();">
     </form>
 {% else %}
     Вы добавили классы

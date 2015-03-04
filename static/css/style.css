@@ -62,13 +62,14 @@ table th {
 #classes_form th:first-child {
     width:20%;
 }
-#classes_form td {
+#classes_form td:first-child {
     text-align: center;
     padding:10px 20px;
 }
-#classes_form input {
-    width:100%;
-    height:20px;
+#classes_form input[type=text] {
+    width:10px;
+    height:15px;
+    text-align: center;
     border:1px solid lightgrey;
     border-radius: 3px;
 }
@@ -86,7 +87,7 @@ table th {
     text-align: center;
     padding:5px 20px;
 }
-#lessons_form input {
+#lessons_form input[type=text] {
     width:30px;
 }
 /* end addLessons */
@@ -122,7 +123,7 @@ table th {
 
 
 #steps {
-    width:1000px;
+    width:1200px;
     height:620px;
     margin:auto;
 }
