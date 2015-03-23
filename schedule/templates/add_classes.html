@@ -1,6 +1,8 @@
-{% if not data %}
-    <h4>Отмечать плюсами</h4>
+<div class="description">
+    Отмечать плюсами. Для удобства использовать Tab.
+</div>
 
+{% if not data %}
     <form id="classes_form">
         <table cellspacing="0">
             <tr>
@@ -20,9 +22,8 @@
             </tr>
             {% endfor %}
         </table>
-        <input type="button" value="Отправить" onclick="send_classes();">
+        <input type="button" value="Записать изменения" onclick="send_classes();">
     </form>
 {% else %}
     Вы добавили классы
 {% endif %}
-

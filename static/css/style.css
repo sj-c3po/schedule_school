@@ -31,7 +31,7 @@ table td {
 }
 table th {
     padding:5px 10px;
-    background: #5b5b89;
+    background: #2b3589;
     color:white;
     font-weight: normal;
     font-size: 0.9em;
@@ -56,11 +56,14 @@ table th {
     padding: 19px 29px;
 }
 /* addClasses */
+#classes_form th:first-child {
+    text-align: center;
+}
 #classes_form th {
     text-align: left;
 }
 #classes_form th:first-child {
-    width:20%;
+    /*width:5%;*/
 }
 #classes_form td:first-child {
     text-align: center;
@@ -166,21 +169,6 @@ table th {
 /* end Navigation */
 
 /* editBlock */
-.set {
-    color: #5b5b89;
-}
-.set h4 {
-    margin: 0 0 15px 0;
-    font-size: 1.1em;
-    font-weight:normal;
-}
-.set table {
-    border: 1px solid;
-    box-shadow: 2px 2px 3px grey;
-}
-.set td {
-    background: #f4f4f4;
-}
 /* end editBlock */
 
 /* main Schedule */
@@ -281,3 +269,66 @@ table th {
     text-decoration: underline;
 }
 /*end parted Schedule*/
+
+
+/*new steps*/
+    .content {
+        width:1240px;
+        margin:auto;
+    }
+    .content:after {
+        content:'';
+        display:table;
+        clear:both;
+    }
+    .description {
+        border-radius: 3px;
+        min-height: 200px;
+        width:150px;
+        padding: 10px;
+        position:absolute;
+        left: -200px;
+        top: 110px;
+        background: #ffe6a5;
+    }
+    .submenu {
+        float:left;
+        display:block;
+    }
+    .submenu a {
+        display:block;
+        margin-bottom: 5px;
+        color:#0000c2;
+    }
+    .frame {
+        width:1050px;
+        height:590px;
+        display:inline-block;
+        float:right;
+        position:relative;
+        /*background: #e7e7e7;*/
+        border-radius: 3px;
+    }
+    .frame form {
+        margin:auto;
+        width:880px;
+        border:1px solid;
+    }
+    .frame table {
+        border: 1px solid;
+        box-shadow: 2px 2px 3px #5f6a80;
+    }
+    .frame td {
+        background: #f4f4f4;
+    }
+    .frame input[type=button] {
+        position:absolute;
+        left:880px;
+        top:520px;
+        background: #0000c2;
+        height:30px;
+        border:none;
+        color:white;
+        cursor:pointer;
+    }
+/*end new steps*/
