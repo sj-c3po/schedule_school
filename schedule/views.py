@@ -94,3 +94,7 @@ def show_main(request):
     username = request.user.get_username()
     return render_to_response('main.html', {'username': username})
 
+def processing_data(request):
+    if request.method == "POST":
+        data = json.loads(request.POST)
+        print('jdhgj '+data)

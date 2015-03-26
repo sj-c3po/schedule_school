@@ -23,4 +23,11 @@ function send_classes() {
         }
     });
     console.log(classes)  // ["5а", "5б", "5в"]
+
+    $.ajax({
+      url: '/processing_data',
+      type: "POST",
+      data: JSON.stringify(classes),
+      success: console.log('ok')
+    });
 }
