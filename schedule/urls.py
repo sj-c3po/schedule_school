@@ -4,7 +4,6 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'schedule_school.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
     url(r'^new/teachers/?', 'schedule.views.add_teachers'),
     url(r'^new/classes/?', 'schedule.views.add_classes'),
     url(r'^new/classrooms/?', 'schedule.views.add_classrooms'),

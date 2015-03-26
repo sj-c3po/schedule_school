@@ -1,3 +1,7 @@
 from django.contrib import admin
+from schedule.models import Cabinet, School_class, Subject, Teacher
 
-# Register your models here.
+admin.site.register(Cabinet)
+admin.site.register(School_class)
+admin.site.register(Subject)
+admin.site.register(Teacher)

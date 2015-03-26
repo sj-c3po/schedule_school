@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.template.loader import get_template
 from django.contrib import auth
+from django.http.response import HttpResponseRedirect
 import json
 
 def add_teachers(request):
@@ -69,7 +70,8 @@ def login(request):
        # user = User.objects.create_user(user_login, None, user_password) - строка для регистрации пользователя
 
 def logout(request):
-    return render_to_response('auth.html')
+    auth.logout(request)
+    return HttpResponseRedirect("/login")
 
 def schedule(request):
     args = {}
