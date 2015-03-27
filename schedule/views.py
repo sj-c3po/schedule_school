@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.http.response import HttpResponseRedirect
 import json
 
+
 def add_teachers(request):
     args = {}
     if request.method == "POST":
@@ -18,6 +19,7 @@ def add_teachers(request):
     else:
         return render_to_response('add_teachers.html')
 
+
 def add_classes(request):
     args = {}
     args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
@@ -30,16 +32,16 @@ def add_classes(request):
     else:
         return render_to_response('add_classes.html', args)
 
+
 def add_lessons(request):
     print("Уроки")
     return render_to_response('add_lessons.html')
+
 
 def add_classrooms(request):
     print("Кабинеты")
     return render_to_response('add_classrooms.html')
 
-def example_steps(request):
-    return render_to_response('example.html')
 
 # Страница добавления
 def new(request):
@@ -56,7 +58,7 @@ def login(request):
         user_login = request.POST.get('login', '') # возьми логин, иначе присвой "пусто"
         user_password = request.POST.get('password', '') # возьми логин, иначе присвой "пусто"
         user = auth.authenticate(username=user_login, password=user_password)
-        # print(user.username, '\n' + user.password) - отладка
+
         if user is not None and user.is_active:
             auth.login(request, user)
             return redirect('/main')
@@ -69,15 +71,18 @@ def login(request):
 
        # user = User.objects.create_user(user_login, None, user_password) - строка для регистрации пользователя
 
+
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("/login")
+
 
 def schedule(request):
     args = {}
     args['username'] = request.user.get_username()
     args['schedule'] = 1
     return render_to_response('schedule.html', args)
+
 
 def schedule_detailed(request):
     args = {}
@@ -92,9 +97,12 @@ def show_auth(request):
     else:
         return render_to_response('auth.html')
 
+
 def show_main(request):
-    username = request.user.get_username()
-    return render_to_response('main.html', {'username': username})
+    args = {}
+    args['username'] = request.user.get_username()
+    return render_to_response('main.html', args)
+
 
 def processing_data(request):
     if request.method == "POST":

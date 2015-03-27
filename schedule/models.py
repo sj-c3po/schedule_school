@@ -8,7 +8,7 @@ class School_class(models.Model):
 
     id = models.AutoField(primary_key=True)
     class_name = models.CharField('Название класса', max_length=10) # 11а и хватит (юникод?)
-    class_max_load = models.IntegerField('Максимальная нагрузка по учебному плану')
+    class_max_load = models.IntegerField('Максимальная недельная нагрузка класса')
 
     def __str__(self):
         return self.class_name
@@ -31,9 +31,9 @@ class Subject(models.Model):
 
     id = models.AutoField(primary_key=True)
     subject_name = models.CharField('Название предмета', max_length=30)
-    sclass = models.ForeignKey('School_class')
-    subject_cabinet = models.ForeignKey('Cabinet')
-    subject_max_load = models.IntegerField('Максимально возможная нагрузка по данному классу')            # максимальная нагрузка на конкретный класс
+    sclass = models.ForeignKey('School_class', verbose_name = 'Класс')
+    subject_cabinet = models.ForeignKey('Cabinet', verbose_name = 'Кабинет')
+    subject_max_load = models.IntegerField('Максимальная недельная нагрузка по классу')            # максимальная нагрузка на конкретный класс
 
     def __str__(self):
         return self.subject_name
@@ -47,9 +47,9 @@ class Teacher(models.Model):
     last_name = models.CharField('Фамилия', max_length=50)
     first_name = models.CharField('Имя', max_length=50)
     middle_name = models.CharField('Отчество', max_length=50)
-    teacher_subject = models.ForeignKey('Subject')
-    class_management = models.ForeignKey('School_class')
-    teacher_cabinet = models.ForeignKey('Cabinet')
+    teacher_subject = models.ForeignKey('Subject', verbose_name = 'Предмет')
+    class_management = models.ForeignKey('School_class', verbose_name = 'Классное руководство')
+    teacher_cabinet = models.ForeignKey('Cabinet', verbose_name = 'Кабинет')
     teacher_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету')                # максимальная нагрузка по указанному предмету
 
     def __str__(self):
