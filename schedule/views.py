@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response, redirect
-from django.template.loader import get_template
 from django.contrib import auth
 from django.http.response import HttpResponseRedirect
+from schedule.models import *
 import json
 
 
@@ -20,17 +20,17 @@ def add_teachers(request):
         return render_to_response('add_teachers.html')
 
 
-def add_classes(request):
+def classes(request):
     args = {}
-    args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
-    args['subjects'] = [1]
+    args['classes'] = School_class.objects.all()
+    args['subjects'] = Subject.objects.all()
     if request.is_ajax():
          if request.method == "POST":
             args['data'] = json.loads(request.POST['data']); # from json to object
             print(args['data'])
-            return render_to_response('add_classes.html', args)
+            return render_to_response('classes.html', args)
     else:
-        return render_to_response('add_classes.html', args)
+        return render_to_response('classes.html', args)
 
 
 def add_lessons(request):
@@ -46,9 +46,10 @@ def add_classrooms(request):
 # Страница добавления
 def new(request):
     args = {}
-    args['class_number'] = [5, 6, 7, 8, 9, 10, 11]
-    args['alphabet'] = ['а','б','в','г','д','е','ж','з','и','к','л','м','н','о','п','р','с','т','у','ф','х','ц']#,'ч','ш','щ','э','ю','я']
     args['username'] = request.user.get_username()
+    args['classes'] = School_class.objects.all()
+    args['subjects'] = Subject.objects.all()
+
     return render_to_response('new.html', args)
 
 

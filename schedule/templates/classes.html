@@ -1,0 +1,80 @@
+<table>
+    <tr>
+        <th>Предметы/Классы</th>
+        {% for class in classes %}
+            <th>{{ class }}</th>
+        {% endfor %}
+    </tr>
+
+    {% for subject in subjects %}
+    <tr>
+        <td>{{ subject }}</td>
+        {% for class in classes %}
+            <td>
+                {{ subject.subject_max_load }}
+            </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#<div class="description">#}
+{#    Отмечать плюсами. Для удобства использовать Tab.#}
+{#</div>#}
+
+
+{##}
+{##}
+{##}
+{##}
+{#{% if not data %}#}
+{#    <form id="classes_form">#}
+{#        <table cellspacing="0">#}
+{#            <tr>#}
+{#                <th>Параллель</th>#}
+{#                {% for letter in alphabet %}#}
+{#                    <th>{{ letter }}</th>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            {% for class in classes %}#}
+{#            <tr>#}
+{#                <td>{{ class }}</td>#}
+{#                {% for letter in alphabet %}#}
+{#                    <td>#}
+{#                        <input class="classname" type="text" maxlength="1" name="{{ class }}_{{ letter }}"/>#}
+{#                    </td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#        </table>#}
+{#        <input type="button" value="Записать изменения" onclick="send_classes();" style="margin-top:20px; background: blue; color:white; cursor:pointer;">#}
+{#    </form>#}
+{#{% else %}#}
+{#    Вы добавили классы#}
+{#{% endif %}#}
+{##}

@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('',
     url(r'^new/teachers/?', 'schedule.views.add_teachers'),
-    url(r'^new/classes/?', 'schedule.views.add_classes'),
+    url(r'^new/classes/?', 'schedule.views.classes'),
     url(r'^new/classrooms/?', 'schedule.views.add_classrooms'),
     url(r'^new/lessons/?', 'schedule.views.add_lessons'),
     url(r'^new/?', 'schedule.views.new'),

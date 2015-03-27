@@ -3,46 +3,21 @@
 
 {% block new %}
 
-    <div id="steps">
-        <h3>Классы</h3>
-        <section>
-            <div class="set">
-                {% include "add_classes.html" %}
-            </div>
-        </section>
-        <h3>Предметы</h3>
-        <section>
-            <div class="set">
-                {% include "add_lessons.html" %}
-            </div>
-        </section>
-        <h3>Кабинеты</h3>
-        <section>
-            <div class="set">
-                {% include "add_classrooms.html" %}
-            </div>
-        </section>
-        <h3>Учителя</h3>
-        <section>
-            <div class="set">
-                {% include "add_teachers.html" %}
-            </div>
-        </section>
+    <div class="content">
+        <div class="submenu">
+            <a class="tab" href="/new/classes">Предметная нагрузка<br>по классам</a>
+            <a class="tab" href="/new/classrooms">Кабинеты</a>
+            <a class="tab" href="/new/teachers">Учителя</a>
+        </div>
+        <div class="frame">
+            {% include "classes.html" %}
+        </div>
+
     </div>
 
 {% endblock %}
 
 
-{##}
-{#    <div class="content">#}
-{#        <div class="submenu">#}
-{#            <a href="/new/classes">Классы</a>#}
-{#            <a href="/new/lessons">Предметы</a>#}
-{#            <a href="/new/classrooms">Кабинеты</a>#}
-{#            <a href="/new/teachers">Учителя</a>#}
-{#        </div>#}
-{#        <div class="frame">#}
-{#            {% include "add_classes.html" %}#}
-{#        </div>#}
-{##}
-{#    </div>#}
+<style>
+
+</style>
