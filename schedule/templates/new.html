@@ -5,19 +5,16 @@
 
     <div class="content">
         <div class="submenu">
-            <a class="tab" href="/new/classes">Предметная нагрузка<br>по классам</a>
-            <a class="tab" href="/new/classrooms">Кабинеты</a>
-            <a class="tab" href="/new/teachers">Учителя</a>
+            <a class="s1" href="javascript:void(0);" onclick='to_step(this);'><b>&#62;</b>Предметная нагрузка<br>по классам</a>
+            <a class="s2" href="javascript:void(0);" onclick="to_step(this);"><b>&#62;</b>Кабинеты</a>
+            <a class="s3" href="javascript:void(0);" onclick="to_step(this);"><b>&#62;</b>Учителя</a>
         </div>
         <div class="frame">
-            {% include "classes.html" %}
+            {% include 'classes.html' %}
+            {% include 'classrooms.html' %}
+            {% include 'teachers.html' %}
         </div>
 
     </div>
 
 {% endblock %}
-
-
-<style>
-
-</style>

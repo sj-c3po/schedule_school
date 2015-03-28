@@ -5,19 +5,19 @@ from schedule.models import *
 import json
 
 
-def add_teachers(request):
+def teachers(request):
     args = {}
     if request.method == "POST":
         args['count'] = request.POST['t_count']
         args['num'] = 1
         if not args['count'].isdigit():
             args['error'] = 'Ошибка ввода числа'
-            return render_to_response('add_teachers.html', args)
+            return render_to_response('teachers.html', args)
         else:
             args['count'] = range(1, int(args['count'])+1)
-            return render_to_response('add_teachers.html', args)
+            return render_to_response('teachers.html', args)
     else:
-        return render_to_response('add_teachers.html')
+        return render_to_response('teachers.html')
 
 
 def classes(request):
@@ -33,14 +33,9 @@ def classes(request):
         return render_to_response('classes.html', args)
 
 
-def add_lessons(request):
-    print("Уроки")
-    return render_to_response('add_lessons.html')
-
-
-def add_classrooms(request):
+def classrooms(request):
     print("Кабинеты")
-    return render_to_response('add_classrooms.html')
+    return render_to_response('classrooms.html')
 
 
 # Страница добавления

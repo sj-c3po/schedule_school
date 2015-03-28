@@ -1,0 +1,38 @@
+<section class="step3">
+    <form id="teachers_form">
+        <table cellspacing="0">
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя Отчество</th>
+                <th>Предмет</th>
+                <th>Кл.рук.</th>
+                <th>Кабинет</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="F" placeholder="Иванова"/>
+                </td>
+                <td>
+                    <input type="text" name="IO" placeholder="Марь Иванна"/>
+                </td>
+                <td>
+                    <select>
+                        <option selected>Математика</option>
+                        <option>Русский</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="class">
+                </td>
+                <td>
+                    <input type="text" name="classroom">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <a class="step_button back" href="javascript:void(0);" onclick="prev_step(this);">Назад</a>
+    <a class="step_button next" href="javascript:void(0);" onclick="finish_step();">Готово</a>
+</section>
+

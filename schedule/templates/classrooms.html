@@ -1,24 +1,12 @@
-{% if not data %}
-    <h4>Внесите данные о кабинетах</h4>
-
-    <a href="javascript:void(0);">Сгенерировать номера кабинетов</a> <!--потом поменять на "Добавить"-->
-
+<section class="step2">
     <form id="classrooms_form">
         <table cellspacing="0">
             <tr>
                 <th>Кабинет</th>
-                <th>Корпус</th>
                 <th>Предмет, к которому он относится</th>
             </tr>
             <tr>
                 <td><input type="text" value="1"/></td>
-                <td>
-                    <select>
-                        <option selected>-</option>
-                        <option>1</option>
-                        <option>2</option>
-                    </select>
-                </td>
                 <td>
                     <select>
                         <option selected>Математика</option>
@@ -30,13 +18,6 @@
                 <td><input type="text" value="2"/></td>
                 <td>
                     <select>
-                        <option selected>-</option>
-                        <option>1</option>
-                        <option>2</option>
-                    </select>
-                </td>
-                <td>
-                    <select>
                         <option selected>Математика</option>
                         <option>Русский</option>
                     </select>
@@ -44,13 +25,6 @@
             </tr>
             <tr>
                 <td><input type="text" value="3"/></td>
-                <td>
-                    <select>
-                        <option selected>-</option>
-                        <option>1</option>
-                        <option>2</option>
-                    </select>
-                </td>
                 <td>
                     <select>
                         <option selected>Математика</option>
@@ -62,13 +36,6 @@
                 <td><input type="text" value="4"/></td>
                 <td>
                     <select>
-                        <option selected>-</option>
-                        <option>1</option>
-                        <option>2</option>
-                    </select>
-                </td>
-                <td>
-                    <select>
                         <option selected>Математика</option>
                         <option>Русский</option>
                     </select>
@@ -76,7 +43,8 @@
             </tr>
         </table>
     </form>
-{% else %}
-    Вы добавили классы
-{% endif %}
 
+    <a class="step_button back" href="javascript:void(0);" onclick="prev_step(this);">Назад</a>
+    <a class="step_button next" href="javascript:void(0);" onclick="next_step(this);">Далее</a>
+
+</section>

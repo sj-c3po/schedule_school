@@ -313,7 +313,6 @@ table th {
     .submenu a:hover {
         text-decoration: underline;
     }
-
     .frame {
         width:1050px;
         height:590px;
@@ -322,6 +321,7 @@ table th {
         position:relative;
         background: #e7e7e7;
         border-radius: 3px;
+        overflow-y: auto;
     }
     .frame form {
         margin:auto;
@@ -344,6 +344,44 @@ table th {
         border:none;
         color:white;
         cursor:pointer;
+    }
+    .step2,
+    .step3 {
+        display:none;
+    }
+    .s2, .s3 {
+        font-weight: normal;
+    }
+    .s2 b, .s3 b {
+        display: none;
+    }
+    .s1 {
+        font-weight: bold;
+    }
+    .s1 b {
+        display: inline;
+    }
+
+    .step_button {
+        display: inline-block;
+        position: relative;
+        left:900px;
+        margin-top:50px;
+        padding:5px 10px;
+        border-radius:3px;
+        color:white;
+    }
+     .next{
+        background: #0000c2;
+        margin-right: 50px;
+    }
+     .back{
+        background: green;
+    }
+    .disabled {
+        color:grey;
+        opacity: 0.5;
+        cursor:default;
     }
 
 /*end new steps*/
