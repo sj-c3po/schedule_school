@@ -1,6 +1,7 @@
 <section class="step1">
     <table>
         <tr>
+            <th><input type="checkbox" onchange="choose_all_subjects(this);"></th>
             <th>Предметы/Классы</th>
             {% for class in classes %}
                 <th>{{ class }}</th>
@@ -8,16 +9,29 @@
         </tr>
         {% for subject in subjects %}
         <tr>
+            <td><input type="checkbox"></td>
             <td>{{ subject }}</td>
-            {% for class in classes %}
-                <td>
-                    {{ subject.subject_max_load }}
-                </td>
+            {% for classname in classes %}
+                {% for com in common_rel %}
+                    {% if com.sclass.class_name == classname.class_name %}
+                        {% if com.subject.subject_name == subject.subject_name %}
+                            <td>
+                                <input type="text" value="{{ com.subject_max_load }}"/>
+                            </td>
+                        {% else %}
+                            <td>
+                                <input type="text" value="-"/>
+                            </td>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
         </tr>
         {% endfor %}
     </table>
-
-    <a class="step_button back disabled" href="javascript:void(0);" onclick="prev_step(this);">Назад</a>
-    <a class="step_button next" href="javascript:void(0);" onclick="next_step(this);">Далее</a>
+<a class="add_subject" href="javascript:void(0)" onclick="add_subject();">Добавить предмет</a>
+    <div class="nav_buttons">
+        <a class="step_button back disabled" href="javascript:void(0);" onclick="prev_step(this);">Назад</a>
+        <a class="step_button next" href="javascript:void(0);" onclick="next_step(this);">Далее</a>
+    </div>
 </section>

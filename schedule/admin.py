@@ -2,13 +2,28 @@ from django.contrib import admin
 from schedule.models import *
 
 
+class School_classAdmin(admin.ModelAdmin):
+    list_display = ['class_name', 'class_max_load']
+
+
+class TeacherAdmin(admin.ModelAdmin):
+    list_display = ['last_name', 'first_name', 'middle_name', 'class_management', 'teacher_cabinet']
+
+
+class CommonRelAdmin(admin.ModelAdmin):
+    list_display = ['sclass', 'subject', 'cabinet', 'teacher', 'subject_max_load', 'difficulty_level']
+
+
+class SubjectTeacherRelAdmin(admin.ModelAdmin):
+    list_display = ['subject', 'teacher', 'teacher_max_load']
+
 
 admin.site.register(Cabinet)
-admin.site.register(School_class)
+admin.site.register(School_class, School_classAdmin)
 admin.site.register(Subject)
-admin.site.register(Teacher)
-admin.site.register(SubjectTeacherRel)
-admin.site.register(CommonRel)
+admin.site.register(Teacher, TeacherAdmin)
+admin.site.register(SubjectTeacherRel, SubjectTeacherRelAdmin)
+admin.site.register(CommonRel, CommonRelAdmin)
 
 
 

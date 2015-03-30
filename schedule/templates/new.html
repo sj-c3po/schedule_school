@@ -5,7 +5,7 @@
 
     <div class="content">
         <div class="submenu">
-            <a class="s1" href="javascript:void(0);" onclick='to_step(this);'><b>&#62;</b>Предметная нагрузка<br>по классам</a>
+            <a class="s1" href="javascript:void(0);" onclick='to_step(this);'><b>&#62;</b>Предметная нагрузка по классам</a>
             <a class="s2" href="javascript:void(0);" onclick="to_step(this);"><b>&#62;</b>Кабинеты</a>
             <a class="s3" href="javascript:void(0);" onclick="to_step(this);"><b>&#62;</b>Учителя</a>
         </div>
@@ -13,6 +13,12 @@
             {% include 'classes.html' %}
             {% include 'classrooms.html' %}
             {% include 'teachers.html' %}
+        </div>
+        <div class="actions"></div>
+        <div class="description">
+            <section class="desc1">Заполните классы</section>
+            <section class="desc2">Проверьте кабинеты</section>
+            <section class="desc3">Учтите учителей</section>
         </div>
 
     </div>

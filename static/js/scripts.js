@@ -34,25 +34,25 @@ function send_classes() {
 
 function to_step(step) {
     if ($(step).hasClass('s1')) {
-        $('.step1').show(); $('.s1 b').show();
-        $('.step2').hide(); $('.s2 b').hide();
-        $('.step3').hide(); $('.s3 b').hide();
+        $('.step1').show(); $('.s1 b').show(); $('.desc1').show();
+        $('.step2').hide(); $('.s2 b').hide(); $('.desc2').hide();
+        $('.step3').hide(); $('.s3 b').hide(); $('.desc3').hide();
         $('.s1').css('font-weight', 'bold');
         $('.s2').css('font-weight', 'normal');
         $('.s3').css('font-weight', 'normal');
     }
     if ($(step).hasClass('s2')) {
-        $('.step1').hide(); $('.s1 b').hide();
-        $('.step2').show(); $('.s2 b').show();
-        $('.step3').hide(); $('.s3 b').hide();
+        $('.step1').hide(); $('.s1 b').hide(); $('.desc1').hide();
+        $('.step2').show(); $('.s2 b').show(); $('.desc2').show();
+        $('.step3').hide(); $('.s3 b').hide(); $('.desc3').hide();
         $('.s1').css('font-weight', 'normal');
         $('.s2').css('font-weight', 'bold');
         $('.s3').css('font-weight', 'normal');
     }
     if ($(step).hasClass('s3')) {
-        $('.step1').hide(); $('.s1 b').hide();
-        $('.step2').hide(); $('.s2 b').hide();
-        $('.step3').show(); $('.s3 b').show();
+        $('.step1').hide(); $('.s1 b').hide(); $('.desc1').hide();
+        $('.step2').hide(); $('.s2 b').hide(); $('.desc2').hide();
+        $('.step3').show(); $('.s3 b').show(); $('.desc3').show();
         $('.s1').css('font-weight', 'normal');
         $('.s2').css('font-weight', 'normal');
         $('.s3').css('font-weight', 'bold');
@@ -60,39 +60,48 @@ function to_step(step) {
 }
 
 function next_step(step) {
-    var current_step = $(step).parent();
+    var current_step = $(step).parent().parent();
+    console.log(current_step)
 
     if ($(current_step).hasClass('step1')) {
-        $('.step1').hide(); $('.s1 b').hide();
-        $('.step2').show(); $('.s2 b').show();
-        $('.step3').hide(); $('.s3 b').hide();
+        $('.step1').hide(); $('.s1 b').hide(); $('.desc1').hide();
+        $('.step2').show(); $('.s2 b').show(); $('.desc2').show();
+        $('.step3').hide(); $('.s3 b').hide(); $('.desc3').hide();
         $('.s1').css('font-weight', 'normal'); $('.s2').css('font-weight', 'bold'); $('.s3').css('font-weight', 'normal');
     }
     if ($(current_step).hasClass('step2')) {
-        $('.step1').hide(); $('.s1 b').hide();
-        $('.step2').hide(); $('.s2 b').hide();
-        $('.step3').show(); $('.s3 b').show();
+        $('.step1').hide(); $('.s1 b').hide(); $('.desc1').hide();
+        $('.step2').hide(); $('.s2 b').hide(); $('.desc2').hide();
+        $('.step3').show(); $('.s3 b').show(); $('.desc3').show();
         $('.s1').css('font-weight', 'normal'); $('.s2').css('font-weight', 'normal'); $('.s3').css('font-weight', 'bold');
     }
 }
 
 function prev_step(step) {
-    var current_step = $(step).parent();
+    var current_step = $(step).parent().parent();
 
     if ($(current_step).hasClass('step2')) {
-        $('.step1').show(); $('.s1 b').show();
-        $('.step2').hide(); $('.s2 b').hide();
-        $('.step3').hide(); $('.s3 b').hide();
+        $('.step1').show(); $('.s1 b').show(); $('.desc1').show();
+        $('.step2').hide(); $('.s2 b').hide(); $('.desc2').hide();
+        $('.step3').hide(); $('.s3 b').hide(); $('.desc3').hide();
         $('.s1').css('font-weight', 'bold'); $('.s2').css('font-weight', 'normal'); $('.s3').css('font-weight', 'normal');
     }
     if ($(current_step).hasClass('step3')) {
-        $('.step1').hide(); $('.s1 b').hide();
-        $('.step2').show(); $('.s2 b').show();
-        $('.step3').hide(); $('.s3 b').hide();
+        $('.step1').hide(); $('.s1 b').hide(); $('.desc1').hide();
+        $('.step2').show(); $('.s2 b').show(); $('.desc2').show();
+        $('.step3').hide(); $('.s3 b').hide(); $('.desc3').hide();
         $('.s1').css('font-weight', 'normal'); $('.s2').css('font-weight', 'bold'); $('.s3').css('font-weight', 'normal');
     }
 }
 
 function finish_step() {
     alert('Молодец, иди гуляй')
+}
+
+function choose_all_subjects(box) {
+    if (box.checked) {
+        $("input[type=checkbox]").attr('checked', true);
+    } else {
+        $("input[type=checkbox]").attr('checked', false);
+    }
 }

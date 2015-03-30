@@ -291,23 +291,28 @@ table th {
         display:table;
         clear:both;
     }
-    .description {
+    .description, .actions {
         border-radius: 3px;
-        min-height: 200px;
-        width:150px;
+        min-height: 150px;
         padding: 10px;
-        position:absolute;
-        left: -200px;
-        top: 110px;
+        width:150px;
+        position:relative;
+    }
+    .description {
         background: #ffe6a5;
     }
+    .actions {
+        margin:0 0 10px 0;
+        background: #e6eaff;
+    }
     .submenu {
-        float:left;
         display:block;
+        width:1050px;
+        margin:0 0 5px 190px;
     }
     .submenu a {
-        display:block;
-        margin-bottom: 5px;
+        display:inline-block;
+        margin-right: 20px;
         color:#0000c2;
     }
     .submenu a:hover {
@@ -319,7 +324,7 @@ table th {
         display:inline-block;
         float:right;
         position:relative;
-        background: #e7e7e7;
+        /*background: #e7e7e7;*/
         border-radius: 3px;
         overflow-y: auto;
     }
@@ -346,7 +351,9 @@ table th {
         cursor:pointer;
     }
     .step2,
-    .step3 {
+    .step3,
+    .desc2,
+    .desc3 {
         display:none;
     }
     .s2, .s3 {
@@ -362,18 +369,20 @@ table th {
         display: inline;
     }
 
+    .nav_buttons {
+        position: relative;
+        width:150px;
+        margin-top:50px;
+        float:right;
+    }
     .step_button {
         display: inline-block;
-        position: relative;
-        left:900px;
-        margin-top:50px;
         padding:5px 10px;
         border-radius:3px;
         color:white;
     }
      .next{
         background: #0000c2;
-        margin-right: 50px;
     }
      .back{
         background: green;
@@ -382,6 +391,25 @@ table th {
         color:grey;
         opacity: 0.5;
         cursor:default;
+    }
+    .step1 th:first-child {
+        width:4%;
+    }
+    .step1 td:not(:nth-child(2)) {
+        text-align: center;
+    }
+    .step1 input[type=text] {
+        width:20px;
+        text-align: center;
+    }
+
+    .add_subject {
+        display: inline-block;
+        padding:5px 10px;
+        border-radius:3px;
+        color:white;
+        background: green;
+        margin-bottom: 10px;
     }
 
 /*end new steps*/
