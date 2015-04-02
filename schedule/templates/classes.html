@@ -9,18 +9,18 @@
         </tr>
         {% for subject in subjects %}
         <tr>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" data-subject_id="{{ subject.id }}" ></td>
             <td>{{ subject }}</td>
             {% for classname in classes %}
                 {% for com in common_rel %}
                     {% if com.sclass.class_name == classname.class_name %}
                         {% if com.subject.subject_name == subject.subject_name %}
                             <td>
-                                <input type="text" value="{{ com.subject_max_load }}"/>
+                                <input type="text" value="{{ com.subject_max_load }}" onchange="remember_load(this);" data-class="{{ classname }}" data-subject="{{ subject }}"/>
                             </td>
                         {% else %}
                             <td>
-                                <input type="text" value="-"/>
+                                <input type="text" value="" onchange="remember_load(this);" data-class="{{ classname }}" data-subject="{{ subject }}"/>
                             </td>
                         {% endif %}
                     {% endif %}
@@ -29,9 +29,9 @@
         </tr>
         {% endfor %}
     </table>
-<a class="add_subject" href="javascript:void(0)" onclick="add_subject();">Добавить предмет</a>
+
     <div class="nav_buttons">
         <a class="step_button back disabled" href="javascript:void(0);" onclick="prev_step(this);">Назад</a>
-        <a class="step_button next" href="javascript:void(0);" onclick="next_step(this);">Далее</a>
+        <a class="step_button next" href="javascript:void(0);" onclick="next_step(this); ">Далее</a>
     </div>
 </section>

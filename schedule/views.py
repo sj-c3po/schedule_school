@@ -4,80 +4,63 @@ from django.http.response import HttpResponseRedirect
 from schedule.models import *
 import json
 
-
-def teachers(request):
-    args = {}
-    if request.method == "POST":
-        args['count'] = request.POST['t_count']
-        args['num'] = 1
-        if not args['count'].isdigit():
-            args['error'] = 'Ошибка ввода числа'
-            return render_to_response('teachers.html', args)
-        else:
-            args['count'] = range(1, int(args['count'])+1)
-            return render_to_response('teachers.html', args)
-    else:
-        return render_to_response('teachers.html')
-
-#
-# def classes(request):
-#     args = {}
-#     args['classes'] = School_class.objects.all()
-#     args['subjects'] = Subject.objects.all()
-#     print(args['subjects'])
-#
-#     if request.is_ajax():
-#          if request.method == "POST":
-#             args['data'] = json.loads(request.POST['data']); # from json to object
-#             print(args['data'])
-#             return render_to_response('classes.html', args)
-#     else:
-#         return render_to_response('classes.html', args)
-
-
-def classrooms(request):
-    print("Кабинеты")
-    return render_to_response('classrooms.html')
-
-
-
 # Страница добавления
 def new(request):
     args = {}
-    args['username'] = request.user.get_username()
-    args['classes'] = School_class.objects.all()
-    args['subjects'] = Subject.objects.all()
-    args['common_rel'] = CommonRel.objects.all()
-    subject_max_load = []
+    if request.user.is_authenticated():
+        args['username'] = request.user.get_username()
+        args['classes'] = School_class.objects.all()
+        args['subjects'] = Subject.objects.all()
+        args['common_rel'] = CommonRel.objects.all()
 
+        if request.method == "POST":
+            changes = request.POST.dict()
 
-    for subject in args['subjects']:
-        # print(subject)
-        for classname in args['classes']:
-            # print(classname)
-            for com in args['common_rel']:
-                # print(com.sclass.class_name)
-                if com.sclass.class_name == classname.class_name:
-                    # print(com.subject.subject_name)
-                    if com.subject.subject_name == subject.subject_name:
-                        subject_max_load.append(com.subject_max_load)
-                        # print('+')
+            keys = list(changes)
+            i = 0
+            k = 0
+            db_subject = 0
+            db_class = 0
+            db_newval = 0
+            for key in keys:
+                if key == 'changes[%s][subject]' % i:
+                    db_subject = changes[key]
+                if key == 'changes[%s][sclass]' % i:
+                    db_class = changes[key]
+                if key == 'changes[%s][newval]' % i:
+                    db_newval = changes[key]
+                    # if db_newval == '':
+                print('Нуы')
+
+                k = k + 1
+                if k % 3 == 0:
+                    c = CommonRel.objects.get(sclass=School_class.objects.filter(class_name=db_class),
+                                              subject=Subject.objects.filter(subject_name=db_subject))
+                    if c != None:
+
+                        c.subject_max_load = db_newval
+                        c.save()
                     else:
-                        subject_max_load.append('-')
-
-
-    # cnt_classes = 8
-    # cnt_subj = 4
-    # arr = []
+                        print('else')
+                        # c = CommonRel(sclass=School_class.objects.filter(class_name=db_class),
+                        #               subject=Subject.objects.filter(subject_name=db_subject))
+                        # c.save()
+                        # c2 = CommonRel(sclass=4, subject=2, cabinet=2, teacher=1, subject_max_load=66, difficulty_level=1)
+                        # c2.save()
     #
-    # print(a)
-    #     # subject_max_load;
-    # # print(args['subject_max_load'])
+    # sclass = models.ForeignKey(School_class, verbose_name='Класс')
+    # subject = models.ForeignKey(Subject, verbose_name='Предмет')
+    # cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет')
+    # teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
+    # subject_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету')
+    # difficulty_level = models.Inte
+    #                 i = i + 1
 
 
-
-    return render_to_response('new.html', args)
-
+        return render_to_response('new.html', args)
+    else:
+        args['login_error'] = 'Вы не авторизованы!'
+        return render_to_response('auth.html', args)
 
 
 def login(request):
@@ -128,11 +111,16 @@ def show_auth(request):
 
 def show_main(request):
     args = {}
-    args['username'] = request.user.get_username()
-    return render_to_response('main.html', args)
+    if request.user.is_authenticated():
+        args['username'] = request.user.get_username()
+        return render_to_response('main.html', args)
+    else:
+        args['login_error'] = 'Вы не авторизованы!'
+        return render_to_response('auth.html', args)
+
 
 
 def processing_data(request):
-    if request.method == "POST":
+    if request.method == "POST" and request.is_ajax():
         data = json.loads(request.POST)
         print('jdhgj '+data)

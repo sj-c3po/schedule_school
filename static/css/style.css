@@ -296,23 +296,22 @@ table th {
         min-height: 150px;
         padding: 10px;
         width:150px;
-        position:relative;
+        float:left;
     }
     .description {
         background: #ffe6a5;
     }
     .actions {
-        margin:0 0 10px 0;
-        background: #e6eaff;
+        margin:10px 0;
+        /*background: #e6eaff;*/
     }
     .submenu {
-        display:block;
-        width:1050px;
-        margin:0 0 5px 190px;
+        float:left;
+        display:inline-block;
     }
     .submenu a {
-        display:inline-block;
-        margin-right: 20px;
+        display:block;
+        margin-bottom: 5px;
         color:#0000c2;
     }
     .submenu a:hover {
@@ -403,13 +402,73 @@ table th {
         text-align: center;
     }
 
-    .add_subject {
+    .add_subject, .add_cabinet, .add_teacher,
+    .del_subject, .del_cabinet, .del_teacher,
+    .save_changes {
         display: inline-block;
         padding:5px 10px;
         border-radius:3px;
         color:white;
-        background: green;
         margin-bottom: 10px;
     }
 
+    .add_subject,
+    .add_cabinet,
+    .add_teacher {
+        background: green;
+    }
+    .del_subject,
+    .del_cabinet,
+    .del_teacher {
+        background: darkred;
+    }
+    .save_changes {
+        background:#0000c2;
+    }
 /*end new steps*/
+
+/*modal win*/
+#modal_add_subject,
+#modal_add_cabinet,
+#modal_add_teacher{
+	width: 300px;
+	height: 300px;
+	border-radius: 5px;
+	border: 3px #000 solid;
+	background: #fff;
+	position: fixed; /* чтобы окно было в видимой зоне в любом месте */
+	top: 45%; /* отступаем сверху 45%, остальные 5% подвинет скрипт */
+	left: 50%; /* половина экрана слева */
+	margin-top: -150px;
+	margin-left: -150px; /* тут вся магия центровки css, отступаем влево и вверх минус половину ширины и высоты соответственно =) */
+	display: none; /* в обычном состоянии окна не должно быть */
+	opacity: 0; /* полностью прозрачно для анимирования */
+	z-index: 5; /* окно должно быть наиболее большем слое */
+	padding: 20px 10px;
+}
+
+#modal_add_subject #modal_close,
+#modal_add_cabinet #modal_close,
+#modal_add_teacher #modal_close {
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: block;
+}
+/* Подложка */
+#overlay {
+	z-index: 3; /* подложка должна быть выше слоев элементов сайта, но ниже слоя модального окна */
+	position: fixed; /* всегда перекрывает весь сайт */
+	background-color: #000; /* черная */
+	opacity: 0.8; /* но немного прозрачна */
+	width: 100%;
+	height: 100%; /* размером во весь экран */
+	top: 0;
+	left: 0; /* сверху и слева 0, обязательные свойства! */
+	cursor: pointer;
+	display: none; /* в обычном состоянии её нет) */
+}
+/*end modal win*/

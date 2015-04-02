@@ -5,7 +5,7 @@
 
     <div class="content">
         <div class="submenu">
-            <a class="s1" href="javascript:void(0);" onclick='to_step(this);'><b>&#62;</b>Предметная нагрузка по классам</a>
+            <a class="s1" href="javascript:void(0);" onclick='to_step(this);'><b>&#62;</b>Нагрузка по классам</a>
             <a class="s2" href="javascript:void(0);" onclick="to_step(this);"><b>&#62;</b>Кабинеты</a>
             <a class="s3" href="javascript:void(0);" onclick="to_step(this);"><b>&#62;</b>Учителя</a>
         </div>
@@ -14,7 +14,23 @@
             {% include 'classrooms.html' %}
             {% include 'teachers.html' %}
         </div>
-        <div class="actions"></div>
+
+        <div class="actions">
+            <section class="desc1">
+                <a class="save_changes" href="javascript:void(0)" onclick="save_changes();">Сохранить</a>
+                <a class="add_subject" href="javascript:void(0)" onclick="add(this);">Добавить предмет</a>
+                <a class="del_subject" href="javascript:void(0)" onclick="del(this);">Удалить предмет</a>
+            </section>
+            <section class="desc2">
+                <a class="add_cabinet" href="javascript:void(0)" onclick="add(this);">Добавить кабинет</a>
+                <a class="del_cabinet" href="javascript:void(0)" onclick="del(this);">Удалить кабинет</a>
+            </section>
+            <section class="desc3">
+                <a class="add_teacher" href="javascript:void(0)" onclick="add(this);">Добавить учителя</a>
+                <a class="del_teacher" href="javascript:void(0)" onclick="del(this);">Удалить учителя</a>
+            </section>
+        </div>
+
         <div class="description">
             <section class="desc1">Заполните классы</section>
             <section class="desc2">Проверьте кабинеты</section>
@@ -22,5 +38,20 @@
         </div>
 
     </div>
+
+    <div id="modal_add_subject">
+         <span id="modal_close" onclick="close_modal(this);">X</span>
+
+    </div>
+    <div id="modal_add_cabinet">
+         <span id="modal_close" onclick="close_modal(this);">X</span>
+
+    </div>
+    <div id="modal_add_teacher">
+         <span id="modal_close" onclick="close_modal(this);">X</span>
+
+    </div>
+    <div id="overlay"></div>
+
 
 {% endblock %}
