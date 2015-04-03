@@ -51,6 +51,8 @@ class Teacher(models.Model):
     middle_name = models.CharField('Отчество', max_length=50)
     class_management = models.ForeignKey('School_class', null=True, blank=True, verbose_name='Классное руководство')
     teacher_cabinet = models.ForeignKey('Cabinet', null=True, blank=True,  verbose_name='Кабинет')    # кабинет либо есть, либо нет, учитель не бегает туда-сюда
+    staff_type = models.ForeignKey('Staff_type', verbose_name='Тип сотрудника')
+
 
     def __str__(self):
         return (self.last_name +' '+ self.first_name +' '+ self.middle_name)
@@ -81,6 +83,15 @@ class CommonRel(models.Model):
     cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет')
     teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
     subject_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету')
-    difficulty_level = models.IntegerField('Уровень сложности по СанПИН', default=1)
+    difficulty_level = models.IntegerField('Уровень сложности по СанПиН', default=1)
+
     def __str__(self):
         return (self.sclass.class_name)
+
+
+# вспомогательная
+class Staff_type(models.Model):
+    type = models.CharField(max_length=50)
+    def __str__(self):
+        return (self.type)
+

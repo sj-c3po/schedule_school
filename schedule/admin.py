@@ -7,7 +7,7 @@ class School_classAdmin(admin.ModelAdmin):
 
 
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ['last_name', 'first_name', 'middle_name', 'class_management', 'teacher_cabinet']
+    list_display = ['last_name', 'first_name', 'middle_name', 'class_management', 'teacher_cabinet', 'staff_type']
 
 
 class CommonRelAdmin(admin.ModelAdmin):
@@ -19,6 +19,7 @@ class SubjectTeacherRelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Cabinet)
+admin.site.register(Staff_type)
 admin.site.register(School_class, School_classAdmin)
 admin.site.register(Subject)
 admin.site.register(Teacher, TeacherAdmin)

@@ -1,36 +1,75 @@
 <section class="step3">
-    <form id="teachers_form">
-        <table cellspacing="0">
-            <tr>
-                <th>Фамилия</th>
-                <th>Имя Отчество</th>
-                <th>Предмет</th>
-                <th>Кл.рук.</th>
-                <th>Кабинет</th>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" name="F" placeholder="Иванова"/>
-                </td>
-                <td>
-                    <input type="text" name="IO" placeholder="Марь Иванна"/>
-                </td>
-                <td>
-                    <select>
-                        <option selected>Математика</option>
-                        <option>Русский</option>
-                    </select>
-                </td>
-                <td>
-                    <input type="text" name="class">
-                </td>
-                <td>
-                    <input type="text" name="classroom">
-                </td>
-            </tr>
+    <table cellspacing="0">
+        <tr>
+            <th><input type="checkbox"/></th>
+            <th>Фамилия</th>
+            <th>Имя </th>
+            <th>Отчество</th>
 
-        </table>
-    </form>
+            <th>Предмет(ы)</th>
+            <th>Класс(ы)</th>
+            <th>Пожелания по урокам</th>
+            <th>Совместительство</th>
+
+            <th>Классное руководство</th>
+            <th>Кабинет</th>
+
+        </tr>
+        {% for teacher in teachers %}
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td> {{ teacher.last_name }}</td>
+            <td>{{ teacher.first_name }}</td>
+            <td>{{ teacher.middle_name }}</td>
+
+            <td>
+                {% for com in common_rel %}
+                    {% if com.teacher.id == teacher.id %}
+                        {{ com.subject }}<br/>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for com in common_rel %}
+                    {% if com.teacher.id == teacher.id %}
+                        {{ com.sclass }}<br/>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for com in common_rel %}
+                    {% if com.teacher.id == teacher.id %}
+                    <select>
+                        <option>Нет</option>
+                        <option>Первым уроком</option>
+                        <option>Не первым уроком</option>
+                        <option>Последним уроком</option>
+                        <option>Не последним уроком</option>
+                        <option>Спаренные</option>
+                    </select>
+                     {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                <select>
+                {% for type in staff_types %}
+                    {% if type.id == teacher.staff_type.id %}
+                        <option selected value="{{ type.id }}">{{ type }}</option>
+                    {% else %}
+                        <option value="{{ type.id }}">{{ type }}</option>
+                    {% endif %}
+                {% endfor %}
+                </select>
+            </td>
+
+            <td>{{ teacher.class_management.class_name }}</td>
+            <td>{{ teacher.teacher_cabinet.cabinet_number }}</td>
+
+
+        </tr>
+        {% endfor %}
+
+    </table>
     <div class="nav_buttons">
         <a class="step_button back" href="javascript:void(0);" onclick="prev_step(this);">Назад</a>
         <a class="step_button next" href="javascript:void(0);" onclick="finish_step();">Готово</a>

@@ -1,22 +1,22 @@
 var remember_changed_load = [];
 
-function send_classes() {
-    var classes = [];
-
-    $('#classes_form .classname').each(function() {
-        if ($(this).val() != '') {
-           classes.push($(this).attr('name').split('_').join(''));
-        }
-    });
-    console.log(classes)  // ["5а", "5б", "5в"]
-
-    $.ajax({
-      url: '/processing_data',
-      type: "POST",
-      data: JSON.stringify(classes),
-      success: console.log('ok')
-    });
-}
+//function send_classes() {
+//    var classes = [];
+//
+//    $('#classes_form .classname').each(function() {
+//        if ($(this).val() != '') {
+//           classes.push($(this).attr('name').split('_').join(''));
+//        }
+//    });
+//    console.log(classes)  // ["5а", "5б", "5в"]
+//
+//    $.ajax({
+//      url: '/processing_data',
+//      type: "POST",
+//      data: JSON.stringify(classes),
+//      success: console.log('ok')
+//    });
+//}
 
 function to_step(step) {
     if ($(step).hasClass('s1')) {
@@ -87,12 +87,12 @@ function add(data) {
     if ($(data).hasClass('add_subject')) {
         open_modal('modal_add_subject');
     }
-    if ($(data).hasClass('add_cabinet')) {
-        open_modal('modal_add_cabinet');
-    }
     if ($(data).hasClass('add_teacher')) {
-        open_modal('modal_add_subject');
+        open_modal('modal_add_teacher');
     }
+//    if ($(data).hasClass('add_cabinet')) {
+//        open_modal('modal_add_cabinet');
+//    }
 }
 function del(data) {
     if ($('input[type=checkbox]').attr('checked')) {

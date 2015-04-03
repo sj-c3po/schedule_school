@@ -391,14 +391,28 @@ table th {
         opacity: 0.5;
         cursor:default;
     }
-    .step1 th:first-child {
+
+    tr:hover td{
+        background: #d2d9e6;
+    }
+
+    .step1 .demands {
+        width:70%;
+        margin:auto;
+    }
+
+    .step2 th:first-child {
         width:4%;
     }
-    .step1 td:not(:nth-child(2)) {
+    .step2 td:not(:nth-child(2)) {
         text-align: center;
     }
-    .step1 input[type=text] {
+    .step2 input[type=text] {
         width:20px;
+        text-align: center;
+    }
+    .step3 td {
+        vertical-align: top;
         text-align: center;
     }
 

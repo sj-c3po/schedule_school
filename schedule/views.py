@@ -12,7 +12,15 @@ def new(request):
         args['classes'] = School_class.objects.all()
         args['subjects'] = Subject.objects.all()
         args['common_rel'] = CommonRel.objects.all()
+        # args['common_rel_distinct_teacher'] = CommonRel.objects.all().distinct()
+        # print(args['common_rel_distinct_teacher'])
 
+        # c = Locate.objects.filter(state='AZ').values('city').order_by().distinct()
+
+        args['teachers'] = Teacher.objects.all()
+        args['staff_types'] = Staff_type.objects.all()
+
+        # post работает плохо(
         if request.method == "POST":
             changes = request.POST.dict()
 
