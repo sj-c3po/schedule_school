@@ -18,8 +18,8 @@ var remember_changed_load = [];
 //    });
 //}
 
-function to_step(step) {
-    if ($(step).hasClass('s1')) {
+function to_step(elem, step) {
+    if ($(elem).hasClass('s1') || step == 1) {
         $('.step1').show(); $('.s1 b').show(); $('.desc1').show();
         $('.step2').hide(); $('.s2 b').hide(); $('.desc2').hide();
         $('.step3').hide(); $('.s3 b').hide(); $('.desc3').hide();
@@ -27,7 +27,7 @@ function to_step(step) {
         $('.s2').css('font-weight', 'normal');
         $('.s3').css('font-weight', 'normal');
     }
-    if ($(step).hasClass('s2')) {
+    if ($(elem).hasClass('s2') || step == 2) {
         $('.step1').hide(); $('.s1 b').hide(); $('.desc1').hide();
         $('.step2').show(); $('.s2 b').show(); $('.desc2').show();
         $('.step3').hide(); $('.s3 b').hide(); $('.desc3').hide();
@@ -35,7 +35,7 @@ function to_step(step) {
         $('.s2').css('font-weight', 'bold');
         $('.s3').css('font-weight', 'normal');
     }
-    if ($(step).hasClass('s3')) {
+    if ($(elem).hasClass('s3') || step == 3) {
         $('.step1').hide(); $('.s1 b').hide(); $('.desc1').hide();
         $('.step2').hide(); $('.s2 b').hide(); $('.desc2').hide();
         $('.step3').show(); $('.s3 b').show(); $('.desc3').show();
@@ -90,22 +90,32 @@ function add(data) {
     if ($(data).hasClass('add_teacher')) {
         open_modal('modal_add_teacher');
     }
-//    if ($(data).hasClass('add_cabinet')) {
-//        open_modal('modal_add_cabinet');
-//    }
 }
 function del(data) {
-    if ($('input[type=checkbox]').attr('checked')) {
-        if ($(data).hasClass('del_subject')) {
-            console.log($('input[type=checkbox]').attr("checked"))
-        }
-    } else {
-        console.log('Нечего)')
+
+    var delete_id = [];
+    if ($("input:checkbox:checked")) {
+        $("input:checkbox:checked").each(function() {
+            delete_id.push($(this).attr('data-subject-id'))
+
+        });
+
+        console.log(delete_id)
+        $.post(
+            '/new/delete_object',
+            {id: delete_id},
+            function() {
+//                alert('Изменения приняты')
+            }
+        ).fail(function() {
+                alert( "Возникла ошибка :(" )
+                location.reload();
+            });
     }
 }
 
 function remember_load(load) {
-    remember_changed_load.push({ 'sclass': $(load).attr('data-class'), 'subject': $(load).attr('data-subject'), 'newval': $(load).val() });
+    remember_changed_load.push({ 'sclass': $(load).attr('data-class-id'), 'subject': $(load).attr('data-subject-id'), 'newval': $(load).val() });
 }
 
 function save_changes() {
@@ -114,8 +124,8 @@ function save_changes() {
         {'changes': remember_changed_load},
         function() {alert('Изменения приняты')}
     ).fail(function() {
-            alert( "Возникла ошибка :(" )
-            location.reload();
+            alert( "Нет, так проставлять нельзя. Только через базу." )
+//            location.reload();
         });
 }
 

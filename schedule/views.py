@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.contrib import auth
 from django.http.response import HttpResponseRedirect
+from django.core.exceptions import ObjectDoesNotExist
 from schedule.models import *
 import json
 
@@ -12,17 +13,48 @@ def new(request):
         args['classes'] = School_class.objects.all()
         args['subjects'] = Subject.objects.all()
         args['common_rel'] = CommonRel.objects.all()
-        # args['common_rel_distinct_teacher'] = CommonRel.objects.all().distinct()
-        # print(args['common_rel_distinct_teacher'])
-
-        # c = Locate.objects.filter(state='AZ').values('city').order_by().distinct()
-
         args['teachers'] = Teacher.objects.all()
         args['staff_types'] = Staff_type.objects.all()
+        # args['class_counter'] = 0
+        args['len_common_rel'] = len(args['common_rel'])
+        obj_not_ex = False
 
-        # post работает плохо(
+        # for com in args['common_rel']:
+        #     print(com.subject)
+
+
+        # print(len(args['common_rel']))
+        # print('Щас тут вот начнется')
+        #
+        # for subj in args['subjects']:
+        #     print('<tr>')
+        #     print(subj)
+        #     for sclass in args['classes']:
+        #         print(sclass)
+        #         counter = 0
+        #         for com in args['common_rel']:
+        #             print(com.subject, com.sclass)
+        #             if com.subject.id == subj.id and com.sclass.id == sclass.id:
+        #                 print('+')
+        #                 break
+        #             else:
+        #                 counter = counter+1
+        #                 print(counter)
+        #                 if counter == len(args['common_rel']):
+        #                     print('-')
+
+
+
+        # print('А вот тут закончится')
+
+
+
+
+
+
+
         if request.method == "POST":
-            changes = request.POST.dict()
+            changes = request.POST
 
             keys = list(changes)
             i = 0
@@ -37,38 +69,41 @@ def new(request):
                     db_class = changes[key]
                 if key == 'changes[%s][newval]' % i:
                     db_newval = changes[key]
-                    # if db_newval == '':
-                print('Нуы')
-
                 k = k + 1
+
                 if k % 3 == 0:
-                    c = CommonRel.objects.get(sclass=School_class.objects.filter(class_name=db_class),
-                                              subject=Subject.objects.filter(subject_name=db_subject))
-                    if c != None:
-
-                        c.subject_max_load = db_newval
+                    try:
+                        c = CommonRel.objects.get(sclass=School_class.objects.filter(id=db_class),
+                                                  subject=Subject.objects.filter(id=db_subject))
+                        if db_newval == '':
+                            c.subject_max_load = 0
+                        else:
+                            c.subject_max_load = db_newval
                         c.save()
-                    else:
-                        print('else')
-                        # c = CommonRel(sclass=School_class.objects.filter(class_name=db_class),
-                        #               subject=Subject.objects.filter(subject_name=db_subject))
-                        # c.save()
-                        # c2 = CommonRel(sclass=4, subject=2, cabinet=2, teacher=1, subject_max_load=66, difficulty_level=1)
-                        # c2.save()
-    #
-    # sclass = models.ForeignKey(School_class, verbose_name='Класс')
-    # subject = models.ForeignKey(Subject, verbose_name='Предмет')
-    # cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет')
-    # teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
-    # subject_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету')
-    # difficulty_level = models.Inte
-    #                 i = i + 1
+                        break
+                    except ObjectDoesNotExist:
+                        obj_not_ex = True
 
+
+                    if (obj_not_ex):
+                        print('Здесь надо бы создать новый объект в базе')
 
         return render_to_response('new.html', args)
     else:
         args['login_error'] = 'Вы не авторизованы!'
         return render_to_response('auth.html', args)
+
+def delete_object(request):
+    args = {}
+    if request.user.is_authenticated():
+        if request.method == "POST" and request.is_ajax():
+            delete_id = request.POST
+            print(delete_id)
+            # not working
+            # for id in delete_id:
+            #     print(delete_id[id])
+
+    return render_to_response('new.html', args)
 
 
 def login(request):

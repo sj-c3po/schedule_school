@@ -62,7 +62,13 @@
                 </select>
             </td>
 
-            <td>{{ teacher.class_management.class_name }}</td>
+            <td>
+                {% if teacher.class_management != None %}
+                    {{ teacher.class_management }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
             <td>{{ teacher.teacher_cabinet.cabinet_number }}</td>
 
 

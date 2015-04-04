@@ -1,3 +1,6 @@
+
+{% load mytags %}
+
 <section class="step2">
     <table>
         <tr>
@@ -9,22 +12,23 @@
         </tr>
         {% for subject in subjects %}
         <tr>
-            <td><input type="checkbox" data-subject_id="{{ subject.id }}" ></td>
+            <td><input type="checkbox" data-subject-id="{{ subject.id }}" ></td>
             <td>{{ subject }}</td>
             {% for classname in classes %}
+                {% with counter=0 %}
                 {% for com in common_rel %}
-                    {% if com.sclass.class_name == classname.class_name %}
-                        {% if com.subject.subject_name == subject.subject_name %}
-                            <td>
-                                <input type="text" value="{{ com.subject_max_load }}" onchange="remember_load(this);" data-class="{{ classname }}" data-subject="{{ subject }}"/>
-                            </td>
-                        {% else %}
-                            <td>
-                                <input type="text" value="" onchange="remember_load(this);" data-class="{{ classname }}" data-subject="{{ subject }}"/>
-                            </td>
+                    {% if com.subject.id == subject.id and com.subject_max_load != 0 and com.subject_max_load != None and com.sclass.id == classname.id %}
+                        <td>
+                            <input type="text" value="{{ com.subject_max_load }}" onchange="remember_load(this);" data-class-id="{{ classname.id }}" data-subject-id="{{ subject.id }}"/>
+                        </td>
+                    {% else %}
+                        {% increment counter %}
+                        {% if counter == len_common_rel %}
+                            <td>-</td>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
+                {% endwith %}
             {% endfor %}
         </tr>
         {% endfor %}
