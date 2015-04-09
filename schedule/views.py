@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.http.response import HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from schedule.models import *
-import json
+# import numpy as np
 
 # Страница добавления
 def new(request):
@@ -18,40 +18,6 @@ def new(request):
         # args['class_counter'] = 0
         args['len_common_rel'] = len(args['common_rel'])
         obj_not_ex = False
-
-        # for com in args['common_rel']:
-        #     print(com.subject)
-
-
-        # print(len(args['common_rel']))
-        # print('Щас тут вот начнется')
-        #
-        # for subj in args['subjects']:
-        #     print('<tr>')
-        #     print(subj)
-        #     for sclass in args['classes']:
-        #         print(sclass)
-        #         counter = 0
-        #         for com in args['common_rel']:
-        #             print(com.subject, com.sclass)
-        #             if com.subject.id == subj.id and com.sclass.id == sclass.id:
-        #                 print('+')
-        #                 break
-        #             else:
-        #                 counter = counter+1
-        #                 print(counter)
-        #                 if counter == len(args['common_rel']):
-        #                     print('-')
-
-
-
-        # print('А вот тут закончится')
-
-
-
-
-
-
 
         if request.method == "POST":
             changes = request.POST
@@ -163,7 +129,27 @@ def show_main(request):
 
 
 
-def processing_data(request):
+def add_subject(request):
     if request.method == "POST" and request.is_ajax():
-        data = json.loads(request.POST)
-        print('jdhgj '+data)
+        classes_id = request.POST.getlist('classes[]')
+        weekload = request.POST.getlist('weekload[]')
+        new_subject = list(request.POST.values())[2]
+
+        print(type(classes_id))
+        print(type(weekload))
+        print(new_subject)
+
+        arr_classes_id = [int(c) for c in classes_id.split(',')]
+        arr_weekload = [int(w) for w in weekload.split(',')]
+
+        print(arr_classes_id)
+        print(arr_weekload)
+
+
+# myarray = np.asarray(mylist)
+
+    # example_list = [int(k) for k in example_string.split(',')]
+    # print(example_list)
+
+    return HttpResponseRedirect("/new")
+    # return render_to_response('new.html')

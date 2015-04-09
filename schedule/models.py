@@ -89,7 +89,8 @@ class CommonRel(models.Model):
     subject = models.ForeignKey(Subject, verbose_name='Предмет')
     cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет')
     teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
-    subject_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету', null=True, blank=True, default=0)
+    subject_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету', null=True, blank=True,
+                                           default=0)
     difficulty_level = models.IntegerField('Уровень сложности по СанПиН', default=1)
 
     def __str__(self):

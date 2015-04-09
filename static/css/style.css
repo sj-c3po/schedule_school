@@ -370,7 +370,7 @@ table th {
 
     .nav_buttons {
         position: relative;
-        width:150px;
+        width:140px;
         margin-top:50px;
         float:right;
     }
@@ -445,14 +445,14 @@ table th {
 #modal_add_subject,
 #modal_add_cabinet,
 #modal_add_teacher{
-	width: 300px;
-	height: 300px;
+	width: 500px;
+	min-height: 300px;
 	border-radius: 5px;
 	border: 3px #000 solid;
 	background: #fff;
 	position: fixed; /* чтобы окно было в видимой зоне в любом месте */
-	top: 45%; /* отступаем сверху 45%, остальные 5% подвинет скрипт */
-	left: 50%; /* половина экрана слева */
+	top: 25%; /* отступаем сверху 45%, остальные 5% подвинет скрипт */
+	left: 40%; /* половина экрана слева */
 	margin-top: -150px;
 	margin-left: -150px; /* тут вся магия центровки css, отступаем влево и вверх минус половину ширины и высоты соответственно =) */
 	display: none; /* в обычном состоянии окна не должно быть */
@@ -472,6 +472,42 @@ table th {
 	cursor: pointer;
 	display: block;
 }
+
+#modal_add_subject h4 {
+    margin-top: -10px;
+    width:70%;
+}
+#modal_add_subject table {
+    margin-top: 50px;
+}
+#modal_add_subject td:first-child {
+    text-align: right;
+    vertical-align: top;
+}
+
+#modal_add_subject tr:hover td {
+    background: none;
+}
+
+.modal_buttons {
+    margin-top: 20px;
+    text-align: right;
+    position: absolute;
+    bottom:0;
+    width:95%;
+}
+
+.checkbox_classes {
+    border:1px solid darkgrey;
+    width:170px;
+    max-height: 100px;
+    overflow-y: auto;
+    background: white;
+    right:130px;
+    top:120px;
+    z-index:100;
+}
+
 /* Подложка */
 #overlay {
 	z-index: 3; /* подложка должна быть выше слоев элементов сайта, но ниже слоя модального окна */

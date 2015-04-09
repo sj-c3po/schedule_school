@@ -11,7 +11,7 @@ var remember_changed_load = [];
 //    console.log(classes)  // ["5а", "5б", "5в"]
 //
 //    $.ajax({
-//      url: '/processing_data',
+//      url: '/add_subject',
 //      type: "POST",
 //      data: JSON.stringify(classes),
 //      success: console.log('ok')
@@ -99,7 +99,6 @@ function del(data) {
             delete_id.push($(this).attr('data-subject-id'))
 
         });
-
         console.log(delete_id)
         $.post(
             '/new/delete_object',
@@ -125,7 +124,7 @@ function save_changes() {
         function() {alert('Изменения приняты')}
     ).fail(function() {
             alert( "Нет, так проставлять нельзя. Только через базу." )
-//            location.reload();
+            location.reload();
         });
 }
 
@@ -145,3 +144,40 @@ function choose_all_subjects(box) {
 //        $(box).attr('checked', true)
 //    }
 //}
+
+
+function add_subj(window) {
+    var subject_name = $('#modal_add_subject input[name=subject_name]').val();
+    var classes = [];
+    var weekload = [];
+
+    $("input:checkbox:checked").each(function() {
+        classes.push(($(this).attr('data-class-id')))
+    });
+    console.log(classes);
+
+    $("input[name=week_load]").each(function() {
+        if ($(this).val() != '') {
+            weekload.push(($(this).val()))
+        }
+    });
+    console.log(weekload);
+
+//    var week_load = [];
+//    $('#modal_add_subject input[name=week_load]').each(function() {
+//         week_load.push($(this).val())
+//    });
+//
+//    console.log(subject_name, classes, week_load)
+
+    $.post(
+        '/add_subject',
+        {'subject_name': subject_name , 'classes': classes, 'weekload': weekload},
+        function() {
+//            alert('Изменения приняты')
+//            close_modal(window)
+        }
+    ).fail(function() {
+        alert( "Косяк :с" )
+    });
+}
