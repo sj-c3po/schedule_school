@@ -153,3 +153,5 @@ def add_subject(request):
 
     return HttpResponseRedirect("/new")
     # return render_to_response('new.html')
+
+

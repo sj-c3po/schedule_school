@@ -1,0 +1,64 @@
+Классы: {{ c }}<br/>
+Учителя: {{ t }}<br/>
+Кабинеты: {{ a }}<br/>
+<br/>
+Таблица запрещения для классов: <br>
+{% for i in week_hour_class %}
+    {{ forloop.counter }} | {{ i }}<br/>
+{% endfor %}
+<br/><br/>
+
+Таблица запрещения для учителей: <br>
+{% for j in week_hour_teacher %}
+    {{ forloop.counter }} | {{ j }}<br/>
+{% endfor %}
+<br/><br/>
+
+Таблица запрещения для аудиторий: <br>
+{% for k in week_hour_audience %}
+    {{ forloop.counter }} | {{ k }}<br/>
+{% endfor %}
+<br/><br/>
+
+Что получается:
+<table>
+    <tr>
+        <th>Класс</th>
+        {% for day in range %}
+            <th>{{ day|add:'1' }}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+    <td>5</td>
+    {% for h in H %}
+        <td>{{ h }}</td>
+        {% if forloop.counter == 35 %}
+            </tr><tr>
+            <td>6</td>
+        {% elif forloop.counter == 70 %}
+            </tr><tr>
+            <td>7</td>
+        {% elif forloop.counter == 105 %}
+            </tr><tr>
+            <td>8</td>
+        {% elif  forloop.counter == 140 %}
+            </tr><tr>
+            <td>9</td>
+        {% elif  forloop.counter == 175 %}
+            </tr><tr>
+            <td>10</td>
+        {% elif  forloop.counter == 210 %}
+            </tr><tr>
+            <td>11</td>
+        {% elif  forloop.counter == 245 %}
+            </tr><tr>
+        {% endif %}
+    {% endfor %}
+    </tr>
+</table>
+
+<style>
+    table, td, th {
+        border:1px solid;
+    }
+</style>
