@@ -128,7 +128,6 @@ function save_changes() {
         });
 }
 
-
 function choose_all_subjects(box) {
     if (box.checked) {
         $("input[type=checkbox]").attr('checked', true);
@@ -136,15 +135,6 @@ function choose_all_subjects(box) {
         $("input[type=checkbox]").attr('checked', false);
     }
 }
-
-//function change_checkbox_value(box) {
-//    if ($(box).attr('checked')==true) {
-//        $(box).attr('checked', false)
-//    } else {
-//        $(box).attr('checked', true)
-//    }
-//}
-
 
 function add_subj(window) {
     var subject_name = $('#modal_add_subject input[name=subject_name]').val();

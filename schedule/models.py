@@ -117,3 +117,6 @@ class Scope(models.Model):
     scope = models.CharField(max_length=50)
     def __str__(self):
         return (self.scope)
+
+
+# Возможно, стоит добавить год обучения в таблицу общих связей - 2014-2015 например. Вдруг данные разных лет отличаются

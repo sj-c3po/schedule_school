@@ -20,41 +20,99 @@
 {% endfor %}
 <br/><br/>
 
-Что получается:
+Что получается:<br>
+1) По часам:<br>
 <table>
     <tr>
-        <th>Класс</th>
+        <th>*</th>
+        <th colspan="7">Понедельник</th>
+        <th colspan="7">Вторник</th>
+        <th colspan="7">Среда</th>
+        <th colspan="7">Четверг</th>
+        <th colspan="7">Пятница</th>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">Класс</td>
         {% for day in range %}
-            <th>{{ day|add:'1' }}</th>
+            <td style="font-weight: bold">{{ day }}</td>
         {% endfor %}
     </tr>
     <tr>
-    <td>5</td>
-    {% for h in H %}
-        <td>{{ h }}</td>
-        {% if forloop.counter == 35 %}
-            </tr><tr>
-            <td>6</td>
-        {% elif forloop.counter == 70 %}
-            </tr><tr>
-            <td>7</td>
-        {% elif forloop.counter == 105 %}
-            </tr><tr>
-            <td>8</td>
-        {% elif  forloop.counter == 140 %}
-            </tr><tr>
-            <td>9</td>
-        {% elif  forloop.counter == 175 %}
-            </tr><tr>
-            <td>10</td>
-        {% elif  forloop.counter == 210 %}
-            </tr><tr>
-            <td>11</td>
-        {% elif  forloop.counter == 245 %}
-            </tr><tr>
-        {% endif %}
-    {% endfor %}
+        <td >5</td>
+        {% for h in H %}
+            <td>{{ h }}</td>
+            {% if forloop.counter == 35 %}
+                </tr><tr>
+                <td>6</td>
+            {% elif forloop.counter == 70 %}
+                </tr><tr>
+                <td>7</td>
+            {% elif forloop.counter == 105 %}
+                </tr><tr>
+                <td>8</td>
+            {% elif forloop.counter == 140 %}
+                </tr><tr>
+                <td>9</td>
+            {% elif forloop.counter == 175 %}
+                </tr><tr>
+                <td>10</td>
+            {% elif forloop.counter == 210 %}
+                </tr><tr>
+                <td>11</td>
+            {% elif forloop.counter == 245 %}
+                </tr><tr>
+            {% endif %}
+        {% endfor %}
     </tr>
+</table>
+<br>
+2) Для удобства:<br>
+<table>
+    <tr>
+        <th>Класс</th>
+        <th >Понедельник</th>
+        <th >Вторник</th>
+        <th >Среда</th>
+        <th >Четверг</th>
+        <th >Пятница</th>
+    </tr>
+    <tr>
+        <td >5</td>
+        <td>
+        {% for h in H %}
+            {{ h }}<br>
+            {% if forloop.counter|divisibleby:'7' %}
+               </td><td>
+            {% endif %}
+            {% if forloop.counter == 35 %}
+                </tr><tr>
+                <td>6</td>
+                <td>
+            {% elif forloop.counter == 70 %}
+                </tr><tr>
+                <td>7</td>
+                <td>
+            {% elif forloop.counter == 105 %}
+                </tr><tr>
+                <td>8</td>
+                <td>
+            {% elif forloop.counter == 140 %}
+                </tr><tr>
+                <td>9</td>
+                <td>
+            {% elif forloop.counter == 175 %}
+                </tr><tr>
+                <td>10</td>
+                <td>
+            {% elif forloop.counter == 210 %}
+                </tr><tr>
+                <td>11</td>
+                <td>
+            {% elif forloop.counter == 245 %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </td>
 </table>
 
 <style>
