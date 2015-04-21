@@ -2,19 +2,19 @@
 Учителя: {{ t }}<br/>
 Кабинеты: {{ a }}<br/>
 <br/>
-Таблица запрещения для классов: <br>
+Таблица занятости для классов: <br>
 {% for i in week_hour_class %}
     {{ forloop.counter }} | {{ i }}<br/>
 {% endfor %}
 <br/><br/>
 
-Таблица запрещения для учителей: <br>
+Таблица занятости для учителей: <br>
 {% for j in week_hour_teacher %}
     {{ forloop.counter }} | {{ j }}<br/>
 {% endfor %}
 <br/><br/>
 
-Таблица запрещения для аудиторий: <br>
+Таблица занятости для аудиторий: <br>
 {% for k in week_hour_audience %}
     {{ forloop.counter }} | {{ k }}<br/>
 {% endfor %}
