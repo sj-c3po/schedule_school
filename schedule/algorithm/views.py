@@ -19,10 +19,10 @@ Audiences = {
      5: [],
      6: [],
      7: [],
-     8: [],
+     8: [],  # спортзал
      9: [],
      10: [],
-     11: [],
+     11: [], # еще какой-ниюудь
      12: [],
      13: [],
      14: [],
@@ -57,25 +57,27 @@ Subjects = {
     49: ['Биология', 9, 'Никифорова', 9, 4, 7, 0, 1, 0, 1],
     92: ['Общество', 9, 'Филиппова', 11, 2, 5, 0, 1, 0, 2],
     93: ['Физика', 9, 'Сизак', 7, 3, 5, 0, 1, 0, 2],
-
-    1: ['Англ', 7, 'Питеримова', 1, 3, 10, 0, 0, 0],
-    2: ['Англ', 8, 'Питеримова', 1, 3, 8, 0, 0, 0],
     #
+    # 1: ['Англ', 7, 'Питеримова', 1, 3, 10, 0, 0, 0, 0],
+    # 2: ['Англ', 8, 'Питеримова', 1, 3, 8, 0, 0, 0, 0],
+    # #
     3: ['Англ', 9, 'Питеримова', 1, 3, 9, 0, 0.5, 0, 0],
-    4: ['Англ', 9, 'Салеева', 5, 4, 6, 0, 0.5, 0, 0],
+    4: ['Англ', 9, 'Салеева', 5, 3, 6, 0, 0.5, 0, 0],
 
-    # 25: ['Англ', 9, 'Колодин', 7, 3, 4, 0, 0.5, 0, 0],
-    # 4: ['Англ', 9, 'Карабанова', 1, 3, 9, 0, 0.5, 0],
-    # 23: ['Русский', 9, 'Пронина', 5, 3, 6, 0, 0.5, 0],
-    #
+
+    7: ['Непонятный предмет', 9, 'Худякова', 0, 1, 1, 0, 0, 0, 0],
+
+    # # 25: ['Англ', 9, 'Колодин', 7, 3, 4, 0, 0.5, 0, 0],
+    # # 4: ['Англ', 9, 'Карабанова', 1, 3, 9, 0, 0.5, 0],
+    # # 23: ['Русский', 9, 'Пронина', 5, 3, 6, 0, 0.5, 0],
+
     # 25: ['Русский', 10, 'Салеева', 5, 3, 6, 0, 0, 0],
     # 24: ['Русский', 9, 'Салеева', 5, 2, 6, 0],
-
-
     # 4: ['Английский', 92, 'Питеримова', 1, 3, 9, 0],
+
     # 5: ['Английский', 10, 'Питеримова', 1, 3, 8, 0, 0, 0, 0],
     # 6: ['Английский', 11, 'Питеримова', 1, 3, 8, 0, 0, 0, 0],
-    # #
+    #
     # # 7: ['О', 9, 'Худякова', 2, 1, '-', 0],
     # # # 8: ['О', 92, 'Худякова', 2, 1, '-', 0],
     # # 9: ['О', 10, 'Худякова', 2, 1, '-', 0],
@@ -83,7 +85,7 @@ Subjects = {
     # #
     # 11: ['Английский', 5, 'Васильева', 3, 3, 9, 0, 0, 0, 0],
     # 12: ['Английский', 6, 'Васильева', 3, 3, 11, 0, 0, 0, 0],
-    # # # # #
+    # # # #
     # 13: ['Русский', 5, 'Петрова', 4, 6, 8, 0, 0, 0, 0],
     # 14: ['Русский', 8, 'Петрова', 4, 2, 7, 0, 0, 0, 0],
     # 15: ['Русский', 10, 'Петрова', 4, 3, 9, 0, 0, 0, 0],
@@ -97,7 +99,7 @@ Subjects = {
     # 21: ['Русский', 6, 'Салеева', 5, 6, 12, 0, 0, 0, 0],
     # 22: ['Русский', 7, 'Салеева', 5, 4, 11, 0, 0, 0, 0],
     # 23: ['Русский', 9, 'Салеева', 5, 2, 6, 0, 0, 0, 0],
-    # # # # #
+    # # # # # #
     # 24: ['Литература', 6, 'Салеева', 5, 3, 6, 0, 0, 0, 0],
     # 25: ['Литература', 7, 'Салеева', 5, 2, 4, 0, 0, 0, 0],
     # 26: ['Литература', 9, 'Салеева', 5, 3, 7, 0, 0, 0, 0],
@@ -118,7 +120,7 @@ Subjects = {
     # 36: ['Геометрия', 9, 'Тимирева', 7, 2, 8, 0, 0, 0, 0],
     # 37: ['Геометрия', 10, 'Тимирева', 7, 2, 11, 0, 0, 0, 0],
     # 38: ['Геометрия', 11, 'Тимирева', 7, 2, 11, 0, 0, 0, 0],
-    # #
+    # # #
     # 39: ['Физкультура', 5, 'Иванова', 8, 3, 3, 0, 0, 0, 0],
     # 40: ['Физкультура', 6, 'Иванова', 8, 3, 4, 0, 0, 0, 0],
     # 41: ['Физкультура', 7, 'Иванова', 8, 3, 2, 0, 0, 0, 0],
@@ -130,8 +132,8 @@ Subjects = {
     # 46: ['Биология', 6, 'Никифорова', 9, 1, 8, 0, 0, 0, 0],
     # 47: ['Биология', 7, 'Никифорова', 9, 2, 7, 0, 0, 0, 0],
     # 48: ['Биология', 8, 'Никифорова', 9, 2, 7, 0, 0, 0, 0],
-    # # 49: ['Биология', 9, 'Никифорова', 9, 2, 7, 0, 0, 0, 0],
-    # #
+    # 49: ['Биология', 9, 'Никифорова', 9, 2, 7, 0, 0, 0, 0],
+    #
     # #
     # 50: ['Биология', 10, 'Никифорова', 9, 3, 7, 0, 0, 0, 0],
     # 51: ['Биология', 11, 'Никифорова', 9, 1, 7, 0, 0, 0, 0],
@@ -161,9 +163,9 @@ Subjects = {
     # # # # 68: ['Оо', 10, 'Иголкина', 10, 2, '-', 0],
     # # # # 69: ['Оо', 11, 'Иголкина', 10, 2, '-', 0],
     # # # #
-    # # # # 70: ['История', 9, 'Рыженкова', '-', 2, 10, 0],
-    # # # # 71: ['История', 10, 'Рыженкова', '-', 2, 5, 0],
-    # # # # 72: ['История', 11, 'Рыженкова', '-', 2, 5, 0],
+    70: ['История', 9, 'Рыженкова', 0, 2, 10, 0, 0, 0, 0],
+    71: ['История', 10, 'Рыженкова', 0, 2, 5, 0, 0, 0, 0],
+    72: ['История', 11, 'Рыженкова', 0, 2, 5, 0, 0, 0, 0],
     # # # #
     # # # # 73: ['Общество', 9, 'Рыженкова', '-', 1, '-', 0], # не указано в санпин
     # # # # 74: ['Общество', 10, 'Рыженкова', '-', 2, 5, 0],
@@ -300,21 +302,22 @@ def generate(request):
 
     #===================================================================
 
-    # параметры для групповых и профильных занятий (гр/пр, гр - групповой, пр - профильный)
-
-    # если у гр/пр предмета нет пары, присваивается противоположное значение
-    single_lesson = False
-    # если у гр/пр пары предметов совпадает нарузка
-    load_is_equal = True
-    # текущий предмет, который первоначально расставляем в сетку, имеет бОльшую нагрузку, чем найденный ему в пару (для пр)
-    current_is_bigger = False
-    # отвечает за удвоение нагрузки в случаях, когда один учитель у двух групп одного класса ведет один предмет
-    double = 1
-    # индексы, которые требуется удалить, чтобы предмет мог стать только первым или последним уроком
-    days_to_delete = []
-
     # расстановка предметов в сетку расписания
     for s in range(len(Subjects)):
+
+        # параметры для групповых и профильных занятий (гр/пр, гр - групповой, пр - профильный)
+
+        # если у гр/пр предмета нет пары, присваивается противоположное значение
+        single_lesson = False
+        # если у гр/пр пары предметов совпадает нарузка
+        load_is_equal = True
+        # текущий предмет, который первоначально расставляем в сетку, имеет бОльшую нагрузку, чем найденный ему в пару (для пр)
+        current_is_bigger = False
+        # отвечает за удвоение нагрузки в случаях, когда один учитель у двух групп одного класса ведет один предмет
+        double = 1
+        # индексы, которые требуется удалить, чтобы предмет мог стать только первым или последним уроком
+        days_to_delete = []
+
         params = Subjects[list(Subjects)[s]]
         if params[8] != 100:
             found_lessons = []
@@ -325,7 +328,7 @@ def generate(request):
 # ----------------------groups-------------------------
             # если предмет групповой
             if params[7] == 0.5:
-                print('params[7]=0.5')
+                # print('params[7]=0.5')
 
                 # начинаем с 1 чтобы учесть и текущий предмет - должно быть вместе с ним парное количество (иначе будет обработка другая)
                 count_of_group_lessons = 1
@@ -344,28 +347,28 @@ def generate(request):
 
                                 # но учитель другой
                                 if Subjects[list(Subjects)[lesson]][2] != params[2]:
-                                    print(Subjects[list(Subjects)[lesson]])
+                                    # print(Subjects[list(Subjects)[lesson]])
 
                                     # и если предмет еще не расставлен в сетку, тогда добавь его в список
                                     if Subjects[list(Subjects)[lesson]][8] != 100:
                                         found_lessons.append(Subjects[list(Subjects)[lesson]])
                                         count_of_group_lessons = count_of_group_lessons+1
 
-                print('Это то, что тоже групповое', found_lessons, count_of_group_lessons)
+                # print('Это то, что тоже групповое', found_lessons, count_of_group_lessons)
 
                 # если текущий урок является групповым и пары для него нет,
                 # тогда его можно будет поставить только первым и последним уроком, чтобы не было окна
 
-                if count_of_group_lessons % 2 == 0:
-                    print('+++')
-                    print(params[4], 'текущий')
-
-                    for lesson in range(len(found_lessons)):
-                        print(found_lessons[lesson][4], 'другие')
-
-                    print('+++')
-                else:
+                if count_of_group_lessons % 2 != 0:
                     days_to_delete = [1,2,3,4,5,8,9,10,11,12,15,16,17,18,19,22,23,24,25,26,29,30,31,32,33]
+                # else:
+                    # print('+++')
+                    # print(params[4], 'текущий')
+                    #
+                    # for lesson in range(len(found_lessons)):
+                    #     print(found_lessons[lesson][4], 'другие')
+                    #
+                    # print('+++')
 
                 # если у нас будет нечетное количество уроков, но их будет больше 1
                 if count_of_group_lessons < 2:
@@ -379,76 +382,12 @@ def generate(request):
                 go(found_lessons, current_is_bigger, params, double,
                    single_lesson, week_hour_audience, week_hour_teacher,
                    week_hour_class, days_to_delete, H, s, load_is_equal)
-
-                #=_=-=_=_=-+-+-+-
-                # учет нагрузки (сколько уроков расставить)
-                # print(double, 'double-нагрузка')
-                # print(params[4]*double, 'нагрузка')
-
-                # if len(found_lessons) != 0:
-                #     if current_is_bigger:
-                #         limit = found_lessons[4]*double
-                #     else:
-                #         limit = params[4]*double
-                # else:
-                #     limit = params[4]*double
-                #
-                # # начинаем рассставлять в соотвествии с нагрузкой
-                # for load in range(limit):
-                #
-                #     distribute_the_load(single_lesson,
-                #                         params,
-                #                         week_hour_audience,
-                #                         week_hour_teacher,
-                #                         week_hour_class,
-                #                         found_lessons,
-                #                         days_to_delete,
-                #                         double, H, s)
-                # mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
-                #
-                # # запустить функцию, чтоб дорасставлялись остальные часы, оставшиеся у текущего урока
-                # if len(found_lessons) != 0:
-                #     # if current_is_bigger:
-                #     #     # print('=+=+=+')
-                #     #     # print(Subjects[list(Subjects)[s]])
-                #     #     #     # for lesson in range(len(Subjects)):
-                #     #     #     #     if Subjects[list(Subjects)[lesson]] == found_lessons:
-                #     #     #     #         print(Subjects[list(Subjects)[lesson]])
-                #     #     #     #         print(found_lessons)
-                #     #     #     #         print(Subjects[list(Subjects)[lesson]][8])
-                #     #     # print('=+=+=+')
-                #     #     params[4] = params[4]-found_lessons[4]
-                #     #     # print(Subjects[list(Subjects)[s]])
-                #     #     single_lesson = True
-                #     #     found_lessons = []
-                #     #     found_lessons, single_lesson, current_is_bigger, days_to_delete, load_is_equal = find_lessons_for_profile(params,
-                #     #                                                                                            found_lessons,
-                #     #                                                                                            single_lesson,
-                #     #                                                                                            current_is_bigger,
-                #     #                                                                                            days_to_delete,
-                #     #                                                                                            load_is_equal)
-                #     #     print('МЫ ВОТ ЗДЕСЬ')
-                #     #     # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
-                #     #     for load in range(params[4]):
-                #     #         distribute_the_load(single_lesson,
-                #     #                             params,
-                #     #                             week_hour_audience,
-                #     #                             week_hour_teacher,
-                #     #                             week_hour_class,
-                #     #                             found_lessons,
-                #     #                             days_to_delete,
-                #     #                             double, H, s)
-                #     #     print('ТЕПЕРЬ ЗДЕСь')
-                #     #     mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
-                #     #     Subjects[list(Subjects)[s]][8] = 100
-                #     # else:
-                #         Subjects[list(Subjects)[s]][8] = 100
 # ----------------------end_groups-------------------------
 
 # ----------------------profile----------------------------
             # если предмет профильный
             if params[7] == 1:
-                print('params[7]=1')
+                # print('params[7]=1')
 
                 # found_lessons, single_lesson, current_is_bigger, days_to_delete = find_lessons_for_profile(params,
                 found_lessons, single_lesson, current_is_bigger, days_to_delete, load_is_equal = find_lessons_for_profile(params,
@@ -457,76 +396,17 @@ def generate(request):
                                                                                                            current_is_bigger,
                                                                                                            days_to_delete,
                                                                                                            load_is_equal)
-
-
                 go(found_lessons, current_is_bigger, params, double,
                    single_lesson, week_hour_audience, week_hour_teacher,
                    week_hour_class, days_to_delete, H, s, load_is_equal)
-
-                # # учет нагрузки (сколько уроков расставить)
-                # # print(double, 'double-нагрузка')
-                # # print(params[4]*double, 'нагрузка')
-                #
-                # if len(found_lessons) != 0:
-                #     if current_is_bigger:
-                #         limit = found_lessons[4]*double
-                #     else:
-                #         limit = params[4]*double
-                # else:
-                #     limit = params[4]*double
-                #
-                # # начинаем рассставлять в соотвествии с нагрузкой
-                # for load in range(limit):
-                #
-                #     distribute_the_load(single_lesson,
-                #                         params,
-                #                         week_hour_audience,
-                #                         week_hour_teacher,
-                #                         week_hour_class,
-                #                         found_lessons,
-                #                         days_to_delete,
-                #                         double, H, s)
-                # mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
-                #
-                # # запустить функцию, чтоб дорасставлялись остальные часы, оставшиеся у текущего урока
-                # if len(found_lessons) != 0:
-                #     if current_is_bigger:
-                #         # print('=+=+=+')
-                #         # print(Subjects[list(Subjects)[s]])
-                #         #     # for lesson in range(len(Subjects)):
-                #         #     #     if Subjects[list(Subjects)[lesson]] == found_lessons:
-                #         #     #         print(Subjects[list(Subjects)[lesson]])
-                #         #     #         print(found_lessons)
-                #         #     #         print(Subjects[list(Subjects)[lesson]][8])
-                #         # print('=+=+=+')
-                #         params[4] = params[4]-found_lessons[4]
-                #         # print(Subjects[list(Subjects)[s]])
-                #         single_lesson = True
-                #         found_lessons = []
-                #         found_lessons, single_lesson, current_is_bigger, days_to_delete, load_is_equal = find_lessons_for_profile(params,
-                #                                                                                                found_lessons,
-                #                                                                                                single_lesson,
-                #                                                                                                current_is_bigger,
-                #                                                                                                days_to_delete,
-                #                                                                                                load_is_equal)
-                #         print('МЫ ВОТ ЗДЕСЬ')
-                #         # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
-                #         for load in range(params[4]):
-                #             distribute_the_load(single_lesson,
-                #                                 params,
-                #                                 week_hour_audience,
-                #                                 week_hour_teacher,
-                #                                 week_hour_class,
-                #                                 found_lessons,
-                #                                 days_to_delete,
-                #                                 double, H, s)
-                #         print('ТЕПЕРЬ ЗДЕСь')
-                #         mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
-                #         Subjects[list(Subjects)[s]][8] = 100
-                #     else:
-                #         Subjects[list(Subjects)[s]][8] = 100
-
 # ----------------------end_profile----------------------------
+
+# ---------------------ordinary--------------------------------
+            if params[7] == 0:
+                go(found_lessons, current_is_bigger, params, double,
+                   single_lesson, week_hour_audience, week_hour_teacher,
+                   week_hour_class, days_to_delete, H, s, load_is_equal)
+# ---------------------end_ordinary----------------------------
         single_lesson = False
         double = 1
         args['H'] = []
@@ -566,7 +446,7 @@ def generate(request):
             else:
                 args['H_teachers'].append(v)
 
-        print('======')
+        # print('======')
 
     return render_to_response("generate.html", args)
 
@@ -590,22 +470,27 @@ def distribute_the_load(single_lesson, params,  week_hour_audience, week_hour_te
 
     free_index = sanpin(params, free_index)
 
+    # print('FREE_INDEX', free_index)
+
     # если есть возможность, убираем спаренность
     if len(free_index) > params[4]*double:
         free_index = remove_paired(free_index, num_class, H, s)
-    print(free_index)
+    # print(free_index)
+
+
+
 
 
     # выбор индекса дня, куда будем ставить предмет в сетку H
     hour_cell = choice(free_index)  # hour_cell -- hour_subject
-    print(hour_cell, 'hour_cell')
+    # print(hour_cell, 'hour_cell')
     key_H = (hours_in_week)*(num_class)+hour_cell  # индекс ячейки в сетке распсиания H
     H[key_H] = list(Subjects[list(Subjects)[s]])
 
     # говнокод! (если массив не [][][], а [], нужно делать так, чтоб его длину выдавало единицей)
     if len(found_lessons) == 10:
         H[key_H] = H[key_H] + found_lessons
-        print(H[key_H], 'H[key_H]')
+        # print(H[key_H], 'H[key_H]')
     else:
         for les in range(len(found_lessons)):
             H[key_H] = H[key_H] + found_lessons[les]
@@ -618,6 +503,7 @@ def distribute_the_load(single_lesson, params,  week_hour_audience, week_hour_te
         # week_hour_teacher[index_teacher][hour_cell] = params[1]  #  это чтобы классы записывались в сетку, а не нули
 
     for index_audience in num_audience:
+        print('num_dfdf', index_audience)
         week_hour_audience[index_audience][hour_cell] = 0
         # week_hour_audience[index_audience][hour_cell] = params[1]
 #---------------------------------------------------------------
@@ -645,23 +531,22 @@ def find_lessons_for_profile(params, found_lessons, single_lesson, current_is_bi
                         count_of_profile_lessons = count_of_profile_lessons+1
 
 
-    print('Это то, что тоже профильное', found_lessons, count_of_profile_lessons)
+    # print('Это то, что тоже профильное', found_lessons, count_of_profile_lessons)
 
     if len(found_lessons) != 0:
 
         # этот говнокод нужно будет исправить :/
         found_lessons = found_lessons[0]
-        print(found_lessons)
+        # print(found_lessons)
 
         current_is_bigger = False
         if found_lessons[4] != params[4]:
-            print('текущий отличается от найденного на: ', params[4]-found_lessons[4])
+            # print('текущий отличается от найденного на: ', params[4]-found_lessons[4])
             load_is_equal = False
 
             # если еще остаются часы у найденного предмета, тогда нужно их убавить у него в исходных данных
-            print('BIGGER', current_is_bigger)
+            # print('BIGGER', current_is_bigger)
             if params[4]-found_lessons[4] > 0:
-                print(params[4]-found_lessons[4], 'DJN')
                 current_is_bigger = True
 
     # если предмету больше нечего поставить в пару, тогда его можно ставить только первым или последним уроком
@@ -675,8 +560,6 @@ def find_lessons_for_profile(params, found_lessons, single_lesson, current_is_bi
 # Поиск подходящих часов для расстановки предмета в соотвествие с занятостью учителей, классов и кабинетоа
 def find_free_indexes(params, week_hour_audience, week_hour_class, week_hour_teacher, found_lessons):
     temp = []
-    print(found_lessons)
-
     count_of_classes = 1
 
     # говнокод! (если массив не [][][], а [], нужно делать так, чтоб его длину выдавало единицей)
@@ -725,14 +608,12 @@ def find_free_indexes(params, week_hour_audience, week_hour_class, week_hour_tea
                     add_to_temp(temp, week_hour_teacher, found_lessons[last_lesson_number], 2, num_teacher, t_number, Teachers)
                     last_lesson_number = last_lesson_number + 1
                 break
-
-    print(num_teacher)
+    print(num_teacher, 'te')
     # ================================
 
     # добавляем кабинет
     num_audience = [0]*count_of_audience
     last_lesson_number = 0
-    # print(num_audience, 'num_audience0')
 
     for a_number in range(len(num_audience)):
 
@@ -741,7 +622,6 @@ def find_free_indexes(params, week_hour_audience, week_hour_class, week_hour_tea
 
             # Вызываем функцию, которая посчитает, какую строчку добавить к temp
             add_to_temp(temp, week_hour_audience, params, 3, num_audience, a_number, Audiences)
-            # print(temp)
         else:
             # ищем индексы кабинетов найденных предметов
 
@@ -755,6 +635,8 @@ def find_free_indexes(params, week_hour_audience, week_hour_class, week_hour_tea
                     add_to_temp(temp, week_hour_audience, found_lessons[last_lesson_number], 3, num_audience, a_number, Audiences)
                     last_lesson_number = last_lesson_number + 1
                 break
+    print('func_num', num_audience)
+
     # ================================
 
     # массив для подсчета результата логического перемножения
@@ -782,6 +664,18 @@ def find_free_indexes(params, week_hour_audience, week_hour_class, week_hour_tea
 # для добавления во временный массив
 def add_to_temp(temp, week_hour_item, params, n, num_item, i_number, items):
 
+    # аудитории, из которых можно выбирать
+    auds = [0,1,2,3,4,5,6,8,9,11,12,13,14]  # 8, 11 - типа нельзя
+
+    # если у преподавателя, ведущего предмет, нет привязанного кабинета (условие только для кабинетов)
+    if items == Audiences:
+        if params[3] == 0:
+            #  надо выбрать хоть какой-нибудь кабинет (любой, кроме тех, которых нет в списке)
+            i = choice(auds)
+            temp.append(week_hour_item[i])
+            num_item[i_number] = i
+            return temp
+
     for i in range(len(items)):
         # print(list(items)[i])
         # ищем индекс текущего урока
@@ -790,6 +684,7 @@ def add_to_temp(temp, week_hour_item, params, n, num_item, i_number, items):
             return temp
         else:
             num_item[i_number] = num_item[i_number]+1
+
 #---------------------------------------------------------------
 
 # Оставляем подходящие санпиновские часы
@@ -797,6 +692,7 @@ def sanpin(params, free_index):
 
     # делаем резервную копию: если по санпину не получится расставить, возвращаются предыдущие значения массива
     copy_free_index = copy.deepcopy(free_index)
+    # print('COPY', copy_free_index)
     for_del_max = [1, 2, 3, 8, 9, 10, 15, 16, 17, 22, 23, 24, 29, 30, 31]  # уроки с наибольшей нагрузкой
     for_del_min = [0, 4, 5, 6, 7, 11, 12, 13, 14, 18, 19, 20, 21, 25, 26, 27, 28, 32, 33, 34]  # уроки с наименьшей нагрузкой
 
@@ -813,18 +709,19 @@ def sanpin(params, free_index):
             if d in free_index:
                 free_index.remove(d)
 
+    # print('SANPIN FREE', free_index)
     if len(free_index) == 0:
-        print('если по санпину - то не хватает')
+        # print('если по санпину - то не хватает')
         free_index = copy_free_index
 
-    print(free_index, 'sanpin func')
+    # print(free_index, 'sanpin func')
 
     return free_index
 #---------------------------------------------------------------
 
 # Убираем спаренность (если есть возможность)
 def remove_paired(free_index, num_class, H, s):
-    print('=== === === === ===')
+    # print('=== === === === ===')
     # делаем резервную копию: если без спаренности не получается расставить, возвращаются предыдущие значения массива
     copy_free_index = copy.deepcopy(free_index)
 
@@ -842,14 +739,14 @@ def remove_paired(free_index, num_class, H, s):
 
                 # находим индекс этого предмета в сетке от 0 до 34 и индексы дня, в который стоит данный предмет
                 same_subject = index_in_H - hours_in_week*(num_class)
-                print('index_in_H', index_in_H)
-                print('same_subject', same_subject)
+                # print('index_in_H', index_in_H)
+                # print('same_subject', same_subject)
                 day = day_of_week(same_subject)
 
                 # нужно убрать день, в котором уже есть этот предмет
                 if list(set(free_index) & set(day)):
                     intersection = list(set(free_index) & set(day))
-                    print('intersection', intersection)
+                    # print('intersection', intersection)
 
                     for item in intersection:
                         free_index.remove(item)
@@ -860,12 +757,12 @@ def remove_paired(free_index, num_class, H, s):
                     if same_subject+1 in free_index:
                         free_index.remove(same_subject+1)
 
-            print('free', free_index)
+            # print('free', free_index)
             if len(free_index) == 0:
                 free_index = copy_free_index
 
-    print(free_index, 'sanpin func')
-    print('=== === === === ===')
+    # print(free_index, 'sanpin func')
+    # print('=== === === === ===')
 
     return free_index
 #---------------------------------------------------------------
@@ -873,35 +770,35 @@ def remove_paired(free_index, num_class, H, s):
 def mark_lesson(found_lessons, load_is_equal, current_is_bigger, params):
     # говнокод! (если массив не [][][], а [], нужно делать так, чтоб его длину выдавало единицей)
     if len(found_lessons) == 10:
-        print('-----')
-        print('len(found_lessons)', len(found_lessons))
-        print(load_is_equal)
+        # print('-----')
+        # print('len(found_lessons)', len(found_lessons))
+        # print(load_is_equal)
         # если нагрузка у предметов равна, просто поставь отметку, чтобы их больше не трогать
         if load_is_equal:
             found_lessons[8] = 100
         else:
             # иначе проверяем у кого нагрузка больше, у текущего предмета или у найденного
             # если у текущего больше - тогда убираем найденный предмет, вся его нагрузка расставлена
-            print(current_is_bigger)
+            # print(current_is_bigger)
             if current_is_bigger:
                 found_lessons[8] = 100
             else:
                 # уменьшаем нагрузку найденного предмета, оставляя только не расставленные часы
                 found_lessons[4] = found_lessons[4]-params[4]
-                print('+')
-                print('У НАЙДЕННОГО осталось расставить ', found_lessons[4], ' часов')
-                print('+')
-                print('=+=+=+')
-                for lesson in range(len(Subjects)):
-                    if Subjects[list(Subjects)[lesson]] == found_lessons:
-                        print(Subjects[list(Subjects)[lesson]])
-                        print(found_lessons)
-                        print(Subjects[list(Subjects)[lesson]][8])
-                print('=+=+=+')
+                # print('+')
+                # print('У НАЙДЕННОГО осталось расставить ', found_lessons[4], ' часов')
+                # print('+')
+                # print('=+=+=+')
+                # for lesson in range(len(Subjects)):
+                #     if Subjects[list(Subjects)[lesson]] == found_lessons:
+                #         print(Subjects[list(Subjects)[lesson]])
+                #         print(found_lessons)
+                #         print(Subjects[list(Subjects)[lesson]][8])
+                # print('=+=+=+')
     else:
-        print('-----')
-        print('len(found_lessons)', len(found_lessons))
-        print('-----')
+        # print('-----')
+        # print('len(found_lessons)', len(found_lessons))
+        # print('-----')
         for subject in range(len(found_lessons)):
             # если нагрузка у предметов равна, просто поставь отметку, чтобы их больше не трогать
             if load_is_equal:
@@ -914,9 +811,9 @@ def mark_lesson(found_lessons, load_is_equal, current_is_bigger, params):
                 else:
                     # уменьшаем нагрузку найденного предмета, оставляя только не расставленные часы
                     found_lessons[subject][4] = found_lessons[subject][4]-params[4]
-                    print('+')
-                    print('осталось расставить ', found_lessons[subject][4], ' часов')
-                    print('+')
+                    # print('+')
+                    # print('осталось расставить ', found_lessons[subject][4], ' часов')
+                    # print('+')
 #-----------------------------------
 
 # запускает расстановку нагрузки со всеми предварительными действиями
@@ -973,7 +870,7 @@ def go(found_lessons,
                                                                                                    current_is_bigger,
                                                                                                    days_to_delete,
                                                                                                    load_is_equal)
-            print('МЫ ВОТ ЗДЕСЬ')
+            # print('МЫ ВОТ ЗДЕСЬ')
             # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
             go(found_lessons, current_is_bigger, params, double,
                    single_lesson, week_hour_audience, week_hour_teacher,
@@ -997,6 +894,3 @@ def day_of_week(hour):
         day = friday
     return day
 
-
-# косяки:
-# 1. спаренность плохо работает, пока не могу это убрать из-за выставления предметам признака расставленности - param[8]=100
