@@ -56,13 +56,13 @@ Subjects = {
 
     49: ['Биология', 9, 'Никифорова', 9, 4, 7, 0, 1, 0, 1],
     92: ['Общество', 9, 'Филиппова', 11, 2, 5, 0, 1, 0, 2],
-    93: ['Физика', 9, 'Сизак', 7, 1, 5, 0, 1, 0, 3],
+    93: ['Физика', 9, 'Сизак', 7, 3, 5, 0, 1, 0, 2],
 
-    # 1: ['Англ', 7, 'Питеримова', 1, 3, 10, 0, 0, 0],
-    # 2: ['Англ', 8, 'Питеримова', 1, 3, 8, 0, 0, 0],
-    # #
-    # 3: ['Англ', 9, 'Питеримова', 1, 3, 9, 0, 0.5, 0, 0],
-    # 4: ['Англ', 9, 'Салеева', 5, 3, 6, 0, 0.5, 0, 0],
+    1: ['Англ', 7, 'Питеримова', 1, 3, 10, 0, 0, 0],
+    2: ['Англ', 8, 'Питеримова', 1, 3, 8, 0, 0, 0],
+    #
+    3: ['Англ', 9, 'Питеримова', 1, 3, 9, 0, 0.5, 0, 0],
+    4: ['Англ', 9, 'Салеева', 5, 4, 6, 0, 0.5, 0, 0],
 
     # 25: ['Англ', 9, 'Колодин', 7, 3, 4, 0, 0.5, 0, 0],
     # 4: ['Англ', 9, 'Карабанова', 1, 3, 9, 0, 0.5, 0],
@@ -375,6 +375,74 @@ def generate(request):
                 if single_lesson:
                     if count_of_group_lessons % 2 != 0:
                         double = 2
+
+                go(found_lessons, current_is_bigger, params, double,
+                   single_lesson, week_hour_audience, week_hour_teacher,
+                   week_hour_class, days_to_delete, H, s, load_is_equal)
+
+                #=_=-=_=_=-+-+-+-
+                # учет нагрузки (сколько уроков расставить)
+                # print(double, 'double-нагрузка')
+                # print(params[4]*double, 'нагрузка')
+
+                # if len(found_lessons) != 0:
+                #     if current_is_bigger:
+                #         limit = found_lessons[4]*double
+                #     else:
+                #         limit = params[4]*double
+                # else:
+                #     limit = params[4]*double
+                #
+                # # начинаем рассставлять в соотвествии с нагрузкой
+                # for load in range(limit):
+                #
+                #     distribute_the_load(single_lesson,
+                #                         params,
+                #                         week_hour_audience,
+                #                         week_hour_teacher,
+                #                         week_hour_class,
+                #                         found_lessons,
+                #                         days_to_delete,
+                #                         double, H, s)
+                # mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
+                #
+                # # запустить функцию, чтоб дорасставлялись остальные часы, оставшиеся у текущего урока
+                # if len(found_lessons) != 0:
+                #     # if current_is_bigger:
+                #     #     # print('=+=+=+')
+                #     #     # print(Subjects[list(Subjects)[s]])
+                #     #     #     # for lesson in range(len(Subjects)):
+                #     #     #     #     if Subjects[list(Subjects)[lesson]] == found_lessons:
+                #     #     #     #         print(Subjects[list(Subjects)[lesson]])
+                #     #     #     #         print(found_lessons)
+                #     #     #     #         print(Subjects[list(Subjects)[lesson]][8])
+                #     #     # print('=+=+=+')
+                #     #     params[4] = params[4]-found_lessons[4]
+                #     #     # print(Subjects[list(Subjects)[s]])
+                #     #     single_lesson = True
+                #     #     found_lessons = []
+                #     #     found_lessons, single_lesson, current_is_bigger, days_to_delete, load_is_equal = find_lessons_for_profile(params,
+                #     #                                                                                            found_lessons,
+                #     #                                                                                            single_lesson,
+                #     #                                                                                            current_is_bigger,
+                #     #                                                                                            days_to_delete,
+                #     #                                                                                            load_is_equal)
+                #     #     print('МЫ ВОТ ЗДЕСЬ')
+                #     #     # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
+                #     #     for load in range(params[4]):
+                #     #         distribute_the_load(single_lesson,
+                #     #                             params,
+                #     #                             week_hour_audience,
+                #     #                             week_hour_teacher,
+                #     #                             week_hour_class,
+                #     #                             found_lessons,
+                #     #                             days_to_delete,
+                #     #                             double, H, s)
+                #     #     print('ТЕПЕРЬ ЗДЕСь')
+                #     #     mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
+                #     #     Subjects[list(Subjects)[s]][8] = 100
+                #     # else:
+                #         Subjects[list(Subjects)[s]][8] = 100
 # ----------------------end_groups-------------------------
 
 # ----------------------profile----------------------------
@@ -390,71 +458,75 @@ def generate(request):
                                                                                                            days_to_delete,
                                                                                                            load_is_equal)
 
+
+                go(found_lessons, current_is_bigger, params, double,
+                   single_lesson, week_hour_audience, week_hour_teacher,
+                   week_hour_class, days_to_delete, H, s, load_is_equal)
+
+                # # учет нагрузки (сколько уроков расставить)
+                # # print(double, 'double-нагрузка')
+                # # print(params[4]*double, 'нагрузка')
+                #
+                # if len(found_lessons) != 0:
+                #     if current_is_bigger:
+                #         limit = found_lessons[4]*double
+                #     else:
+                #         limit = params[4]*double
+                # else:
+                #     limit = params[4]*double
+                #
+                # # начинаем рассставлять в соотвествии с нагрузкой
+                # for load in range(limit):
+                #
+                #     distribute_the_load(single_lesson,
+                #                         params,
+                #                         week_hour_audience,
+                #                         week_hour_teacher,
+                #                         week_hour_class,
+                #                         found_lessons,
+                #                         days_to_delete,
+                #                         double, H, s)
+                # mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
+                #
+                # # запустить функцию, чтоб дорасставлялись остальные часы, оставшиеся у текущего урока
+                # if len(found_lessons) != 0:
+                #     if current_is_bigger:
+                #         # print('=+=+=+')
+                #         # print(Subjects[list(Subjects)[s]])
+                #         #     # for lesson in range(len(Subjects)):
+                #         #     #     if Subjects[list(Subjects)[lesson]] == found_lessons:
+                #         #     #         print(Subjects[list(Subjects)[lesson]])
+                #         #     #         print(found_lessons)
+                #         #     #         print(Subjects[list(Subjects)[lesson]][8])
+                #         # print('=+=+=+')
+                #         params[4] = params[4]-found_lessons[4]
+                #         # print(Subjects[list(Subjects)[s]])
+                #         single_lesson = True
+                #         found_lessons = []
+                #         found_lessons, single_lesson, current_is_bigger, days_to_delete, load_is_equal = find_lessons_for_profile(params,
+                #                                                                                                found_lessons,
+                #                                                                                                single_lesson,
+                #                                                                                                current_is_bigger,
+                #                                                                                                days_to_delete,
+                #                                                                                                load_is_equal)
+                #         print('МЫ ВОТ ЗДЕСЬ')
+                #         # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
+                #         for load in range(params[4]):
+                #             distribute_the_load(single_lesson,
+                #                                 params,
+                #                                 week_hour_audience,
+                #                                 week_hour_teacher,
+                #                                 week_hour_class,
+                #                                 found_lessons,
+                #                                 days_to_delete,
+                #                                 double, H, s)
+                #         print('ТЕПЕРЬ ЗДЕСь')
+                #         mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
+                #         Subjects[list(Subjects)[s]][8] = 100
+                #     else:
+                #         Subjects[list(Subjects)[s]][8] = 100
+
 # ----------------------end_profile----------------------------
-
-            # учет нагрузки (сколько уроков расставить)
-            # print(double, 'double-нагрузка')
-            # print(params[4]*double, 'нагрузка')
-
-            if len(found_lessons) != 0:
-                if current_is_bigger:
-                    limit = found_lessons[4]*double
-                else:
-                    limit = params[4]*double
-            else:
-                limit = params[4]*double
-
-            # начинаем рассставлять в соотвествии с нагрузкой
-            for load in range(limit):
-
-                distribute_the_load(single_lesson,
-                                    params,
-                                    week_hour_audience,
-                                    week_hour_teacher,
-                                    week_hour_class,
-                                    found_lessons,
-                                    days_to_delete,
-                                    double, H, s)
-            mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
-
-            # запустить функцию, чтоб дорасставлялись остальные часы, оставшиеся у текущего урока
-            if len(found_lessons) != 0:
-                if current_is_bigger:
-                    # print('=+=+=+')
-                    # print(Subjects[list(Subjects)[s]])
-                    #     # for lesson in range(len(Subjects)):
-                    #     #     if Subjects[list(Subjects)[lesson]] == found_lessons:
-                    #     #         print(Subjects[list(Subjects)[lesson]])
-                    #     #         print(found_lessons)
-                    #     #         print(Subjects[list(Subjects)[lesson]][8])
-                    # print('=+=+=+')
-                    params[4] = params[4]-found_lessons[4]
-                    # print(Subjects[list(Subjects)[s]])
-                    single_lesson = True
-                    found_lessons = []
-                    found_lessons, single_lesson, current_is_bigger, days_to_delete, load_is_equal = find_lessons_for_profile(params,
-                                                                                                           found_lessons,
-                                                                                                           single_lesson,
-                                                                                                           current_is_bigger,
-                                                                                                           days_to_delete,
-                                                                                                           load_is_equal)
-                    print('МЫ ВОТ ЗДЕСЬ')
-                    # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
-                    for load in range(params[4]):
-                        distribute_the_load(single_lesson,
-                                            params,
-                                            week_hour_audience,
-                                            week_hour_teacher,
-                                            week_hour_class,
-                                            found_lessons,
-                                            days_to_delete,
-                                            double, H, s)
-                    print('ТЕПЕРЬ ЗДЕСь')
-                    mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
-                    Subjects[list(Subjects)[s]][8] = 100
-                else:
-                    Subjects[list(Subjects)[s]][8] = 100
-
         single_lesson = False
         double = 1
         args['H'] = []
@@ -845,6 +917,69 @@ def mark_lesson(found_lessons, load_is_equal, current_is_bigger, params):
                     print('+')
                     print('осталось расставить ', found_lessons[subject][4], ' часов')
                     print('+')
+#-----------------------------------
+
+# запускает расстановку нагрузки со всеми предварительными действиями
+def go(found_lessons,
+       current_is_bigger,
+       params, double,
+       single_lesson,
+       week_hour_audience,
+       week_hour_teacher,
+       week_hour_class,
+       days_to_delete,
+       H, s, load_is_equal):
+
+    # учет нагрузки (сколько уроков расставить)
+    if len(found_lessons) != 0:
+        if current_is_bigger:
+            limit = found_lessons[4]*double
+        else:
+            limit = params[4]*double
+    else:
+        limit = params[4]*double
+
+    # начинаем рассставлять в соотвествии с нагрузкой
+    for load in range(limit):
+
+        distribute_the_load(single_lesson,
+                            params,
+                            week_hour_audience,
+                            week_hour_teacher,
+                            week_hour_class,
+                            found_lessons,
+                            days_to_delete,
+                            double, H, s)
+    mark_lesson(found_lessons, load_is_equal, current_is_bigger, params)
+
+    # запустить функцию, чтоб дорасставлялись остальные часы, оставшиеся у текущего урока
+    if len(found_lessons) != 0:
+        if current_is_bigger:
+            # print('=+=+=+')
+            # print(Subjects[list(Subjects)[s]])
+            #     # for lesson in range(len(Subjects)):
+            #     #     if Subjects[list(Subjects)[lesson]] == found_lessons:
+            #     #         print(Subjects[list(Subjects)[lesson]])
+            #     #         print(found_lessons)
+            #     #         print(Subjects[list(Subjects)[lesson]][8])
+            # print('=+=+=+')
+            params[4] = params[4]-found_lessons[4]
+            # print(Subjects[list(Subjects)[s]])
+            single_lesson = True
+            found_lessons = []
+            found_lessons, single_lesson, current_is_bigger, days_to_delete, load_is_equal = find_lessons_for_profile(params,
+                                                                                                   found_lessons,
+                                                                                                   single_lesson,
+                                                                                                   current_is_bigger,
+                                                                                                   days_to_delete,
+                                                                                                   load_is_equal)
+            print('МЫ ВОТ ЗДЕСЬ')
+            # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
+            go(found_lessons, current_is_bigger, params, double,
+                   single_lesson, week_hour_audience, week_hour_teacher,
+                   week_hour_class, days_to_delete, H, s, load_is_equal)
+        else:
+            Subjects[list(Subjects)[s]][8] = 100
 
 
 #-----------------------------------
