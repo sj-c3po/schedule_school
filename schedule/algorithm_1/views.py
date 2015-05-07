@@ -318,6 +318,12 @@ def generate(request):
     args["week_hour_teacher"] = build_table_of_bans(Teachers, 't', week_hour_teacher)
     args["week_hour_audience"] = build_table_of_bans(Audiences, 'a', week_hour_audience)
 
+    print('Классфы')
+    for row in args["week_hour_class"]:
+        for n, value in enumerate(row):
+            if value == 0:
+                row[n] = 2
+        print(row)
 
 
     #===================================================================
