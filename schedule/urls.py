@@ -10,8 +10,9 @@ urlpatterns = patterns('',
     url(r'^add_subject/?', 'schedule.views.add_subject'),
     url(r'^schedule_detailed/?', 'schedule.views.schedule_detailed'),
     url(r'^schedule/?', 'schedule.views.schedule'),
-    # url(r'^generate/?', 'schedule.algorithm_1.views.generate'),
-    url(r'^generate/?', 'schedule.algorithm_2.views.generate'),
+    # url(r'^generate/?', 'schedule.algorithm_1.views.generate'), # это самый первый, где работают основные функции
+    # url(r'^generate/?', 'schedule.algorithm_2.views.generate'), # это я хотела сделать "историю"
+    url(r'^generate/?', 'schedule.algorithm_3.views.generate'), # это попробую сделать "выталкивание"
     url(r'^', 'schedule.views.show_auth'),           # должно быть внизу, потому что смотрится построчно
 
     # все переадресовывается c schedule/...
