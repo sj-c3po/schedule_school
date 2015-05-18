@@ -150,7 +150,7 @@ Teachers = {
       'Салеева': [False],
       'Николаева': [False], #  , 1,10,30,32
       'Тимирева': [False],
-      'Иванова': [False], #, 2,4,7,8,9,10,14,19,23,28,29,32
+      'Иванова': [False, 2,4,7,8,9,10,14,19,23,28,29,32], #, 2,4,7,8,9,10,14,19,23,28,29,32
       'Никифорова': [False],
       'Иголкина': [False], #, 2, 8, 9, 14, 15, 31
       'Рыженкова': [True, 0,1,2,3,4,5,6,7,8,9,10,11,12,13, 16,21,22,23,24,25,26,27,28],
@@ -230,11 +230,11 @@ Subjects = {
     58: ['Русский язык', 9, 'Салеева', 14, 2,    6, 0, 0, 0, 0, 0],
     # 59: ['Русский язык', 9, 'Салеева', 14, 1,    6, 0, 0, 0, 0, 0], #(гиа)
     60: ['Литература', 9, 'Салеева', 14, 3,   7, 0, 0, 0, 0, 0],
-    61: ['Иностранный язык', 9, 'Питеримова', 6, 3,   9, 0, 0.5, 0, 0, 1000],
+    61: ['Иностранный язык (гр)', 9, 'Питеримова', 6, 3,   9, 0, 0.5, 0, 0, 1000],
     62: ['Алгебра', 9, 'Тимирева', 5, 3,   7, 0, 0, 0, 0, 0],
     # 63: ['Алгебра', 9, 'Тимирева', 5, 1,   7, 0, 0, 0, 0, 0], #(гиа)
     64: ['Геометрия', 9, 'Тимирева', 5, 2,   8, 0, 0, 0, 0, 0],
-    65: ['Информатика', 9, 'Колодин', 7, 2,   7, 0, 0.5, 0, 0, 0],
+    65: ['Информатика (гр)', 9, 'Колодин', 7, 2,   7, 0, 0.5, 0, 0, 0],
     66: ['История', 9, 'Рыженкова', 16, 2,   10, 0, 0, 0, 0, 0],
     67: ['Обществознание', 9, 'Рыженкова', 16, 1,   8, 0, 0, 0, 0, 0],
     68: ['География', 9, 'Никифорова', 4, 2,   5, 0, 0, 0, 0, 0],
@@ -245,7 +245,7 @@ Subjects = {
     73: ['ИЗО', 9, 'Сизак', 17, 1,   2, 0, 0, 0, 0, 0],
     74: ['Физкультура', 9, 'Иванова', 18, 3,   2, 0, 0, 0, 0, 0],
     75: ['Технология', 9, 'Колесник', 15, 1,   4, 0, 0, 0, 0, 0],
-    76: ['ОБЖ', 9, 'Худякова', 7, 1,   3, 0, 0.5, 0, 0, 0],
+    76: ['ОБЖ (гр)', 9, 'Худякова', 7, 1,   3, 0, 0.5, 0, 0, 0],
 
     # естественно(1)-гуманитарный(2) профиль
     77: ['Физика', 10, 'Иголкина', 2, 2,   12, 0, 0, 0, 0, 0],
@@ -260,14 +260,14 @@ Subjects = {
     86: ['Алгебра', 10, 'Тимирева', 5, 2,   10, 0, 0, 0, 0, 0],
     87: ['Русский язык', 10, 'Петрова', 3, 1,    9, 0, 0, 0, 0, 0], #(егэ)
     88: ['Алгебра', 10, 'Тимирева', 5, 1,    10, 0, 0, 0, 0, 0], #(егэ)
-    89: ['Русский язык', 10, 'Петрова', 3, 3, 9, 0, 1, 0, 2, 0],
-    90: ['Биология', 10, 'Никифорова', 1, 3, 7, 0, 1, 0, 1, 0],
-    91: ['Биология', 10, 'Никифорова', 1, 1, 7, 0, 0.8, 0, 1, 0],  # (элективный)
-    92: ['Физика', 10, 'Иголкина', 2, 1, 12, 0, 0.8, 0, 1, 0], # (элективный курс)
+    89: ['Русский язык (пр)', 10, 'Петрова', 3, 3, 9, 0, 1, 0, 2, 0],
+    90: ['Биология (пр)', 10, 'Никифорова', 1, 3, 7, 0, 1, 0, 1, 0],
+    91: ['Биология (эл)', 10, 'Никифорова', 1, 1, 7, 0, 0.8, 0, 0, 0],  # (элективный)
+    92: ['Физика (эл)', 10, 'Иголкина', 2, 1, 12, 0, 0.8, 0, 0, 0], # (элективный курс)
     93: ['Информатика', 10, 'Колодин', 7, 1,   6, 0, 0, 0, 0, 0],
     94: ['География', 10, 'Иголкина', 4, 2,   3, 0, 0, 0, 0, 0], # (? или Никифорова)
 
-    # # социально(3)-математический(4) профиль
+    # социально(3)-математический(4) профиль
     95: ['Физика', 11, 'Иголкина', 2, 2,   12, 0, 0, 0, 0, 0],
     96: ['Русский язык', 11, 'Петрова', 3, 1,    9, 0, 0, 0, 0, 0],
     97: ['Литература', 11, 'Петрова', 3, 3,   8, 0, 0, 0, 0, 0],
@@ -278,16 +278,16 @@ Subjects = {
     101: ['Физкультура', 11, 'Иванова', 18, 3,   1, 0, 0, 0, 0, 0],
     102: ['ОБЖ', 11, 'Худякова', 7, 1,   2, 0, 0, 0, 0, 0],
 
-    103: ['Алгебра', 11, 'Тимирева', 5, 3,   10, 0, 1, 0, 4, 0],
-    104: ['Обществознание', 11, 'Рыженкова', 16, 3,   5, 0, 1, 0, 3, 0],
+    103: ['Алгебра (пр)', 11, 'Тимирева', 5, 3,   10, 0, 1, 0, 4, 0],
+    104: ['Обществознание (пр)', 11, 'Рыженкова', 16, 3,   5, 0, 1, 0, 3, 0],
     105: ['Информатика', 11, 'Колодин', 7, 1,   6, 0, 0, 0, 0, 0],
     106: ['Биология', 11, 'Никифорова', 1, 1,   7, 0, 0, 0, 0, 0],
 
     107: ['Русский язык', 11, 'Петрова', 3, 1,    9, 0, 0, 0, 0, 0], # (егэ)
     108: ['Алгебра', 11, 'Тимирева', 5, 1,    10, 0, 0, 0, 0, 0], # (егэ)
-    109: ['Русский язык', 11, 'Петрова', 3, 1,    9, 0, 0.8, 0, 0, 0], # (элективный)
-    110: ['Физика', 11, 'Иголкина', 2, 1,   12, 0, 0.8, 0, 0, 0], # (элективный курс)
-    111: ['Биология', 11, 'Никифорова', 1, 1,   7, 0, 0.8, 0, 0, 0], # (элективный курс)
+    109: ['Русский язык (эл)', 11, 'Петрова', 3, 1,    9, 0, 0.8, 0, 0, 0], # (элективный)
+    110: ['Физика (эл)', 11, 'Иголкина', 2, 1,   12, 0, 0.8, 0, 0, 0], # (элективный курс)
+    111: ['Биология (эл)', 11, 'Никифорова', 1, 1,   7, 0, 0.8, 0, 0, 0], # (элективный курс)
     112: ['Алгебра', 11, 'Тимирева', 5, 3,   10, 0, 0, 0, 0, 0]
 
 }
@@ -305,9 +305,7 @@ days = 5
 max_hour = 7  # по санпин
 hours_in_week = days*max_hour
 args = {}
-
-# это для того, чтоб после одной расстановки
-border = True
+not_distributed = {}
 
 def generate(request):
     args['c'] = list(Classes)
@@ -342,18 +340,22 @@ def generate(request):
     args["week_hour_audience"] = build_table_of_bans(Audiences, 'a', week_hour_audience)
 
     # это может быть пригодится для смены запрета последних уроков
-    print('Таблица классов')
+    print('Таблица занятости классов')
     for row in args["week_hour_class"]:
         for n, value in enumerate(row):
             if value == 0:
                 row[n] = 2
         print(row)
 
+    print('Таблица занятости учителей')
+    for row in args["week_hour_teacher"]:
+        print(row)
+
+    print('Таблица занятости аудиторий')
+    for row in args["week_hour_audience"]:
+        print(row)
 
     #===================================================================
-
-    # уменьшили часы, после частичной расстановки (у групповых предметов)
-    less_hours = False
 
     # сколько нагрузки уже расставлено
     load_placed = 0
@@ -361,7 +363,6 @@ def generate(request):
 
     # расстановка предметов в сетку расписания
     for s in range(len(Subjects)):
-
 
         # параметры для групповых и профильных занятий (гр/пр, гр - групповой, пр - профильный)
 
@@ -377,11 +378,8 @@ def generate(request):
         # индексы, которые требуется удалить, чтобы предмет мог стать только первым или последним уроком
         days_to_delete = []
 
-
         limit = 0
-
         params = Subjects[list(Subjects)[s]]
-
 
         # если урок нуждается в расстановке - вперед
         if params[8] != 100:
@@ -403,9 +401,9 @@ def generate(request):
                                                                                                                days_to_delete,
                                                                                                                load_is_equal)
             # запуск функции расстановки
-            less_hours = go(params_lenght, found_lessons, current_is_bigger, params,
+            go(params_lenght, found_lessons, current_is_bigger, params,
                single_lesson, week_hour_audience, week_hour_teacher,
-               week_hour_class, days_to_delete, H, s, load_is_equal, less_hours, limit, load_placed)
+               week_hour_class, days_to_delete, H, s, load_is_equal, limit, load_placed)
 
         print('Закончили расстановку предмета')
 
@@ -438,6 +436,9 @@ def generate(request):
     # for subject in Subjects.values():
     #     subject[8] = 0
 
+
+    print(not_distributed)
+
     return render_to_response("generate.html", args)
 
 # ======================================================
@@ -450,7 +451,7 @@ def distribute_the_load(params_lenght, single_lesson,
                         params,  week_hour_audience,
                         week_hour_teacher, week_hour_class,
                         found_lessons, days_to_delete, H, s,
-                        current_is_bigger, load_is_equal, less_hours, load_placed):
+                        current_is_bigger, load_is_equal, load_placed):
 
     print('load_placed', load_placed)
 
@@ -463,8 +464,7 @@ def distribute_the_load(params_lenght, single_lesson,
                                                                          found_lessons,
                                                                          current_is_bigger,
                                                                          single_lesson, days_to_delete,
-                                                                         H, s, load_is_equal,
-                                                                         less_hours, load_placed)
+                                                                         H, s, load_is_equal, load_placed)
 
     if free_index != None:
 
@@ -523,13 +523,13 @@ def distribute_the_load(params_lenght, single_lesson,
             # week_hour_teacher[index_teacher][hour_cell] = params[1]  #  это чтобы классы записывались в сетку, а не нули
 
         for index_audience in num_audience:
-            # print('num_dfdf', index_audience)
             week_hour_audience[index_audience][hour_cell] = 0
             # week_hour_audience[index_audience][hour_cell] = params[1]
 
         load_placed = load_placed + 1
         print('Столько нагрузки уже расставили -', load_placed)
     else:
+        not_distributed[s] = Subjects[list(Subjects)[s]]
         print('ЗАКОНЧИЛИ')
 
     return load_placed
@@ -632,7 +632,7 @@ def find_a_pair(params, found_lessons,  single_lesson, current_is_bigger, days_t
 
 # Поиск подходящих часов для расстановки предмета в соотвествие с занятостью учителей, классов и кабинетоа
 def find_free_indexes(params_lenght, params, week_hour_audience, week_hour_class, week_hour_teacher, found_lessons,
-                      current_is_bigger, single_lesson, days_to_delete, H, s, load_is_equal, less_hours, load_placed):
+                      current_is_bigger, single_lesson, days_to_delete, H, s, load_is_equal, load_placed):
     temp = []
     count_of_classes = 1
 
@@ -731,7 +731,7 @@ def find_free_indexes(params_lenght, params, week_hour_audience, week_hour_class
         free_index = place_with_new_ban(temp, params, week_hour_class,
                      params_lenght, found_lessons, current_is_bigger,
                      single_lesson, week_hour_audience, week_hour_teacher,
-                     days_to_delete, H, s, load_is_equal, less_hours, load_placed)
+                     days_to_delete, H, s, load_is_equal, load_placed)
     else:
         # индексы тех ячеек в сетке, куда можно ставить текущее занятие (получаем из результирующего вектора)
         free_index = []
@@ -747,7 +747,7 @@ def find_free_indexes(params_lenght, params, week_hour_audience, week_hour_class
 def place_with_new_ban(temp, params, week_hour_class,
                        params_lenght, found_lessons, current_is_bigger,
                        single_lesson, week_hour_audience, week_hour_teacher,
-                       days_to_delete, H, s, load_is_equal, less_hours, load_placed):
+                       days_to_delete, H, s, load_is_equal, load_placed):
 
     row_is_zero = False
 
@@ -773,44 +773,123 @@ def place_with_new_ban(temp, params, week_hour_class,
                 i = i+1
             print('indexes', indexes)
 
+            print('на что можно поменять', free_for_ban_hours_Classes[params[1]])
+            indexes_with_twos = []
+
+            for h in free_for_ban_hours_Classes[params[1]]:
+                for hour in range(len(temp[0])):
+                    if hour == h:
+                        print('h', h, 'hour', hour, 'temp[0][hour]', temp[0][hour])
+
+                        if temp[0][hour] == 0:
+                            free_for_ban_hours_Classes[params[1]].remove(h)
+                            print('Удалили', h)
+                    if temp[0][hour] == 2:
+                        indexes_with_twos.append(hour)
+
+            print('на что можно поменять', free_for_ban_hours_Classes[params[1]])
+
+            c = list(set(indexes) & set(free_for_ban_hours_Classes[params[1]]))
+            print('Пересечение:', c)
+
+            print('Было week_hour_class')
             for row in args["week_hour_class"]:
                 print(row)
 
-            # нахожу индекс, который надо поменять местами
-            for index in indexes:
-                if len(free_for_ban_hours_Classes[params[1]]):
-                    index_for_changing = choice(free_for_ban_hours_Classes[params[1]])
-                    print(index_for_changing)
+            further = changing_index_places(indexes, params, week_hour_class, further, load_placed, indexes_with_twos)
 
-                    # ищу индекс класса
-                    for i in range(len(free_for_ban_hours_Classes)):
-                        if list(free_for_ban_hours_Classes)[i] == params[1]:
-                            founded_index = i
-                            
-                    # и в таблице у этого класса меняю значения местами, где свободно, а где нет
-                    if week_hour_class[founded_index][index_for_changing] != 0:
-                        week_hour_class[founded_index][index_for_changing] = 2
-                        week_hour_class[founded_index][index] = 1
-                        free_for_ban_hours_Classes[params[1]].remove(index_for_changing)
-                    else:
-                        print("Там уже занято")
-                        further = False
-                        # если занято - рекурсия
-                        # здесь нужно проверить, только один ли возможный индекс для "смены"
-                        # если да, то придется делать выталкивание предмета
-
+            print('Стало week_hour_class')
             for row in args["week_hour_class"]:
                 print(row)
 
         # выталкивания пока нет, поэтому флаг
         if further:
-            limit = len(indexes)
-            go(params_lenght, found_lessons, current_is_bigger, params,
-               single_lesson, week_hour_audience, week_hour_teacher,
-               week_hour_class, days_to_delete, H, s, load_is_equal, less_hours, limit, load_placed)
+            limit = params[4]-load_placed
+            if limit > 3:
+                print('Столько раз доставить:', limit)
+                exit(0)
+            else:
+                go(params_lenght, found_lessons, current_is_bigger, params,
+                   single_lesson, week_hour_audience, week_hour_teacher,
+                   week_hour_class, days_to_delete, H, s, load_is_equal, limit, load_placed)
 
     free_index = None
     return free_index
+
+# меняем день запрета для конкретного индекса
+def changing_index_places(indexes, params, week_hour_class, further, load_placed, indexes_with_twos):
+
+    need_indexes = []
+    last_hours_of_day = [5,6,12,13,19,20,26,27,33,34]
+    cut_indexes = []
+
+    print('Столько индексов было', indexes)
+
+    for i in indexes:
+        if i in last_hours_of_day:
+            cut_indexes.append(i)
+
+    print('Индексы, которые приходятся на последние в день', cut_indexes)
+
+    inter_indexes = list(set(cut_indexes) & set(indexes_with_twos))
+
+    if inter_indexes != [] and len(inter_indexes) >= (params[4]-load_placed):
+        for_choice = inter_indexes
+    else:
+        # но вот тут еще подумать надо
+        for_choice = cut_indexes
+
+    for times in range(params[4]-load_placed):
+        i = choice(for_choice)
+        need_indexes.append(i)
+        for_choice.remove(i)
+    print('А столько индексов нам нужно', need_indexes)
+
+    if need_indexes != []:
+
+        # нахожу индекс, который надо поменять местами
+        for index in need_indexes:
+
+            if len(free_for_ban_hours_Classes[params[1]]) != 0:
+                index_for_changing = choice(free_for_ban_hours_Classes[params[1]])
+
+                # ищу индекс класса
+                for i in range(len(free_for_ban_hours_Classes)):
+                    if list(free_for_ban_hours_Classes)[i] == params[1]:
+                        founded_index = i
+
+                # и в таблице у этого класса меняю значения местами, где свободно, а где нет
+                if week_hour_class[founded_index][index_for_changing] != 0:
+                    week_hour_class[founded_index][index_for_changing] = 2
+                    week_hour_class[founded_index][index] = 1
+                    free_for_ban_hours_Classes[params[1]].remove(index_for_changing)
+                    free_for_ban_hours_Classes[params[1]].append(index) # ??? нужно ли так делать
+                    print('Поменяли')
+                else:
+                    print("Там уже занято")
+                    further = False
+                    # если занято - рекурсия
+                    # здесь нужно проверить, только один ли возможный индекс для "смены"
+                    # если да, то придется делать выталкивание предмета
+
+            # если ни на что поменять нельзя, тогда проверяем, где у класса свободные индексы
+            else:
+                # если менять не на что
+                day1 = []
+                day2 = []
+
+                print('Начался while')
+                while day1 == day2:
+                    added_hour = choice(indexes_with_twos)-1
+                    day1 = day_of_week(added_hour)
+                    day2 = day_of_week(index)
+                    print(day1, day2)
+
+                free_for_ban_hours_Classes[params[1]].append(added_hour)
+                print('Добавили в помощь', free_for_ban_hours_Classes[params[1]])
+                further = changing_index_places(indexes, params, week_hour_class, further, load_placed, indexes_with_twos)
+    return further
+
 
 # для добавления во временный массив
 def add_to_temp(temp, week_hour_item, params, n, num_item, i_number, items):
@@ -896,7 +975,7 @@ def remove_paired(free_index, num_class, H, s):
     return free_index
 #---------------------------------------------------------------
 # ставим пометку, о том, что урок расставлен или остались еще часы
-def mark_lesson(params_lenght, found_lessons, load_is_equal, current_is_bigger, params, less_hours):
+def mark_lesson(params_lenght, found_lessons, load_is_equal, current_is_bigger, params):
     print('Зашли в mark lesson')
     # если предмет в найденных только один
     if len(found_lessons) == params_lenght:
@@ -915,7 +994,6 @@ def mark_lesson(params_lenght, found_lessons, load_is_equal, current_is_bigger, 
             else:
                 # уменьшаем нагрузку найденного предмета, оставляя только не расставленные часы
                 found_lessons[4] = found_lessons[4]-params[4]
-                less_hours = True
     else:
 
         print('mark else')
@@ -931,8 +1009,6 @@ def mark_lesson(params_lenght, found_lessons, load_is_equal, current_is_bigger, 
                 else:
                     # уменьшаем нагрузку найденного предмета, оставляя только не расставленные часы
                     found_lessons[subject][4] = found_lessons[subject][4]-params[4]
-                    less_hours = True
-    return less_hours
 #-----------------------------------
 
 # запускает расстановку нагрузки со всеми предварительными действиями
@@ -946,9 +1022,9 @@ def go(params_lenght,
        week_hour_class,
        days_to_delete,
        H, s, load_is_equal,
-       less_hours, limit, load_placed):
+       limit, load_placed):
 
-    print('Запускается функция "go", limit =', limit)
+    print('Запускается функция "go", уже расставили', limit)
 
 
     # учет нагрузки (сколько уроков расставить)
@@ -977,15 +1053,14 @@ def go(params_lenght,
                             found_lessons,
                             days_to_delete,
                             H, s,
-                            current_is_bigger, load_is_equal, less_hours, load_placed)
+                            current_is_bigger, load_is_equal, load_placed)
 
-    less_hours = mark_lesson(params_lenght, found_lessons, load_is_equal, current_is_bigger, params, less_hours)
+    mark_lesson(params_lenght, found_lessons, load_is_equal, current_is_bigger, params)
     # запустить функцию, чтоб дорасставлялись остальные часы, оставшиеся у текущего урока
     if len(found_lessons) != 0:
         if current_is_bigger:
             print('Так как текущий урок имеет бОльшую нагрузку, ищем новый в пару')
             params[4] = params[4]-found_lessons[4]
-            less_hours = True
             single_lesson = True
             found_lessons = []
             if params[7] != 0:
@@ -997,13 +1072,11 @@ def go(params_lenght,
                                                                                                                load_is_equal)
 
             # если урок найденный уже расставлен, а урок текущий еще не до конца - дорасставляем оставшиеся часы
-            less_hours = go(params_lenght, found_lessons, current_is_bigger, params,
+            go(params_lenght, found_lessons, current_is_bigger, params,
                    single_lesson, week_hour_audience, week_hour_teacher,
-                   week_hour_class, days_to_delete, H, s, load_is_equal, less_hours, limit, load_placed)
+                   week_hour_class, days_to_delete, H, s, load_is_equal, limit, load_placed)
         else:
             Subjects[list(Subjects)[s]][8] = 100
-
-    return less_hours
 
 #-----------------------------------
 def day_of_week(hour):
@@ -1147,7 +1220,6 @@ def is_not_repeated_lessons(lesson):
         if subject[0] == lesson[0] and subject[2] != lesson[2] and subject[1] == lesson[1]:
             return False
     return True
-
 
 # построить таблицы запрещений (name - c, t, a - classes, teachers, audiences)
 def build_table_of_bans(Items, name, week_hour_item):
