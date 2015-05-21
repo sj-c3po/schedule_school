@@ -54,7 +54,7 @@ class Teacher(models.Model):
     last_name = models.CharField('Фамилия', max_length=50)
     first_name = models.CharField('Имя', max_length=50)
     middle_name = models.CharField('Отчество', max_length=50)
-    scope = models.ForeignKey('Scope', verbose_name='Сфера преподавания')
+    # scope = models.ForeignKey('Scope', verbose_name='Сфера преподавания')
     class_management = models.ForeignKey('School_class', null=True, blank=True, verbose_name='Классное руководство')
     teacher_cabinet = models.ForeignKey('Cabinet', null=True, blank=True,  verbose_name='Кабинет')    # кабинет либо есть, либо нет, учитель не бегает туда-сюда
     staff_type = models.ForeignKey('Staff_type', verbose_name='Тип сотрудника')
@@ -81,8 +81,8 @@ class SubjectTeacherRel(models.Model):
 class CommonRel(models.Model):
     class Meta():
         db_table = 'common_rel'
-        verbose_name = 'Класс-Предмет'
-        verbose_name_plural = 'Класс-Предмет'
+        verbose_name = 'Учебный план'
+        verbose_name_plural = 'Учебный план'
         ordering = ['sclass']
 
     sclass = models.ForeignKey(School_class, verbose_name='Класс')
