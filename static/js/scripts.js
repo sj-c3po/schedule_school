@@ -79,8 +79,27 @@ function prev_step(step) {
     }
 }
 
-function finish_step() {
-    alert('Молодец, иди гуляй')
+function prepare_for_generate() {
+//    alert('Молодец, иди гуляй')
+
+//    var data = $('.step2 table th').text();
+    var counter = 0;
+    var classes = [];
+//    console.log(data)
+
+    $($('.step2 table th')).each(function() {
+        counter++;
+        if (counter >= 3) {
+            console.log('Привет', counter)
+            console.log($(this).innerText);
+            $(classes).append($(this));
+        }
+    });
+
+    console.log(classes)
+
+
+
 }
 
 function add(data) {

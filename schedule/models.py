@@ -83,7 +83,7 @@ class CommonRel(models.Model):
         db_table = 'common_rel'
         verbose_name = 'Учебный план'
         verbose_name_plural = 'Учебный план'
-        ordering = ['sclass']
+        ordering = ['subject']
 
     sclass = models.ForeignKey(School_class, verbose_name='Класс')
     subject = models.ForeignKey(Subject, verbose_name='Предмет')

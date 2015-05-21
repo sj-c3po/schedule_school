@@ -7,7 +7,7 @@ class School_classAdmin(admin.ModelAdmin):
 
 
 class SubjectAdmin(admin.ModelAdmin):
-    list_display = ['subject_name']  # 'id',
+    list_display = ['id', 'subject_name']
 
 
 class TeacherAdmin(admin.ModelAdmin):
@@ -15,7 +15,7 @@ class TeacherAdmin(admin.ModelAdmin):
 
 
 class CommonRelAdmin(admin.ModelAdmin):
-    list_display = ['sclass', 'subject', 'cabinet', 'teacher', 'subject_max_load', 'difficulty_level'] #'id',
+    list_display = ['sclass', 'subject', 'subject_max_load', 'teacher', 'cabinet', 'difficulty_level'] #'id',
 
 
 class SubjectTeacherRelAdmin(admin.ModelAdmin):
