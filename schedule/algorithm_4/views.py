@@ -156,7 +156,6 @@ for s in Subjects_query:
     if s['division_class_id'] == 1:  # электив
         division = 0.8
     if s['division_class_id'] == 2:  # групповой
-        print('yes2')
         division = 0.5
     if s['division_class_id'] == 3:  # профиль
         division = 1
@@ -164,7 +163,7 @@ for s in Subjects_query:
 
 
     Subjects[s_id] = [subj, cl, t, aud, int(s['subject_max_load']), s['difficulty_level'], 0, division, 0, cprofile, 0]
-    print(Subjects[s_id])
+    # print(Subjects[s_id])
     s_id = s_id + 1
 
 # exit(0)
@@ -225,6 +224,9 @@ def generate(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
 
     # увеличивает исходную нагрузку групповых предметов в два раза
     distribute_double_load(Subjects)
+
+    for key, values in Subjects.items():
+        print(key, values)
 
     # рассчитывает реальную нагрузку для таблицы запрещений
     calculate_the_load(Subjects)
