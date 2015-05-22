@@ -3,7 +3,6 @@ from django.contrib import auth
 from django.http.response import HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from schedule.models import *
-# import numpy as np
 
 # Страница добавления
 def new(request):
@@ -14,7 +13,7 @@ def new(request):
         args['subjects'] = Subject.objects.all()
         args['common_rel'] = CommonRel.objects.all()
         args['teachers'] = Teacher.objects.all()
-        args['staff_types'] = Staff_type.objects.all()
+        # args['staff_types'] = Staff_type.objects.all()
         # args['class_counter'] = 0
         args['len_common_rel'] = len(args['common_rel'])
         obj_not_ex = False

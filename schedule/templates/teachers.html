@@ -9,7 +9,7 @@
             <th>Предмет(ы)</th>
             <th>Класс(ы)</th>
             <th>Пожелания по урокам</th>
-            <th>Совместительство</th>
+{#            <th>Совместительство</th>#}
 
             <th>Классное руководство</th>
             <th>Кабинет</th>
@@ -50,17 +50,17 @@
                      {% endif %}
                 {% endfor %}
             </td>
-            <td>
-                <select>
-                {% for type in staff_types %}
-                    {% if type.id == teacher.staff_type.id %}
-                        <option selected value="{{ type.id }}">{{ type }}</option>
-                    {% else %}
-                        <option value="{{ type.id }}">{{ type }}</option>
-                    {% endif %}
-                {% endfor %}
-                </select>
-            </td>
+{#            <td>#}
+{#                <select>#}
+{#                {% for type in staff_types %}#}
+{#                    {% if type.id == teacher.staff_type.id %}#}
+{#                        <option selected value="{{ type.id }}">{{ type }}</option>#}
+{#                    {% else %}#}
+{#                        <option value="{{ type.id }}">{{ type }}</option>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#                </select>#}
+{#            </td>#}
 
             <td>
                 {% if teacher.class_management != None %}

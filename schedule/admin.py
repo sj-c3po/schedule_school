@@ -15,7 +15,7 @@ class TeacherAdmin(admin.ModelAdmin):
 
 
 class CommonRelAdmin(admin.ModelAdmin):
-    list_display = ['sclass', 'subject', 'subject_max_load', 'teacher', 'cabinet', 'difficulty_level'] #'id',
+    list_display = ['sclass', 'subject', 'subject_max_load', 'teacher', 'cabinet', 'difficulty_level', 'division_class'] #'id',
 
 
 class SubjectTeacherRelAdmin(admin.ModelAdmin):
@@ -23,12 +23,12 @@ class SubjectTeacherRelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Cabinet)
-admin.site.register(Staff_type)
-admin.site.register(Scope)
+admin.site.register(Division)
+admin.site.register(Class_profiles)
 admin.site.register(School_class, School_classAdmin)
 admin.site.register(Subject, SubjectAdmin)
 admin.site.register(Teacher, TeacherAdmin)
-admin.site.register(SubjectTeacherRel, SubjectTeacherRelAdmin)
+# admin.site.register(SubjectTeacherRel, SubjectTeacherRelAdmin)
 admin.site.register(CommonRel, CommonRelAdmin)
 
 

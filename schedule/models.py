@@ -28,6 +28,7 @@ class Cabinet(models.Model):
         verbose_name_plural = 'Кабинеты'
 
     cabinet_number = models.CharField('Номер кабинета', max_length=10)  # char - а вдруг там буквы?
+    specific = models.BooleanField('Специфичный', default=False)
 
     def __str__(self):
         return self.cabinet_number
@@ -54,11 +55,9 @@ class Teacher(models.Model):
     last_name = models.CharField('Фамилия', max_length=50)
     first_name = models.CharField('Имя', max_length=50)
     middle_name = models.CharField('Отчество', max_length=50)
-    # scope = models.ForeignKey('Scope', verbose_name='Сфера преподавания')
     class_management = models.ForeignKey('School_class', null=True, blank=True, verbose_name='Классное руководство')
     teacher_cabinet = models.ForeignKey('Cabinet', null=True, blank=True,  verbose_name='Кабинет')    # кабинет либо есть, либо нет, учитель не бегает туда-сюда
-    staff_type = models.ForeignKey('Staff_type', verbose_name='Тип сотрудника')
-
+    staff_type = models.BooleanField('Совместитель', default=False)
 
     def __str__(self):
         return (self.last_name +' '+ self.first_name +' '+ self.middle_name)
@@ -77,13 +76,35 @@ class SubjectTeacherRel(models.Model):
     def __str__(self):
         return (self.subject)
 
+class Division(models.Model):
+    class Meta():
+        db_table = 'division'
+        verbose_name = 'Вид деления'
+        verbose_name_plural = 'Виды деления'
+
+    division = models.CharField(max_length=50)
+
+    def __str__(self):
+        return (self.division)
+
+
+class Class_profiles(models.Model):
+    class Meta():
+        # db_table = 'scope'
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'
+
+    profile = models.CharField(max_length=50)
+    def __str__(self):
+        return (self.profile)
+
 
 class CommonRel(models.Model):
     class Meta():
         db_table = 'common_rel'
         verbose_name = 'Учебный план'
         verbose_name_plural = 'Учебный план'
-        ordering = ['subject']
+        ordering = ['sclass']
 
     sclass = models.ForeignKey(School_class, verbose_name='Класс')
     subject = models.ForeignKey(Subject, verbose_name='Предмет')
@@ -92,21 +113,24 @@ class CommonRel(models.Model):
     subject_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету', null=True, blank=True,
                                            default=0)
     difficulty_level = models.IntegerField('Уровень сложности по СанПиН', default=1)
+    division_class = models.ForeignKey(Division, verbose_name='Деление на', default=1)
+    profile = models.ForeignKey(Class_profiles, verbose_name='Профиль', null=True, blank=True)
 
     def __str__(self):
         return (str(self.sclass.parallel)+self.sclass.letter)
 
-
 # вспомогательные
-class Staff_type(models.Model):
-    class Meta():
-        # db_table = 'staff_type'
-        verbose_name = 'Тип сотрудника'
-        verbose_name_plural = 'Типы сотрудников'
 
-    type = models.CharField(max_length=50)
-    def __str__(self):
-        return (self.type)
+
+# class Staff_type(models.Model):
+#     class Meta():
+#         # db_table = 'staff_type'
+#         verbose_name = 'Тип сотрудника'
+#         verbose_name_plural = 'Типы сотрудников'
+#
+#     type = models.CharField(max_length=50)
+#     def __str__(self):
+#         return (self.type)
 
 class Scope(models.Model):
     class Meta():
@@ -117,6 +141,10 @@ class Scope(models.Model):
     scope = models.CharField(max_length=50)
     def __str__(self):
         return (self.scope)
+
+
+
+
 
 
 # Возможно, стоит добавить год обучения в таблицу общих связей - 2014-2015 например. Вдруг данные разных лет отличаются
