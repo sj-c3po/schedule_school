@@ -41,16 +41,16 @@ def set_weight_and_sort(Subjects):
                         subject[10] = subject[10]*2
 
                 # если это 5, 9 и 11 класс, умножь на 5, если 6 - на 4, если 10 - на 3, если 7, 8 - на 2
+                if subject[1] == 11:
+                    subject[10] = subject[10]*10
+                if subject[1] == 10:
+                    subject[10] = subject[10]*9
+                if subject[1] == 9:
+                    subject[10] = subject[10]*8
                 if subject[1] == 5:
                     subject[10] = subject[10]*7
-                if subject[1] == 11:
-                    subject[10] = subject[10]*6
-                if subject[1] == 9:
-                    subject[10] = subject[10]*5
                 if subject[1] == 6:
                     subject[10] = subject[10]*4
-                if subject[1] == 10:
-                    subject[10] = subject[10]*3
                 if subject[1] == 7:
                     subject[10] = subject[10]*2
                 if subject[1] == 8:
@@ -398,7 +398,7 @@ def distribute_the_load(params_lenght, single_lesson,
 
     if not go_is_finished:
 
-        free_index, num_class, num_audience, num_teacher, go_is_finished = find_free_indexes(params_lenght,
+        free_index, num_class, num_audience, num_teacher, go_is_finished, temp = find_free_indexes(params_lenght,
                                                                              params,
                                                                              week_hour_audience,
                                                                              week_hour_class,
@@ -421,6 +421,8 @@ def distribute_the_load(params_lenght, single_lesson,
             # удаляем все дни, кроме первого и последнего урока (для уроков без пары, если это групповой или профильный предмет)
             if single_lesson:
 
+                copy_free = copy.deepcopy(free_index)
+
                 if params[7] == 0.8:
                     print(free_index)
 
@@ -431,6 +433,8 @@ def distribute_the_load(params_lenght, single_lesson,
                 print(free_index)
 
                 if params[7] == 0.8 and free_index == []:
+                    free_index = find_index_for_last_subject(temp, copy_free)
+
                     print('Опять косяк с элективом')
                     exit(0)
 
@@ -494,6 +498,17 @@ def distribute_the_load(params_lenght, single_lesson,
 
     return load_placed
 #---------------------------------------------------------------
+def find_index_for_last_subject(temp, copy_free):
+
+    before_twos = []
+
+    for key, value in temp[0]:
+        print(key, value)
+        if value == 2 and temp[0][key-1] == 1:
+                before_twos.append(key-1)
+
+    print('before_twos', before_twos)
+
 
 # выбираем и проверяем новую комбинацию индексов
 def pick_new_used_indexes(branches, of, record):
@@ -709,7 +724,7 @@ def find_free_indexes(params_lenght, params, week_hour_audience, week_hour_class
             if r[j] == 1:
                 free_index.append(j)
 
-    return free_index, num_class, num_audience, num_teacher, go_is_finished
+    return free_index, num_class, num_audience, num_teacher, go_is_finished, temp
 #---------------------------------------------------------------
 
 # доставляем нагрузку, меняя местами запрещенный час с другим
