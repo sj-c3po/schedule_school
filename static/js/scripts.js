@@ -117,35 +117,57 @@ function add(data) {
 }
 
 function create_modalwin(ban_hours) {
+    console.log(ban_hours)
+
     var table =  "<tr><th>День недели</th><th colspan='7'>Номер урока</th></tr>";
     table += "<tr class='mon'>";
     table += "<td class='allday green' onclick='change_the_state(this);'>Понедельник</td>";
     for (var l=1; l<8; l++) {
-        table += "<td class='hour-"+l+" green' data-index="+(l-1)+" onclick='change_the_state(this);'>"+l+"</td>";
+        if (ban_hours.indexOf(l-1) != -1) {
+            table += "<td class='hour-"+l+" red' data-index="+(l-1)+" onclick='change_the_state(this);'>"+l+"</td>";
+        } else {
+            table += "<td class='hour-"+l+" green' data-index="+(l-1)+" onclick='change_the_state(this);'>"+l+"</td>";
+        }
     }
     table += "</tr>";
     table += "<tr class='tue'>";
     table += "<td class='allday green' onclick='change_the_state(this);'>Вторник</td>";
     for (var l=1; l<8; l++) {
-        table += "<td class='hour-"+l+" green' data-index="+(l+6)+" onclick='change_the_state(this);'>"+l+"</td>";
+        if (ban_hours.indexOf(l+6) != -1) {
+            table += "<td class='hour-"+l+" red' data-index="+(l+6)+" onclick='change_the_state(this);'>"+l+"</td>";
+        } else {
+            table += "<td class='hour-"+l+" green' data-index="+(l+6)+" onclick='change_the_state(this);'>"+l+"</td>";
+        }
     }
     table += "</tr>";
     table += "<tr class='wed'>";
     table += "<td class='allday green' onclick='change_the_state(this);'>Среда</td>";
     for (var l=1; l<8; l++) {
-        table += "<td class='hour-"+l+" green' data-index="+(l+13)+" onclick='change_the_state(this);'>"+l+"</td>";
+        if (ban_hours.indexOf(l+13) != -1) {
+            table += "<td class='hour-"+l+" red' data-index="+(l+13)+" onclick='change_the_state(this);'>"+l+"</td>";
+        } else {
+            table += "<td class='hour-"+l+" green' data-index="+(l+13)+" onclick='change_the_state(this);'>"+l+"</td>";
+        }
     }
     table += "</tr>";
     table += "<tr class='thu'>";
     table += "<td class='allday green' onclick='change_the_state(this);'>Четверг</td>/";
     for (var l=1; l<8; l++) {
-        table += "<td class='hour-"+l+" green' data-index="+(l+20)+" onclick='change_the_state(this);'>"+l+"</td>";
+        if (ban_hours.indexOf(l+20) != -1) {
+            table += "<td class='hour-"+l+" red' data-index="+(l+20)+" onclick='change_the_state(this);'>"+l+"</td>";
+        } else {
+            table += "<td class='hour-"+l+" green' data-index="+(l+20)+" onclick='change_the_state(this);'>"+l+"</td>";
+        }
     }
     table += "</tr>";
     table +=  "<tr class='fri'>";
     table += "<td class='allday green' onclick='change_the_state(this);'>Пятница</td>";
     for (var l=1; l<8; l++) {
-        table += "<td class='hour-"+l+" green' data-index="+(l+27)+" onclick='change_the_state(this);'>"+l+"</td>";
+        if (ban_hours.indexOf(l+27) != -1) {
+            table += "<td class='hour-"+l+" red' data-index="+(l+27)+" onclick='change_the_state(this);'>"+l+"</td>";
+        } else {
+            table += "<td class='hour-"+l+" green' data-index="+(l+27)+" onclick='change_the_state(this);'>"+l+"</td>";
+        }
     }
     table += "</tr>";
     $('#wishes table.wishes > tbody').html(table)
@@ -280,15 +302,7 @@ function save_change_the_state() {
     var red = $('td.red');
     $.each(red, function(key, val) {
         if (!$(val).hasClass('allday') && $(val).parent().children().first().hasClass('green')) {
-            var index = parseInt($(val).attr('data-index'));
-
-            switch ($(val).parent().attr('class')) {
-                case 'mon': ban.push(index);break;
-                case 'tue': ban.push(index);break;
-                case 'wed': ban.push(index);break;
-                case 'thu': ban.push(index);break;
-                case 'fri': ban.push(index);break;
-            }
+            ban.push(parseInt($(val).attr('data-index')));
         }
     });
     console.log(ban);
