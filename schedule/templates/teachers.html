@@ -46,7 +46,7 @@
                     {% endif %}
                 {% endfor %}
             </td>
-            <td>
+            <td data-ban-hours={{ teacher.ban_hours }}>
                 <button class="wishes" onclick="add(this);">Добавить</button>
             </td>
 {#            <td>#}
@@ -69,7 +69,6 @@
 {#                {% endif %}#}
 {#            </td>#}
             <td>{{ teacher.teacher_cabinet.cabinet_number }}</td>
-
 
         </tr>
         {% endfor %}

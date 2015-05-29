@@ -84,66 +84,50 @@
         Красным цветом отображается невозможность проведения занятия в выбранный час или день.
         <br>
         <br>
+        <span id="here"></span>
 
         <table class="wishes" cellspacing="0">
-            <tr>
-                <th>День недели</th>
-                <th colspan="7">Номер урока</th>
-            </tr>
-            <tr class="mon">
-                <td class="allday green" onclick="change_the_state(this);">Понедельник</td>
-                <td class="hour-1 green" onclick="change_the_state(this);">1</td>
-                <td class="hour-2 green" onclick="change_the_state(this);">2</td>
-                <td class="hour-3 green" onclick="change_the_state(this);">3</td>
-                <td class="hour-4 green" onclick="change_the_state(this);">4</td>
-                <td class="hour-5 green" onclick="change_the_state(this);">5</td>
-                <td class="hour-6 green" onclick="change_the_state(this);">6</td>
-                <td class="hour-7 green" onclick="change_the_state(this);">7</td>
-            </tr>
-            <tr class="tue">
-                <td class="allday green">Вторник</td>
-                <td class="hour-1 green">1</td>
-                <td class="hour-2 green">2</td>
-                <td class="hour-3 green">3</td>
-                <td class="hour-4 green">4</td>
-                <td class="hour-5 green">5</td>
-                <td class="hour-6 green">6</td>
-                <td class="hour-7 green">7</td>
-            </tr>
-            <tr class="wed">
-                <td class="allday green">Среда</td>
-                <td class="hour-1 green">1</td>
-                <td class="hour-2 green">2</td>
-                <td class="hour-3 green">3</td>
-                <td class="hour-4 green">4</td>
-                <td class="hour-5 green">5</td>
-                <td class="hour-6 green">6</td>
-                <td class="hour-7 green">7</td>
-            </tr>
-            <tr class="thu">
-                <td class="allday green">Четверг</td>
-                <td class="hour-1 green">1</td>
-                <td class="hour-2 green">2</td>
-                <td class="hour-3 green">3</td>
-                <td class="hour-4 green">4</td>
-                <td class="hour-5 green">5</td>
-                <td class="hour-6 green">6</td>
-                <td class="hour-7 green">7</td>
-            </tr>
-            <tr class="fri">
-                <td class="allday green">Пятница</td>
-                <td class="hour-1 green">1</td>
-                <td class="hour-2 green">2</td>
-                <td class="hour-3 green">3</td>
-                <td class="hour-4 green">4</td>
-                <td class="hour-5 green">5</td>
-                <td class="hour-6 green">6</td>
-                <td class="hour-7 green">7</td>
-            </tr>
-
+            <tr><td></td></tr>
+{#            <tr>#}
+{#                <th>День недели</th>#}
+{#                <th colspan="7">Номер урока</th>#}
+{#            </tr>#}
+{#            <tr class="mon">#}
+{#                <td class="allday green" onclick="change_the_state(this);">Понедельник</td>#}
+{#                {% for l in lessons_in_day %}#}
+{#                    <td class="hour-{{ l }} green" data-index="{{ l }}" onclick="change_the_state(this);">{{ l }}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            <tr class="tue">#}
+{#                <td class="allday green" onclick="change_the_state(this);">Вторник</td>#}
+{#                {% for l in lessons_in_day %}#}
+{#                    <td class="hour-{{ l }} green" data-index="{{ l }}" onclick="change_the_state(this);">{{ l }}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            <tr class="wed">#}
+{#                <td class="allday green" onclick="change_the_state(this);">Среда</td>#}
+{#                {% for l in lessons_in_day %}#}
+{#                    <td class="hour-{{ l }} green" data-index="{{ l }}" onclick="change_the_state(this);">{{ l }}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            <tr class="thu">#}
+{#                <td class="allday green" onclick="change_the_state(this);">Четверг</td>#}
+{#                {% for l in lessons_in_day %}#}
+{#                    <td class="hour-{{ l }} green" data-index="{{ l }}" onclick="change_the_state(this);">{{ l }}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            <tr class="fri">#}
+{#                <td class="allday green" onclick="change_the_state(this);">Пятница</td>#}
+{#                {% for l in lessons_in_day %}#}
+{#                    <td class="hour-{{ l }} green" data-index="{{ l }}" onclick="change_the_state(this);">{{ l }}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
         </table>
         <br><br>
-        <a href="javascript:void(0)" class="save_changes" style="background: green">Сохранить изменения</a>
+
+        <a href="javascript:void(0)" class="save_changes" style="background: green" onclick="save_change_the_state()">
+            Сохранить изменения
+        </a>
     </div>
 
 

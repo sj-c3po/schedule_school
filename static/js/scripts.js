@@ -99,7 +99,6 @@ function prepare_for_generate() {
     console.log(classes)
 
 
-
 }
 
 function add(data) {
@@ -110,9 +109,52 @@ function add(data) {
         open_modal('modal_add_teacher');
     }
     if ($(data).hasClass('wishes')) {
+        var ban_hours = $(data).parent().attr('data-ban-hours');
+        console.log(ban_hours)
         open_modal('wishes');
+        create_modalwin(ban_hours)
     }
 }
+
+function create_modalwin(ban_hours) {
+    var table =  "<tr><th>День недели</th><th colspan='7'>Номер урока</th></tr>";
+    table += "<tr class='mon'>";
+    table += "<td class='allday green' onclick='change_the_state(this);'>Понедельник</td>";
+    for (var l=1; l<8; l++) {
+        table += "<td class='hour-"+l+" green' data-index="+(l-1)+" onclick='change_the_state(this);'>"+l+"</td>";
+    }
+    table += "</tr>";
+    table += "<tr class='tue'>";
+    table += "<td class='allday green' onclick='change_the_state(this);'>Вторник</td>";
+    for (var l=1; l<8; l++) {
+        table += "<td class='hour-"+l+" green' data-index="+(l+6)+" onclick='change_the_state(this);'>"+l+"</td>";
+    }
+    table += "</tr>";
+    table += "<tr class='wed'>";
+    table += "<td class='allday green' onclick='change_the_state(this);'>Среда</td>";
+    for (var l=1; l<8; l++) {
+        table += "<td class='hour-"+l+" green' data-index="+(l+13)+" onclick='change_the_state(this);'>"+l+"</td>";
+    }
+    table += "</tr>";
+    table += "<tr class='thu'>";
+    table += "<td class='allday green' onclick='change_the_state(this);'>Четверг</td>/";
+    for (var l=1; l<8; l++) {
+        table += "<td class='hour-"+l+" green' data-index="+(l+20)+" onclick='change_the_state(this);'>"+l+"</td>";
+    }
+    table += "</tr>";
+    table +=  "<tr class='fri'>";
+    table += "<td class='allday green' onclick='change_the_state(this);'>Пятница</td>";
+    for (var l=1; l<8; l++) {
+        table += "<td class='hour-"+l+" green' data-index="+(l+27)+" onclick='change_the_state(this);'>"+l+"</td>";
+    }
+    table += "</tr>";
+    $('#wishes table.wishes > tbody').html(table)
+
+
+
+
+}
+
 function del(data) {
 
     var delete_id = [];
@@ -221,5 +263,41 @@ function change_the_state(item) {
                 }
             }
         });
+    }
+}
+
+function save_change_the_state() {
+    var ban = [];
+    var mon = 0, tue = 7, wed = 14, thu = 21, fri = 28;
+
+    add_to_ban_hours(ban, 0, 'mon');
+    add_to_ban_hours(ban, 7, 'tue');
+    add_to_ban_hours(ban, 14, 'wed');
+    add_to_ban_hours(ban, 21, 'thu');
+    add_to_ban_hours(ban, 28, 'fri');
+    console.log(ban);
+
+    var red = $('td.red');
+    $.each(red, function(key, val) {
+        if (!$(val).hasClass('allday') && $(val).parent().children().first().hasClass('green')) {
+            var index = parseInt($(val).attr('data-index'));
+
+            switch ($(val).parent().attr('class')) {
+                case 'mon': ban.push(index);break;
+                case 'tue': ban.push(index);break;
+                case 'wed': ban.push(index);break;
+                case 'thu': ban.push(index);break;
+                case 'fri': ban.push(index);break;
+            }
+        }
+    });
+    console.log(ban);
+}
+
+function add_to_ban_hours(ban, num, selector) {
+    if ($('.wishes tr.'+selector+' .allday').hasClass('red')) {
+        for (var h=0; h<7; h++) {
+            ban.push(h+num)
+        }
     }
 }
