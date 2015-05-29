@@ -109,6 +109,9 @@ function add(data) {
     if ($(data).hasClass('add_teacher')) {
         open_modal('modal_add_teacher');
     }
+    if ($(data).hasClass('wishes')) {
+        open_modal('wishes');
+    }
 }
 function del(data) {
 
@@ -189,4 +192,34 @@ function add_subj(window) {
     ).fail(function() {
         alert( "Косяк :с" )
     });
+}
+
+
+function change_the_state(item) {
+    var color = '';
+    if ($(item).hasClass('green')) {
+        $(item).removeClass('green');
+        $(item).addClass('red');
+        color = 'red';
+    } else {
+        $(item).removeClass('red');
+        $(item).addClass('green');
+        color = 'green'
+    }
+
+    if ($(item).hasClass('allday')) {
+        var hours = $(item).parent().children();
+
+        $.each(hours, function(key, val) {
+            if (!$(val).hasClass('allday')) {
+                if (color == 'red') {
+                    $(val).removeClass('green');
+                    $(val).addClass('red');
+                } else {
+                    $(val).removeClass('red');
+                    $(val).addClass('green');
+                }
+            }
+        });
+    }
 }

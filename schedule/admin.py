@@ -11,7 +11,7 @@ class SubjectAdmin(admin.ModelAdmin):
 
 
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ['id', 'last_name', 'first_name', 'middle_name', 'class_management', 'teacher_cabinet', 'staff_type'] # 'scope',
+    list_display = ['id', 'last_name', 'first_name', 'middle_name', 'class_management', 'teacher_cabinet', 'staff_type', 'ban_hours'] # 'scope',
 
 
 class CommonRelAdmin(admin.ModelAdmin):

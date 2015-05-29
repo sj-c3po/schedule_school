@@ -398,7 +398,9 @@ table th {
         cursor:default;
     }
 
-    tr:hover td{
+    .step1 tr:hover td,
+    .step2 tr:hover td,
+    .step3 tr:hover td{
         background: #d2d9e6;
     }
 
@@ -450,7 +452,8 @@ table th {
 /*modal win*/
 #modal_add_subject,
 #modal_add_cabinet,
-#modal_add_teacher{
+#modal_add_teacher,
+#wishes {
 	width: 500px;
 	min-height: 300px;
 	border-radius: 5px;
@@ -469,7 +472,8 @@ table th {
 
 #modal_add_subject #modal_close,
 #modal_add_cabinet #modal_close,
-#modal_add_teacher #modal_close {
+#modal_add_teacher #modal_close,
+#wishes #modal_close{
 	width: 21px;
 	height: 21px;
 	position: absolute;
@@ -528,3 +532,29 @@ table th {
 	display: none; /* в обычном состоянии её нет) */
 }
 /*end modal win*/
+
+/*modal teachers wishes */
+
+.wishes {
+    border:1px solid;
+}
+.wishes td {
+    border: 1px solid;
+    }
+.wishes td.green {
+    background-color: lightgreen;
+    }
+.wishes td.red {
+    background-color: lightcoral;
+    }
+.wishes tr:hover td{
+    cursor: pointer;
+}
+
+.wishes td:active {
+    background-color: #d3d8eb;
+    cursor: pointer;
+}
+
+
+/*end modal teachers wishes */

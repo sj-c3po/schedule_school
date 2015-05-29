@@ -17,17 +17,17 @@
 
         <div class="actions">
             <section class="desc1">
-                <a class="save_changes" href="javascript:void(0)" onclick="save_changes();">Сохранить</a>
+                <a class="save_changes" href="javascript:void(0)" onclick="save_changes();">Сохранить<br>изменения</a>
             </section>
             <section class="desc2">
-                <a class="save_changes" href="javascript:void(0)" onclick="save_changes();">Сохранить</a>
-                <a class="add_subject" href="javascript:void(0)" onclick="add(this);">Добавить предмет</a>
-                <a class="del_subject" href="javascript:void(0)" onclick="del(this);">Удалить предмет</a>
+                <a class="save_changes" href="javascript:void(0)" onclick="save_changes();">Сохранить<br>изменения</a>
+{#                <a class="add_subject" href="javascript:void(0)" onclick="add(this);">Добавить предмет</a>#}
+{#                <a class="del_subject" href="javascript:void(0)" onclick="del(this);">Удалить предмет</a>#}
             </section>
             <section class="desc3">
-                <a class="save_changes" href="javascript:void(0)" onclick="save_changes();">Сохранить</a>
+                <a class="save_changes" href="javascript:void(0)" onclick="save_changes();">Сохранить<br>изменения</a>
                 <a class="add_teacher" href="javascript:void(0)" onclick="add(this);">Добавить учителя</a>
-                <a class="del_teacher" href="javascript:void(0)" onclick="del(this);">Удалить учителя</a>
+{#                <a class="del_teacher" href="javascript:void(0)" onclick="del(this);">Удалить учителя</a>#}
             </section>
         </div>
 
@@ -72,14 +72,80 @@
     </div>
 
 
-
-
     <div id="modal_add_teacher">
          <span id="modal_close" onclick="close_modal(this);">X</span>
-
     </div>
 
+    <div id="wishes">
+        <span id="modal_close" onclick="close_modal(this);">X</span>
+
+        Вы можете выбрать целый нерабочий день, нажатием на ячейку соотвествующего дня недели, либо конкретный урок<br>
+        По умолчанию все дни - свободные, выделены зеленым. <br>
+        Красным цветом отображается невозможность проведения занятия в выбранный час или день.
+        <br>
+        <br>
+
+        <table class="wishes" cellspacing="0">
+            <tr>
+                <th>День недели</th>
+                <th colspan="7">Номер урока</th>
+            </tr>
+            <tr class="mon">
+                <td class="allday green" onclick="change_the_state(this);">Понедельник</td>
+                <td class="hour-1 green" onclick="change_the_state(this);">1</td>
+                <td class="hour-2 green" onclick="change_the_state(this);">2</td>
+                <td class="hour-3 green" onclick="change_the_state(this);">3</td>
+                <td class="hour-4 green" onclick="change_the_state(this);">4</td>
+                <td class="hour-5 green" onclick="change_the_state(this);">5</td>
+                <td class="hour-6 green" onclick="change_the_state(this);">6</td>
+                <td class="hour-7 green" onclick="change_the_state(this);">7</td>
+            </tr>
+            <tr class="tue">
+                <td class="allday green">Вторник</td>
+                <td class="hour-1 green">1</td>
+                <td class="hour-2 green">2</td>
+                <td class="hour-3 green">3</td>
+                <td class="hour-4 green">4</td>
+                <td class="hour-5 green">5</td>
+                <td class="hour-6 green">6</td>
+                <td class="hour-7 green">7</td>
+            </tr>
+            <tr class="wed">
+                <td class="allday green">Среда</td>
+                <td class="hour-1 green">1</td>
+                <td class="hour-2 green">2</td>
+                <td class="hour-3 green">3</td>
+                <td class="hour-4 green">4</td>
+                <td class="hour-5 green">5</td>
+                <td class="hour-6 green">6</td>
+                <td class="hour-7 green">7</td>
+            </tr>
+            <tr class="thu">
+                <td class="allday green">Четверг</td>
+                <td class="hour-1 green">1</td>
+                <td class="hour-2 green">2</td>
+                <td class="hour-3 green">3</td>
+                <td class="hour-4 green">4</td>
+                <td class="hour-5 green">5</td>
+                <td class="hour-6 green">6</td>
+                <td class="hour-7 green">7</td>
+            </tr>
+            <tr class="fri">
+                <td class="allday green">Пятница</td>
+                <td class="hour-1 green">1</td>
+                <td class="hour-2 green">2</td>
+                <td class="hour-3 green">3</td>
+                <td class="hour-4 green">4</td>
+                <td class="hour-5 green">5</td>
+                <td class="hour-6 green">6</td>
+                <td class="hour-7 green">7</td>
+            </tr>
+
+        </table>
+        <br><br>
+        <a href="javascript:void(0)" class="save_changes" style="background: green">Сохранить изменения</a>
+    </div>
+
+
     <div id="overlay"></div>
-
-
 {% endblock %}

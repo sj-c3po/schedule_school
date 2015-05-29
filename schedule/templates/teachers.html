@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <section class="step3">
     <table cellspacing="0">
         <tr>
@@ -5,22 +7,30 @@
             <th>Фамилия</th>
             <th>Имя </th>
             <th>Отчество</th>
-
+            <th>Совместительство</th>
             <th>Предмет(ы)</th>
             <th>Класс(ы)</th>
             <th>Пожелания по урокам</th>
 {#            <th>Совместительство</th>#}
-
-            <th>Классное руководство</th>
+{#            <th>Классное руководство</th>#}
             <th>Кабинет</th>
-
         </tr>
+
         {% for teacher in teachers %}
         <tr>
             <td><input type="checkbox"/></td>
             <td> {{ teacher.last_name }}</td>
             <td>{{ teacher.first_name }}</td>
             <td>{{ teacher.middle_name }}</td>
+            <td>
+                {% if teacher.staff_type == True %}
+                    Да
+{#                    <img src="{% static "/img/yes.png" %}"#}
+                {% else %}
+                    Нет
+{#                    <img src="{% static "/img/no.png" %}"#}
+                {% endif %}
+            </td>
 
             <td>
                 {% for com in common_rel %}
@@ -37,18 +47,7 @@
                 {% endfor %}
             </td>
             <td>
-                {% for com in common_rel %}
-                    {% if com.teacher.id == teacher.id %}
-                    <select>
-                        <option>Нет</option>
-                        <option>Первым уроком</option>
-                        <option>Не первым уроком</option>
-                        <option>Последним уроком</option>
-                        <option>Не последним уроком</option>
-                        <option>Спаренные</option>
-                    </select>
-                     {% endif %}
-                {% endfor %}
+                <button class="wishes" onclick="add(this);">Добавить</button>
             </td>
 {#            <td>#}
 {#                <select>#}
@@ -62,13 +61,13 @@
 {#                </select>#}
 {#            </td>#}
 
-            <td>
-                {% if teacher.class_management != None %}
-                    {{ teacher.class_management }}
-                {% else %}
-                    -
-                {% endif %}
-            </td>
+{#            <td>#}
+{#                {% if teacher.class_management != None %}#}
+{#                    {{ teacher.class_management }}#}
+{#                {% else %}#}
+{#                    -#}
+{#                {% endif %}#}
+{#            </td>#}
             <td>{{ teacher.teacher_cabinet.cabinet_number }}</td>
 
 
@@ -81,4 +80,5 @@
         <a class="step_button next" href="generate" onclick="prepare_for_generate();">Готово</a>  <!--href на generate-->
     </div>
 </section>
+
 

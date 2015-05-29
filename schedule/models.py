@@ -58,6 +58,7 @@ class Teacher(models.Model):
     class_management = models.ForeignKey('School_class', null=True, blank=True, verbose_name='Классное руководство')
     teacher_cabinet = models.ForeignKey('Cabinet', null=True, blank=True,  verbose_name='Кабинет')    # кабинет либо есть, либо нет, учитель не бегает туда-сюда
     staff_type = models.BooleanField('Совместитель', default=False)
+    ban_hours = models.CommaSeparatedIntegerField('Нерабочие часы', max_length=35, null=True, blank=True)
 
     def __str__(self):
         return (self.last_name +' '+ self.first_name +' '+ self.middle_name)

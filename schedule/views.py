@@ -16,6 +16,7 @@ def new(request):
         # args['staff_types'] = Staff_type.objects.all()
         # args['class_counter'] = 0
         args['len_common_rel'] = len(args['common_rel'])
+        args['lessons_in_day'] = [1,2,3,4,5,6,7]
         obj_not_ex = False
 
         if request.method == "POST":
