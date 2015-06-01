@@ -120,7 +120,7 @@ function add(data) {
 function create_modalwin(ban_hourss, teacher_name, teacher_id) {
     var ban_hours = []
 
-    // без этого фигла с commaseparated полем
+    // без этого фигня с commaseparated полем
     $(ban_hourss.split(',')).each(function (b) {
         ban_hours.push(parseInt(ban_hourss.split(',')[b]))
     });
@@ -334,10 +334,11 @@ function save_change_the_state(data) {
                 'id': $(data).attr('data-teacher-id')
             },
             function() {
-                alert('Дни отправлены')
+                alert('Дни отправлены');
+                location.reload();
             }
         ).fail(function() {
-                alert( "Возникла ошибка :(" )
+                alert( "Возникла ошибка :(" );
 //                location.reload();
             });
 

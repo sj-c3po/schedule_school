@@ -92,16 +92,15 @@ def save_ban_days(request):
 
             teacher.ban_hours = ''
             k = 1
-            for value in int_ban_days:
-                # print(value)
-                if k != len(int_ban_days):
-                    teacher.ban_hours = teacher.ban_hours + str(value) +','
-                else:
-                    teacher.ban_hours = teacher.ban_hours + str(value)
-                k = k+1
-
-            # teacher.ban_hours = ban_days_to_int
-            # print(teacher.ban_hours)
+            if len(int_ban_days) != 0:
+                for value in int_ban_days:
+                    if k != len(int_ban_days):
+                        teacher.ban_hours = teacher.ban_hours + str(value) +','
+                    else:
+                        teacher.ban_hours = teacher.ban_hours + str(value)
+                    k = k+1
+            else:
+                teacher.ban_hours = None
             teacher.save()
 
             return render_to_response('new.html', args)
