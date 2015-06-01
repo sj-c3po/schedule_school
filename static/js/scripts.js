@@ -110,14 +110,18 @@ function add(data) {
     }
     if ($(data).hasClass('wishes')) {
         var ban_hours = $(data).parent().attr('data-ban-hours');
-        console.log(ban_hours)
+        var teacher_name = $(data).parent().attr('data-teacher-lastname') + ' ' +
+                           $(data).parent().attr('data-teacher-firstname') + ' ' +
+                           $(data).parent().attr('data-teacher-middlename');
         open_modal('wishes');
-        create_modalwin(ban_hours)
+        create_modalwin(ban_hours, teacher_name)
     }
 }
 
-function create_modalwin(ban_hours) {
+function create_modalwin(ban_hours, teacher_name) {
     console.log(ban_hours)
+
+    $('#wishes b').html(teacher_name)
 
     var table =  "<tr><th>День недели</th><th colspan='7'>Номер урока</th></tr>";
     table += "<tr class='mon'>";
@@ -170,11 +174,24 @@ function create_modalwin(ban_hours) {
         }
     }
     table += "</tr>";
-    $('#wishes table.wishes > tbody').html(table)
+    $('#wishes table.wishes > tbody').html(table);
 
-
-
-
+    var week = ['.mon ', '.tue ', '.wed ', '.thu ', '.fri '];
+    $(week).each(function(day){
+        console.log('-------');
+        var cnt = 0;
+        for (var l=1; l<8; l++) {
+            if ($(week[day]+' > .hour-'+l).hasClass('red')) {
+                cnt++;
+                console.log(cnt, $(week[day]+' > .hour-'+l))
+            }
+        }
+        if (cnt == 7) {
+            console.log()
+            $(week[day]+ '> .allday').removeClass('green');
+            $(week[day]+ '> .allday').addClass('red');
+        }
+    });
 }
 
 function del(data) {

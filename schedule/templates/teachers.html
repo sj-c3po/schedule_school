@@ -3,7 +3,7 @@
 <section class="step3">
     <table cellspacing="0">
         <tr>
-            <th><input type="checkbox"/></th>
+            <th>№</th>
             <th>Фамилия</th>
             <th>Имя </th>
             <th>Отчество</th>
@@ -18,7 +18,7 @@
 
         {% for teacher in teachers %}
         <tr>
-            <td><input type="checkbox"/></td>
+            <td>{{ forloop.counter }}</td>
             <td> {{ teacher.last_name }}</td>
             <td>{{ teacher.first_name }}</td>
             <td>{{ teacher.middle_name }}</td>
@@ -46,28 +46,12 @@
                     {% endif %}
                 {% endfor %}
             </td>
-            <td data-ban-hours={{ teacher.ban_hours }}>
+            <td data-ban-hours={{ teacher.ban_hours }}
+                data-teacher-lastname={{ teacher.last_name }}
+                data-teacher-firstname={{ teacher.first_name }}
+                data-teacher-middlename={{ teacher.middle_name }}>
                 <button class="wishes" onclick="add(this);">Добавить</button>
             </td>
-{#            <td>#}
-{#                <select>#}
-{#                {% for type in staff_types %}#}
-{#                    {% if type.id == teacher.staff_type.id %}#}
-{#                        <option selected value="{{ type.id }}">{{ type }}</option>#}
-{#                    {% else %}#}
-{#                        <option value="{{ type.id }}">{{ type }}</option>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
-{#                </select>#}
-{#            </td>#}
-
-{#            <td>#}
-{#                {% if teacher.class_management != None %}#}
-{#                    {{ teacher.class_management }}#}
-{#                {% else %}#}
-{#                    -#}
-{#                {% endif %}#}
-{#            </td>#}
             <td>{{ teacher.teacher_cabinet.cabinet_number }}</td>
 
         </tr>
