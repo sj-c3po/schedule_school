@@ -95,10 +95,7 @@ function prepare_for_generate() {
             $(classes).append($(this));
         }
     });
-
     console.log(classes)
-
-
 }
 
 function add(data) {
@@ -110,18 +107,26 @@ function add(data) {
     }
     if ($(data).hasClass('wishes')) {
         var ban_hours = $(data).parent().attr('data-ban-hours');
+        console.log('ban', ban_hours)
+        var teacher_id = $(data).parent().attr('data-teacher-id');
         var teacher_name = $(data).parent().attr('data-teacher-lastname') + ' ' +
                            $(data).parent().attr('data-teacher-firstname') + ' ' +
                            $(data).parent().attr('data-teacher-middlename');
         open_modal('wishes');
-        create_modalwin(ban_hours, teacher_name)
+        create_modalwin(ban_hours, teacher_name, teacher_id)
     }
 }
 
-function create_modalwin(ban_hours, teacher_name) {
-    console.log(ban_hours)
+function create_modalwin(ban_hourss, teacher_name, teacher_id) {
+    var ban_hours = []
 
-    $('#wishes b').html(teacher_name)
+    // без этого фигла с commaseparated полем
+    $(ban_hourss.split(',')).each(function (b) {
+        ban_hours.push(parseInt(ban_hourss.split(',')[b]))
+    });
+
+    $('#wishes b').html(teacher_name);
+    $('#wishes .save_changes').attr('data-teacher-id', teacher_id);
 
     var table =  "<tr><th>День недели</th><th colspan='7'>Номер урока</th></tr>";
     table += "<tr class='mon'>";
@@ -178,16 +183,14 @@ function create_modalwin(ban_hours, teacher_name) {
 
     var week = ['.mon ', '.tue ', '.wed ', '.thu ', '.fri '];
     $(week).each(function(day){
-        console.log('-------');
         var cnt = 0;
         for (var l=1; l<8; l++) {
             if ($(week[day]+' > .hour-'+l).hasClass('red')) {
                 cnt++;
-                console.log(cnt, $(week[day]+' > .hour-'+l))
+//                console.log(cnt, $(week[day]+' > .hour-'+l))
             }
         }
         if (cnt == 7) {
-            console.log()
             $(week[day]+ '> .allday').removeClass('green');
             $(week[day]+ '> .allday').addClass('red');
         }
@@ -305,7 +308,7 @@ function change_the_state(item) {
     }
 }
 
-function save_change_the_state() {
+function save_change_the_state(data) {
     var ban = [];
     var mon = 0, tue = 7, wed = 14, thu = 21, fri = 28;
 
@@ -323,6 +326,21 @@ function save_change_the_state() {
         }
     });
     console.log(ban);
+
+    $.post(
+            '/new/save_ban_days',
+            {
+                'ban': ban,
+                'id': $(data).attr('data-teacher-id')
+            },
+            function() {
+                alert('Дни отправлены')
+            }
+        ).fail(function() {
+                alert( "Возникла ошибка :(" )
+//                location.reload();
+            });
+
 }
 
 function add_to_ban_hours(ban, num, selector) {

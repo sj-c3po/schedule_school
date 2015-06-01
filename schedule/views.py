@@ -71,6 +71,41 @@ def delete_object(request):
 
     return render_to_response('new.html', args)
 
+def save_ban_days(request):
+    args = {}
+    if request.user.is_authenticated():
+        if request.method == "POST" and request.is_ajax():
+            data = request.POST
+            ban_days = data.getlist('ban[]')
+            id = data['id']
+
+            print(ban_days)
+            print(id)
+
+            teacher = Teacher.objects.get(id=id)
+            print(teacher.ban_hours)
+
+            int_ban_days = []
+            for day in ban_days:
+                print('day', day)
+                int_ban_days.append(int(day))
+
+            teacher.ban_hours = ''
+            k = 1
+            for value in int_ban_days:
+                # print(value)
+                if k != len(int_ban_days):
+                    teacher.ban_hours = teacher.ban_hours + str(value) +','
+                else:
+                    teacher.ban_hours = teacher.ban_hours + str(value)
+                k = k+1
+
+            # teacher.ban_hours = ban_days_to_int
+            # print(teacher.ban_hours)
+            teacher.save()
+
+            return render_to_response('new.html', args)
+
 
 def login(request):
     args = {}

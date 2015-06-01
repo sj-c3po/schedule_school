@@ -3,6 +3,7 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('',
 
     url(r'^new/delete_object/?', 'schedule.views.delete_object'),
+    url(r'^new/save_ban_days/?', 'schedule.views.save_ban_days'),
     url(r'^new/?', 'schedule.views.new'),
     url(r'^main/?', 'schedule.views.show_main'),
     url(r'^login/?', 'schedule.views.login'),
