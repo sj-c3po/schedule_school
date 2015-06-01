@@ -184,6 +184,7 @@ table th {
 /* main Schedule */
 .schedule th:first-child {
     width:3%;
+    /*text-align: center;*/
 }
 .schedule th {
     border:none;
@@ -192,6 +193,13 @@ table th {
     padding: 3px 10px;
     border:none;
 }
+.schedule td:first-child {
+    text-align: center;
+}
+.schedule td:last-child {
+    display: none; /* костыль( */
+}
+
 .schedule tr:nth-child(even) {
     background: #f4f3f3;
 }

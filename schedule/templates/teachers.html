@@ -19,7 +19,7 @@
         {% for teacher in teachers %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td> {{ teacher.last_name }}</td>
+            <td>{{ teacher.last_name }}</td>
             <td>{{ teacher.first_name }}</td>
             <td>{{ teacher.middle_name }}</td>
             <td>
@@ -60,7 +60,8 @@
     </table>
     <div class="nav_buttons">
         <a class="step_button back" href="javascript:void(0);" onclick="prev_step(this);">Назад</a>
-        <a class="step_button next" href="generate" onclick="prepare_for_generate();">Готово</a>  <!--href на generate-->
+        <a class="step_button next" href="schedule" onclick="prepare_for_generate();">Готово</a>  <!--href на generate-->
+{#        <a class="step_button next" href="generate" onclick="prepare_for_generate();">Готово</a>  <!--href на generate-->#}
     </div>
 </section>
 

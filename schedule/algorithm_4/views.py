@@ -195,7 +195,8 @@ max_hour = 7  # по санпин
 hours_in_week = days*max_hour
 args = {}
 
-def generate(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Classes так потом надо юудет с JS
+# def generate(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Classes так потом надо юудет с JS
+def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Classes так потом надо юудет с JS
     args['c'] = list(Classes)
     args['t'] = list(Teachers)
     args['a'] = list(Audiences)
@@ -333,7 +334,8 @@ def generate(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
             else:
                 args['H'].append(v[0])
         else:
-            args['H'].append(v)
+            # args['H'].append(v)
+            args['H'].append('-')
 
     # для вывода расписания класс/учитель
     for v in H.values():
@@ -341,9 +343,11 @@ def generate(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
             if len(v) > params_lenght:  # параметры добавляются по 10 штук
                 args['H_teachers'].append(v[2]+'/'+v[params_lenght+2])
             else:
+                # args['H_teachers'].append(v[2])
                 args['H_teachers'].append(v[2])
         else:
-            args['H_teachers'].append(v)
+            # args['H_teachers'].append(v)
+            args['H_teachers'].append('-')
 
 
     # обнуляем, чтобы можно было заново смотреть КОСЯК В ГРУППАх!!!
@@ -378,7 +382,12 @@ def generate(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
     # print(copy_Teachers)
     # print(copy_Audiences)/
 
-    return render_to_response("generate.html", args)
+
+    args['username'] = request.user.get_username()
+    args['schedule'] = 1
+
+    # return render_to_response("generate.html", args)
+    return render_to_response("schedule.html", args)
 
 # ======================================================
 # ======================================================

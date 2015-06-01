@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3386385538">
+  <component name="DataSourceManagerImpl" format="xml" hash="1135098781">
     <data-source source="LOCAL" name="schedule_db" uuid="705061ff-b18d-44fb-944e-4eb0a2ad45de">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/schedule_db.sqlite3</jdbc-url>
       <libraries />
     </data-source>
-    <data-source source="LOCAL" name="Django default" uuid="adfac98e-3a17-4aa0-a53f-9c770eee33a7">
+    <data-source source="LOCAL" name="Django default" uuid="691eac74-0c4e-4d72-acaf-a2fa387d291a">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/schedule_db.sqlite3</jdbc-url>
