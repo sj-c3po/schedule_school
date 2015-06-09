@@ -23,6 +23,8 @@ class SubjectTeacherRelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Cabinet)
+admin.site.register(Schedule)
+admin.site.register(Schedule_items)
 admin.site.register(Division)
 admin.site.register(Class_profiles)
 admin.site.register(School_class, School_classAdmin)

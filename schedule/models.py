@@ -120,18 +120,32 @@ class CommonRel(models.Model):
     def __str__(self):
         return (str(self.sclass.parallel)+self.sclass.letter)
 
-# вспомогательные
 
+class Schedule(models.Model):
+    class Meta():
+        db_table = 'schedule'
+        verbose_name = 'Номер расписания'
+        verbose_name_plural = 'Номера расписаний'
+        ordering = ['-id']
 
-# class Staff_type(models.Model):
-#     class Meta():
-#         # db_table = 'staff_type'
-#         verbose_name = 'Тип сотрудника'
-#         verbose_name_plural = 'Типы сотрудников'
-#
-#     type = models.CharField(max_length=50)
-#     def __str__(self):
-#         return (self.type)
+    def __str__(self):
+        return (str(self.id))
+
+class Schedule_items(models.Model):
+    class Meta():
+        db_table = 'schedule_items'
+        verbose_name = 'Расписание'
+        verbose_name_plural = 'Расписания'
+
+    schedule_id = models.ForeignKey(Schedule, verbose_name='Расписание')
+    sclass = models.ForeignKey(School_class, verbose_name='Класс')
+    subject = models.ForeignKey(Subject, verbose_name='Предмет')
+    cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет')
+    teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
+
+    def __str__(self):
+        return (str(self.id))
+
 
 class Scope(models.Model):
     class Meta():

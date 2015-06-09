@@ -351,3 +351,21 @@ function add_to_ban_hours(ban, num, selector) {
         }
     }
 }
+
+function save_schedule(schedule) {
+    console.log($(schedule).attr('data-schedule'));
+
+    $.post(
+        '/save_schedule',
+        {
+            'data': $(schedule).attr('data-schedule')
+        },
+        function() {
+            alert('Дни отправлены');
+//            location.reload();
+        }
+    ).fail(function() {
+            alert( "Возникла ошибка :(" );
+//                location.reload();
+        });
+}

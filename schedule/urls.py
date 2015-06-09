@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^schedule_detailed/?', 'schedule.views.schedule_detailed'),
     # url(r'^schedule/?', 'schedule.views.schedule'),
     url(r'^schedule/?', 'schedule.algorithm_4.views.schedule'), # это поменяли для отображения в нужном окне
+    url(r'^save_schedule?', 'schedule.views.save_schedule'),
     # url(r'^generate/?', 'schedule.algorithm_1.views.generate'), # это самый первый, где работают основные функции
     # url(r'^generate/?', 'schedule.algorithm_2.views.generate'), # это я хотела сделать "историю"
     # url(r'^generate/?', 'schedule.algorithm_3.views.generate'), # тут работает расстановка, но выталкивания еще нет, поэтому некотрые часы вываливаются

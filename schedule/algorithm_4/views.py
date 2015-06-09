@@ -132,7 +132,14 @@ print(Audiences)
 # Заполнение словаря учителей. True - совместитель
 Teachers_query = Teacher.objects.all().values()
 for t in Teachers_query:
-    Teachers[t['last_name']+t['first_name'][0]+t['middle_name'][0]] = [t['staff_type']]  # +t['first_name'][0]+t['middle_name'][0]
+    if t['ban_hours'] != None:
+        Teachers[t['last_name']+t['first_name'][0]+t['middle_name'][0]] = [t['staff_type']]
+        for char in t['ban_hours'].split(','):
+            Teachers[t['last_name']+t['first_name'][0]+t['middle_name'][0]].append(int(char))
+    else:
+        Teachers[t['last_name']+t['first_name'][0]+t['middle_name'][0]] = [t['staff_type']]
+
+
 print(Teachers)
 
 
@@ -323,12 +330,14 @@ def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
         print('Закончили расстановку предмета')
 
     # формируем вывод расписания
+    args['Schedule'] = {}
     args['H'] = []
     args['H_teachers'] = []
 
     # для вывода стандартного расписания класс/предмет
-    for v in H.values():
+    for k, v in H.items():
         if v != 1:
+            args['Schedule'][k] = v
             if len(v) > params_lenght:  # определяем, один там предмет или нет
                 args['H'].append(v[0]+'/'+v[params_lenght])
             else:

@@ -3,6 +3,7 @@ from django.contrib import auth
 from django.http.response import HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from schedule.models import *
+import ast
 
 # Страница добавления
 def new(request):
@@ -189,3 +190,32 @@ def add_subject(request):
     # return render_to_response('new.html')
 
 
+def save_schedule(request):
+    args = {}
+    args['username'] = request.user.get_username()
+    args['schedule'] = 1
+    if request.user.is_authenticated():
+        if request.method == "POST" and request.is_ajax():
+            data = request.POST.get('data', '')
+
+            sch = Schedule.objects.all()
+            print(sch)
+            if len(sch) == 0:
+                print('nen')
+                schedule = Schedule(1)
+                schedule.save()
+            else:
+                sch_max = sch[0]
+                schedule = Schedule(sch_max.id+1)
+                schedule.save()
+
+            print(type(ast.literal_eval(data)))
+            for key, value in ast.literal_eval(data).items():
+                sch_item = Schedule_items(schedule_id=schedule,
+                                          sclass=School_class.objects.get(parallel=value[1]),
+                                          subject=Subject.objects.get(subject_name=value[0]),
+                                          cabinet=Cabinet.objects.get(cabinet_number=value[3]),
+                                          teacher=Teacher.objects.get(last_name=value[2][0:-2]))
+                sch_item.save()
+
+            return render_to_response('schedule.html', args)
