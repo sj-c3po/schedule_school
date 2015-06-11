@@ -27,7 +27,7 @@ def set_weight_and_sort(Subjects):
 
                 subject[10] = subject[10] + len(Teachers[teacher][1:])*5
 
-                # если предмет относится к профильным, умножь на 4
+                # если предмет относится к профильным, умножь на 25
                 if subject[7] == 1:
                     subject[10] = subject[10]*25
                 else:

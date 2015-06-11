@@ -11,7 +11,7 @@ class SubjectAdmin(admin.ModelAdmin):
 
 
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ['id', 'last_name', 'first_name', 'middle_name', 'class_management', 'teacher_cabinet', 'staff_type', 'ban_hours'] # 'scope',
+    list_display = ['id', 'last_name', 'first_name', 'middle_name', 'teacher_cabinet', 'staff_type', 'ban_hours'] # 'scope','class_management',
 
 
 class CommonRelAdmin(admin.ModelAdmin):
@@ -20,6 +20,11 @@ class CommonRelAdmin(admin.ModelAdmin):
 
 class SubjectTeacherRelAdmin(admin.ModelAdmin):
     list_display = ['id', 'subject', 'teacher', 'teacher_max_load']
+
+
+class Schedule_itemsAdmin(admin.ModelAdmin):
+    list_display = ['schedule_id']
+
 
 
 admin.site.register(Cabinet)

@@ -55,7 +55,7 @@ class Teacher(models.Model):
     last_name = models.CharField('Фамилия', max_length=50)
     first_name = models.CharField('Имя', max_length=50)
     middle_name = models.CharField('Отчество', max_length=50)
-    class_management = models.ForeignKey('School_class', null=True, blank=True, verbose_name='Классное руководство')
+    # class_management = models.ForeignKey('School_class', null=True, blank=True, verbose_name='Классное руководство')
     teacher_cabinet = models.ForeignKey('Cabinet', null=True, blank=True,  verbose_name='Кабинет')    # кабинет либо есть, либо нет, учитель не бегает туда-сюда
     staff_type = models.BooleanField('Совместитель', default=False)
     ban_hours = models.CommaSeparatedIntegerField('Нерабочие часы', max_length=100, null=True, blank=True, default=None)
@@ -65,17 +65,17 @@ class Teacher(models.Model):
 
 
 # соединительные таблицы
-class SubjectTeacherRel(models.Model):
-    class Meta():
-        db_table = 'subject_teacher_rel'
-        verbose_name = 'Учитель-Предмет'
-        verbose_name_plural = 'Учитель-Предмет'
-
-    subject = models.ForeignKey(Subject, verbose_name='Предмет')
-    teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
-    teacher_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету')                # максимальная нагрузка по указанному предмету
-    def __str__(self):
-        return (self.subject)
+# class SubjectTeacherRel(models.Model):
+#     class Meta():
+#         db_table = 'subject_teacher_rel'
+#         verbose_name = 'Учитель-Предмет'
+#         verbose_name_plural = 'Учитель-Предмет'
+#
+#     subject = models.ForeignKey(Subject, verbose_name='Предмет')
+#     teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
+#     teacher_max_load = models.IntegerField('Максимальная недельная нагрузка по предмету')                # максимальная нагрузка по указанному предмету
+#     def __str__(self):
+#         return (self.subject)
 
 class Division(models.Model):
     class Meta():
@@ -127,6 +127,8 @@ class Schedule(models.Model):
         verbose_name = 'Номер расписания'
         verbose_name_plural = 'Номера расписаний'
         ordering = ['-id']
+
+    date = models.DateTimeField(verbose_name='Дата создания', null=True)
 
     def __str__(self):
         return (str(self.id))

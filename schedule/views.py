@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.http.response import HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from schedule.models import *
-import ast
+import ast, datetime
 
 # Страница добавления
 def new(request):
@@ -202,11 +202,11 @@ def save_schedule(request):
             print(sch)
             if len(sch) == 0:
                 print('nen')
-                schedule = Schedule(1)
+                schedule = Schedule(1, date=datetime.datetime.now())
                 schedule.save()
             else:
                 sch_max = sch[0]
-                schedule = Schedule(sch_max.id+1)
+                schedule = Schedule(sch_max.id+1, date=datetime.datetime.now())
                 schedule.save()
 
             print(type(ast.literal_eval(data)))
