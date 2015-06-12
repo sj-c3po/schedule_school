@@ -219,3 +219,9 @@ def save_schedule(request):
                 sch_item.save()
 
             return render_to_response('schedule.html', args)
+
+def archive(request):
+    args = {}
+    args['username'] = request.user.get_username()
+
+    return render_to_response('archive.html', args)

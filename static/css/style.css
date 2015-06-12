@@ -37,23 +37,37 @@ table th {
     font-size: 0.9em;
 }
 
-.create_schedule {
+.create_schedule,
+.saved_schedule {
     border-radius: 5px;
-    display: block;
-    margin:50px auto;
+    display: inline-block;
+    margin:50px 30px 50px 0;
     width:210px;
     padding:20px 30px;
     color:white;
     font-size: 1.1em;
     font-weight: bold;
-    background: #00007c;
     box-shadow: 2px 2px 3px grey;
 }
-.create_schedule:hover {
-    padding: 21px 31px;
+
+.create_schedule {
+    background: #00007c;
+    margin-left: 30%;
 }
-.create_schedule:active {
-    padding: 19px 29px;
+
+.saved_schedule {
+    background: green;
+}
+
+.create_schedule:hover,
+.saved_schedule:hover {
+    position: relative;
+    bottom:2px;
+}
+.create_schedule:active,
+.saved_schedule:active {
+    position: relative;
+    top: 2px;
 }
 /* addClasses */
 #classes_form th:first-child {
