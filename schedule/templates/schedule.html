@@ -1,9 +1,10 @@
 {% extends 'app.html' %}
 {% load staticfiles %}
 
-
 {% block schedule %}
-    <a href="javascript:void(0);" onclick="save_schedule(this);" data-schedule='{{ Schedule }}' >Сохранить расписание</a>
+    <a class="save_changes"  href="javascript:void(0);" onclick="save_schedule(this);" data-schedule='{{ Schedule }}' >Сохранить расписание</a>
+    <a class="del_subject" href="schedule" onclick="prepare_for_generate();">Сгенерировать новое расписание</a>
+    <a class="add_subject" href="javascript:void(0);" onclick="">Показать расписание по учителям</a>
 
     <table class="schedule">
         <tr>
