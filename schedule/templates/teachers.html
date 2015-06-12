@@ -7,13 +7,11 @@
             <th>Фамилия</th>
             <th>Имя </th>
             <th>Отчество</th>
-            <th>Совместительство</th>
+            <th>Кабинет</th>
             <th>Предмет(ы)</th>
             <th>Класс(ы)</th>
-            <th>Пожелания по урокам</th>
-{#            <th>Совместительство</th>#}
-{#            <th>Классное руководство</th>#}
-            <th>Кабинет</th>
+            <th>Нерабочие часы</th>
+            <th>Совместительство</th>
         </tr>
 
         {% for teacher in teachers %}
@@ -22,14 +20,7 @@
             <td>{{ teacher.last_name }}</td>
             <td>{{ teacher.first_name }}</td>
             <td>{{ teacher.middle_name }}</td>
-            <td>
-                {% if teacher.staff_type == True %}
-                    <img style="width:20px;" src="{% static "yes.png" %}"
-                {% else %}
-                    <img style="width:20px;" src="{% static "no.png" %}"
-                {% endif %}
-            </td>
-
+            <td>№{{ teacher.teacher_cabinet.cabinet_number }}</td>
             <td>
                 {% for com in common_rel %}
                     {% if com.teacher.id == teacher.id %}
@@ -51,7 +42,14 @@
                 data-teacher-id={{ teacher.id }}>
                 <button class="wishes" onclick="add(this);">Добавить</button>
             </td>
-            <td>{{ teacher.teacher_cabinet.cabinet_number }}</td>
+            <td>
+                {% if teacher.staff_type == True %}
+                    <img style="width:20px;" src="{% static "yes.png" %}">
+                {% else %}
+                    <img style="width:20px;" src="{% static "no.png" %}">
+                {% endif %}
+            </td>
+
 
         </tr>
         {% endfor %}

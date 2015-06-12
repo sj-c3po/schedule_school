@@ -211,11 +211,24 @@ def save_schedule(request):
 
             print(type(ast.literal_eval(data)))
             for key, value in ast.literal_eval(data).items():
-                sch_item = Schedule_items(schedule_id=schedule,
-                                          sclass=School_class.objects.get(parallel=value[1]),
-                                          subject=Subject.objects.get(subject_name=value[0]),
-                                          cabinet=Cabinet.objects.get(cabinet_number=value[3]),
-                                          teacher=Teacher.objects.get(last_name=value[2][0:-2]))
+                if value != 1:
+                    print('Длина', len(value))
+                    add = 0
+                    for i in range(len(value)/11):
+                        sch_item = Schedule_items(schedule_id=schedule,
+                                                  cell_number=key,
+                                                  sclass=School_class.objects.get(parallel=value[1+add]),
+                                                  subject=Subject.objects.get(subject_name=value[0+add]),
+                                                  cabinet=Cabinet.objects.get(cabinet_number=value[3+add]),
+                                                  teacher=Teacher.objects.get(last_name=value[2+add][0:-2]))
+                    add = add+11
+                else:
+                    sch_item = Schedule_items(schedule_id=schedule,
+                                              cell_number=key,
+                                              sclass=None,
+                                              subject=None,
+                                              cabinet=None,
+                                              teacher=None)
                 sch_item.save()
 
             return render_to_response('schedule.html', args)
@@ -224,4 +237,24 @@ def archive(request):
     args = {}
     args['username'] = request.user.get_username()
 
+    if request.user.is_authenticated():
+        args['len'] = 1
+        args["schedules"] = Schedule.objects.all()
+        if len(args["schedules"]) == 0:
+            args['len'] = 0
+
     return render_to_response('archive.html', args)
+
+
+def open_schedule(request):
+    args = {}
+    args['username'] = request.user.get_username()
+    if request.user.is_authenticated():
+        if request.method == "GET":
+            args['id'] = request.GET.get('id', '')
+
+            args["sch_date"] = Schedule.objects.get(id=args['id']).date
+            args["sch_items"] = Schedule_items.objects.all().filter(schedule_id=args['id'])
+            for item in args["sch_items"]:
+                print(item.subject)
+        return render_to_response('opened_schedule.html', args)

@@ -336,8 +336,8 @@ def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
 
     # для вывода стандартного расписания класс/предмет
     for k, v in H.items():
+        args['Schedule'][k] = v
         if v != 1:
-            args['Schedule'][k] = v
             if len(v) > params_lenght:  # определяем, один там предмет или нет
                 args['H'].append(v[0]+'/'+v[params_lenght])
             else:

@@ -2,6 +2,11 @@
 {% load staticfiles %}
 
 {% block schedule %}
+
+    <div id="spinner">
+        <img style="display:none; position: absolute; width:60px; top:250px; left:48%;" src="{% static "loader.gif" %}">
+    </div>
+
     <a class="save_changes"  href="javascript:void(0);" onclick="save_schedule(this);" data-schedule='{{ Schedule }}' >Сохранить расписание</a>
     <a class="del_subject" href="schedule" onclick="prepare_for_generate();">Сгенерировать новое расписание</a>
     <a class="add_subject" href="javascript:void(0);" onclick="">Показать расписание по учителям</a>
@@ -54,6 +59,9 @@
             </td>
         </tr>
     </table>
+
+
+
 
 <br><br><br>
 Классы: {{ c }}<br/>

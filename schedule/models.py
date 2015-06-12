@@ -136,14 +136,16 @@ class Schedule(models.Model):
 class Schedule_items(models.Model):
     class Meta():
         db_table = 'schedule_items'
-        verbose_name = 'Расписание'
-        verbose_name_plural = 'Расписания'
+        verbose_name = 'Элементы расписания'
+        verbose_name_plural = 'Элементы расписаний'
+        ordering = ['schedule_id', 'cell_number']
 
     schedule_id = models.ForeignKey(Schedule, verbose_name='Расписание')
-    sclass = models.ForeignKey(School_class, verbose_name='Класс')
-    subject = models.ForeignKey(Subject, verbose_name='Предмет')
-    cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет')
-    teacher = models.ForeignKey(Teacher, verbose_name='Учитель')
+    cell_number = models.IntegerField('Номер в сетке расписания')
+    sclass = models.ForeignKey(School_class, verbose_name='Класс', null=True, blank=True)
+    subject = models.ForeignKey(Subject, verbose_name='Предмет', null=True, blank=True)
+    cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет', null=True, blank=True)
+    teacher = models.ForeignKey(Teacher, verbose_name='Учитель', null=True, blank=True)
 
     def __str__(self):
         return (str(self.id))

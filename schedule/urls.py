@@ -2,12 +2,16 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns('',
 
+ # ex: /polls/5/
+ #    url(r'^(?P<question_id>\d+)/$', views.detail, name='detail'),
+
     url(r'^add_subject/?', 'schedule.views.add_subject'),
     url(r'^archive/?', 'schedule.views.archive'),
     url(r'^new/delete_object/?', 'schedule.views.delete_object'),
     url(r'^new/save_ban_days/?', 'schedule.views.save_ban_days'),
     url(r'^new/?', 'schedule.views.new'),
     url(r'^main/?', 'schedule.views.show_main'),
+    url(r'^opened_schedule/?', 'schedule.views.open_schedule'),
     url(r'^login/?', 'schedule.views.login'),
     url(r'^logout/?', 'schedule.views.logout'),
     url(r'^schedule_detailed/?', 'schedule.views.schedule_detailed'),

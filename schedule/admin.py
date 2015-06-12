@@ -23,13 +23,16 @@ class SubjectTeacherRelAdmin(admin.ModelAdmin):
 
 
 class Schedule_itemsAdmin(admin.ModelAdmin):
-    list_display = ['schedule_id']
+    list_display = ['schedule_id', 'cell_number', 'sclass', 'subject', 'teacher']
+
+class ScheduleAdmin(admin.ModelAdmin):
+    list_display = ['id', 'date']
 
 
 
 admin.site.register(Cabinet)
-admin.site.register(Schedule)
-admin.site.register(Schedule_items)
+admin.site.register(Schedule, ScheduleAdmin)
+admin.site.register(Schedule_items, Schedule_itemsAdmin)
 admin.site.register(Division)
 admin.site.register(Class_profiles)
 admin.site.register(School_class, School_classAdmin)

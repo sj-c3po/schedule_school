@@ -354,6 +354,7 @@ function add_to_ban_hours(ban, num, selector) {
 
 function save_schedule(schedule) {
     console.log($(schedule).attr('data-schedule'));
+    $('#spinner img').show();
 
     $.post(
         '/save_schedule',
@@ -361,10 +362,12 @@ function save_schedule(schedule) {
             'data': $(schedule).attr('data-schedule')
         },
         function() {
-            alert('Дни отправлены');
+            $('#spinner img').hide();
+            alert('Расписание сохранено');
 //            location.reload();
         }
     ).fail(function() {
+            $('#spinner img').hide();
             alert( "Возникла ошибка :(" );
 //                location.reload();
         });
