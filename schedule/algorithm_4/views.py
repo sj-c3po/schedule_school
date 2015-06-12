@@ -21,7 +21,7 @@ def set_weight_and_sort(Subjects):
                         subject[10] = 85
                     else:
                         if subject[7] == 0.8:
-                            subject[10] = 70
+                            subject[10] = 90
                         else:
                             subject[10] = 1
 

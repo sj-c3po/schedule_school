@@ -24,11 +24,9 @@
             <td>{{ teacher.middle_name }}</td>
             <td>
                 {% if teacher.staff_type == True %}
-                    Да
-{#                    <img src="{% static "/img/yes.png" %}"#}
+                    <img style="width:20px;" src="{% static "yes.png" %}"
                 {% else %}
-                    Нет
-{#                    <img src="{% static "/img/no.png" %}"#}
+                    <img style="width:20px;" src="{% static "no.png" %}"
                 {% endif %}
             </td>
 
