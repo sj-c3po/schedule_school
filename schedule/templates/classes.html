@@ -2,9 +2,9 @@
 {% load mytags %}
 
 <section class="step2">
-    <table>
+    <table cellspacing="2">
         <tr>
-            <th><input type="checkbox" onchange="choose_all_subjects(this);"></th>
+            <th>№</th>                   <!--<input type="checkbox" onchange="choose_all_subjects(this);">-->
             <th>Предметы/Классы</th>
             {% for class in classes %}
                 <th>{{ class }}</th>
@@ -12,7 +12,7 @@
         </tr>
         {% for subject in subjects %}
         <tr>
-            <td><input type="checkbox" data-subject-id="{{ subject.id }}" ></td>
+            <td>{{ forloop.counter }}</td>  <!--<input type="checkbox" data-subject-id="{{ subject.id }}" >-->
             <td>{{ subject }}</td>
             {% for classname in classes %}
                 {% with counter=0 %}

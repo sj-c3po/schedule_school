@@ -10,7 +10,7 @@
             <a class="s3" href="javascript:void(0);" onclick="to_step(this);"><b>&#62;</b>Учителя</a>
         </div>
         <div class="frame">
-            {% include 'demands.html' %}
+{#            {% include 'demands.html' %}#}
             {% include 'classes.html' %}
             {% include 'teachers.html' %}
         </div>
@@ -33,9 +33,18 @@
         </div>
 
         <div class="description">
-            <section class="desc1">Установите необходимые требования</section>
-            <section class="desc2">Заполните классы</section>
-            <section class="desc3">Проверьте учителей</section>
+{#            <section class="desc1">Установите необходимые требования</section>#}
+            <section class="desc2">
+                Проверьте количество часов по предметов.
+                Если есть расхождения с учебным планом,
+                значения в ячейке можно исправить.
+            </section>
+            <section class="desc3">
+                Проверьте учительские данные.
+                Старайтесь не выставлять много запретов на
+                рабочие часы для корректной работы алгоритма
+                расстановки
+            </section>
         </div>
 
     </div>

@@ -212,16 +212,20 @@ def save_schedule(request):
             print(type(ast.literal_eval(data)))
             for key, value in ast.literal_eval(data).items():
                 if value != 1:
+
+                    # вот тут беда :С
                     print('Длина', len(value))
                     add = 0
-                    for i in range(len(value)/11):
+                    for i in range(len(value)//11):
+                        print(i, 'i')
                         sch_item = Schedule_items(schedule_id=schedule,
                                                   cell_number=key,
                                                   sclass=School_class.objects.get(parallel=value[1+add]),
                                                   subject=Subject.objects.get(subject_name=value[0+add]),
                                                   cabinet=Cabinet.objects.get(cabinet_number=value[3+add]),
                                                   teacher=Teacher.objects.get(last_name=value[2+add][0:-2]))
-                    add = add+11
+                        print(sch_item)
+                        add = add+11
                 else:
                     sch_item = Schedule_items(schedule_id=schedule,
                                               cell_number=key,

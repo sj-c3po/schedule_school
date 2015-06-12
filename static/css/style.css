@@ -578,5 +578,13 @@ table th {
     cursor: pointer;
 }
 
+button.wishes {
+    border-radius: 5px;
+    border:none;
+    cursor: pointer;
+    padding: 5px;
+    background: green;
+    color:white;
+}
 
 /*end modal teachers wishes */
