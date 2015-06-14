@@ -142,6 +142,9 @@ class Schedule_items(models.Model):
 
     schedule_id = models.ForeignKey(Schedule, verbose_name='Расписание')
     cell_number = models.IntegerField('Номер в сетке расписания')
+    # relation = models.CharField('Учитель-Класс-Предмет-Кабинет', max_length=300, blank=True, null=True)
+    # length = models.IntegerField('Количество уроков в текущий час', blank=True, null=True)
+
     sclass = models.ForeignKey(School_class, verbose_name='Класс', null=True, blank=True)
     subject = models.ForeignKey(Subject, verbose_name='Предмет', null=True, blank=True)
     cabinet = models.ForeignKey(Cabinet, verbose_name='Кабинет', null=True, blank=True)

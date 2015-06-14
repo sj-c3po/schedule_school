@@ -372,3 +372,7 @@ function save_schedule(schedule) {
 //                location.reload();
         });
 }
+
+function show_for_teachers(schedule) {
+
+}

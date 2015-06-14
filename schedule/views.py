@@ -216,7 +216,10 @@ def save_schedule(request):
                     # вот тут беда :С
                     print('Длина', len(value))
                     add = 0
+                    sch_item = 0
                     for i in range(len(value)//11):
+                        if sch_item != 0:
+                            sch_item.save()
                         print(i, 'i')
                         sch_item = Schedule_items(schedule_id=schedule,
                                                   cell_number=key,

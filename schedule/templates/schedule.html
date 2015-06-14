@@ -9,9 +9,9 @@
 
     <a class="save_changes"  href="javascript:void(0);" onclick="save_schedule(this);" data-schedule='{{ Schedule }}' >Сохранить расписание</a>
     <a class="del_subject" href="schedule" onclick="prepare_for_generate();">Сгенерировать новое расписание</a>
-    <a class="add_subject" href="javascript:void(0);" onclick="">Показать расписание по учителям</a>
+    <a class="add_subject" href="javascript:void(0);" onclick="show_for_teachers(this);" data-schedule='{{H}}'>Показать расписание по учителям</a>
 
-    <table class="schedule">
+    <table class="schedule classes">
         <tr>
             <th>Класс</th>
             <th >Понедельник</th>
@@ -60,76 +60,125 @@
         </tr>
     </table>
 
+    <table class="schedule teachers">
+        <tr>
+            <th>Учитель</th>
+            <th >Понедельник</th>
+            <th >Вторник</th>
+            <th >Среда</th>
+            <th >Четверг</th>
+            <th >Пятница</th>
+        </tr>
+        <tr>
+            <td >5</td>
+            <td>
+            {% for h in H %}
+                {{ h }}<br>
+                {% if forloop.counter|divisibleby:'7' %}
+                   </td><td>
+                {% endif %}
+                {% if forloop.counter == 35 %}
+                    </tr><tr>
+                    <td>6</td>
+                    <td>
+                {% elif forloop.counter == 70 %}
+                    </tr><tr>
+                    <td>7</td>
+                    <td>
+                {% elif forloop.counter == 105 %}
+                    </tr><tr>
+                    <td>8</td>
+                    <td>
+                {% elif forloop.counter == 140 %}
+                    </tr><tr>
+                    <td>9</td>
+                    <td>
+                {% elif forloop.counter == 175 %}
+                    </tr><tr>
+                    <td>10</td>
+                    <td>
+                {% elif forloop.counter == 210 %}
+                    </tr><tr>
+                    <td>11</td>
+                    <td>
+                {% elif forloop.counter == 245 %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </td>
+        </tr>
+    </table>
 
-
-
-<br><br><br>
-Классы: {{ c }}<br/>
-Учителя: {{ t }}<br/>
-Кабинеты: {{ a }}<br/>
-<br/>
-Таблица занятости для классов: <br>
-{% for i in week_hour_class %}
-    {{ forloop.counter }} | {{ i }}<br/>
-{% endfor %}
-<br/><br/>
-
-Таблица занятости для учителей: <br>
-{% for j in week_hour_teacher %}
-    {{ forloop.counter }} | {{ j }}<br/>
-{% endfor %}
-<br/><br/>
-
-Таблица занятости для аудиторий: <br>
-{% for k in week_hour_audience %}
-    {{ forloop.counter }} | {{ k }}<br/>
-{% endfor %}
-<br/><br/>
-
-Что получается:<br>
-1) По часам:<br>
-<table>
-    <tr>
-        <th>*</th>
-        <th colspan="7">Понедельник</th>
-        <th colspan="7">Вторник</th>
-        <th colspan="7">Среда</th>
-        <th colspan="7">Четверг</th>
-        <th colspan="7">Пятница</th>
-    </tr>
-    <tr>
-        <td style="font-weight: bold">Класс</td>
-        {% for day in range %}
-            <td style="font-weight: bold">{{ day }}</td>
-        {% endfor %}
-    </tr>
-    <tr>
-        <td >5</td>
-        {% for h in H %}
-            <td>{{ h }}</td>
-            {% if forloop.counter == 35 %}
-                </tr><tr>
-                <td>6</td>
-            {% elif forloop.counter == 70 %}
-                </tr><tr>
-                <td>7</td>
-            {% elif forloop.counter == 105 %}
-                </tr><tr>
-                <td>8</td>
-            {% elif forloop.counter == 140 %}
-                </tr><tr>
-                <td>9</td>
-            {% elif forloop.counter == 175 %}
-                </tr><tr>
-                <td>10</td>
-            {% elif forloop.counter == 210 %}
-                </tr><tr>
-                <td>11</td>
-            {% elif forloop.counter == 245 %}
-                </tr><tr>
-            {% endif %}
-        {% endfor %}
-    </tr>
-</table>
-<br>
+{##}
+{##}
+{##}
+{#<br><br><br>#}
+{#Классы: {{ c }}<br/>#}
+{#Учителя: {{ t }}<br/>#}
+{#Кабинеты: {{ a }}<br/>#}
+{#<br/>#}
+{#Таблица занятости для классов: <br>#}
+{#{% for i in week_hour_class %}#}
+{#    {{ forloop.counter }} | {{ i }}<br/>#}
+{#{% endfor %}#}
+{#<br/><br/>#}
+{##}
+{#Таблица занятости для учителей: <br>#}
+{#{% for j in week_hour_teacher %}#}
+{#    {{ forloop.counter }} | {{ j }}<br/>#}
+{#{% endfor %}#}
+{#<br/><br/>#}
+{##}
+{#Таблица занятости для аудиторий: <br>#}
+{#{% for k in week_hour_audience %}#}
+{#    {{ forloop.counter }} | {{ k }}<br/>#}
+{#{% endfor %}#}
+{#<br/><br/>#}
+{##}
+{#Что получается:<br>#}
+{#1) По часам:<br>#}
+{#<table>#}
+{#    <tr>#}
+{#        <th>*</th>#}
+{#        <th colspan="7">Понедельник</th>#}
+{#        <th colspan="7">Вторник</th>#}
+{#        <th colspan="7">Среда</th>#}
+{#        <th colspan="7">Четверг</th>#}
+{#        <th colspan="7">Пятница</th>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td style="font-weight: bold">Класс</td>#}
+{#        {% for day in range %}#}
+{#            <td style="font-weight: bold">{{ day }}</td>#}
+{#        {% endfor %}#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td >5</td>#}
+{#        {% for h in H %}#}
+{#            <td>{{ h }}</td>#}
+{#            {% if forloop.counter == 35 %}#}
+{#                </tr><tr>#}
+{#                <td>6</td>#}
+{#            {% elif forloop.counter == 70 %}#}
+{#                </tr><tr>#}
+{#                <td>7</td>#}
+{#            {% elif forloop.counter == 105 %}#}
+{#                </tr><tr>#}
+{#                <td>8</td>#}
+{#            {% elif forloop.counter == 140 %}#}
+{#                </tr><tr>#}
+{#                <td>9</td>#}
+{#            {% elif forloop.counter == 175 %}#}
+{#                </tr><tr>#}
+{#                <td>10</td>#}
+{#            {% elif forloop.counter == 210 %}#}
+{#                </tr><tr>#}
+{#                <td>11</td>#}
+{#            {% elif forloop.counter == 245 %}#}
+{#                </tr><tr>#}
+{#            {% endif %}#}
+{#        {% endfor %}#}
+{#    </tr>#}
+{#</table>#}
+{#<br>#}
 {% endblock %}

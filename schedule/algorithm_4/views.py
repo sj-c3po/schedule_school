@@ -359,6 +359,33 @@ def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
             args['H_teachers'].append('-')
 
 
+    # -----------------------составление расписания по учителю ---------------------
+    # H = (hours_in_week)*(num_class)+hour_cell
+    # hour_cell = H-(hours_in_week)*(num_class)
+    # hc = H-hw*v[1]
+
+    H_teachers = {}
+    teachers = Teacher.objects.all()
+    for t in teachers:
+        print(t)
+        H_teachers[t.last_name] = []
+        for k, v in H.items():
+            if v != 1:
+                if v[2][0:-2] == t.last_name:
+
+                    print(v[1], k-(v[1]-5)*hours_in_week) # узнаем, на какой час поставить
+                    v.append(k)
+                    H_teachers[t.last_name].append(v)
+
+
+    # newList = sorted(Subjects.items(), key=lambda x: x[1][10], reverse=True)
+
+
+    # -----------------------end составление расписания по учителю -----------------
+
+
+
+
     # обнуляем, чтобы можно было заново смотреть КОСЯК В ГРУППАх!!!
     for subject in Subjects.values():
         subject[8] = 0

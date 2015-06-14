@@ -1,0 +1,22 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block archive %}
+    {% if len == 0 %}
+        Расписаний нет
+    {% else %}
+        <table class="archive">
+            <tr>
+                <th>Номер расписания</th>
+                <th>Дата создания</th>
+            </tr>
+            {% for sch in schedules %}
+            <tr>
+                <td><a href="/opened_schedule/?id={{ sch.id }}">{{ sch.id }}</a></td>
+                <td>{{ sch.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+
