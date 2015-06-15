@@ -23,13 +23,17 @@
                 {% for val in item %}
                     {% if forloop.counter == 2 %}
                         /
-                    {% else %}
-                        <br>
                     {% endif %}
                     {% if val.subject != None %}
                         {{ val.subject }}
                     {% else %}
-                        -<br>
+                        -
+                    {% endif %}
+                    {% if item|length == 1 and forloop.counter == 1%}
+                        <br>
+                    {% endif %}
+                    {% if forloop.counter == 2 %}
+                        <br>
                     {% endif %}
                 {% endfor %}
                 {% if forloop.counter|divisibleby:'7' %}
