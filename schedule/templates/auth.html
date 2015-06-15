@@ -2,10 +2,11 @@
 {% load staticfiles %}
 
 {% block auth %}
+    <span class="sysname">Система генерации расписания занятий</span>
     <div class="auth">
 {#        <img src="{% static "cool.jpg" %}">#}
         <p>
-            Авторизуйтесь:
+            <span style="font-size:1.5em; color:darkgreen;">Авторизация</span>
             <form action="/login/" method="post">
                 <label style="color:red;">{{ login_error }}</label>
     {#            {% csrf_token %}#}
@@ -16,7 +17,7 @@
                     Пароль: <input type="password" name="password"><br>
                 </p>
                 <input type="hidden" name="next" value="main.html" />
-                <input type="submit" name="auth" value="Подтвердить">
+                <input class="buttons green_button" style="border:none; cursor:pointer;" type="submit" name="auth" value="Подтвердить">
             </form>
         </p>
     </div>

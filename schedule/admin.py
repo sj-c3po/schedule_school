@@ -3,7 +3,7 @@ from schedule.models import *
 
 
 class School_classAdmin(admin.ModelAdmin):
-    list_display = ['id', 'parallel_letter', 'class_max_load']
+    list_display = ['id', 'parallel', 'class_max_load']
 
 
 class SubjectAdmin(admin.ModelAdmin):

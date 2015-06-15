@@ -1,11 +1,16 @@
 <div class="bar">
-    <ul>
-        <a href="/main"><li>На главную страницу</li></a>
-        <a href="/new"><li>Перейти к созданию расписания</li></a>
-        <a href="/archive"><li>Перейти в архив</li></a>
-{#        {% if schedule %}#}
-{#            <a href="/schedule_detailed"><li>Показать расписание по категориям</li></a>#}
-{#        {% endif %}#}
-        <a href="logout" class="logout"><li>Выйти ({{ username }})</li></a>
-    </ul>
+
+    {% if username %}
+        <ul>
+            <a href="/main"><li>На главную страницу</li></a>
+            <a href="/new"><li>Перейти к созданию расписания</li></a>
+            <a href="/archive"><li>Перейти в архив</li></a>
+    {#        {% if schedule %}#}
+    {#            <a href="/schedule_detailed"><li>Показать расписание по категориям</li></a>#}
+    {#        {% endif %}#}
+            <a href="logout" class="logout"><li>Выйти ({{ username }})</li></a>
+        </ul>
+    {% else %}
+        <span class="sysname">Система генерации расписания занятий</span>
+    {% endif %}
 </div>

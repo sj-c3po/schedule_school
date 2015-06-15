@@ -15,9 +15,10 @@
 <body>
 
 
-    {% if username %}
-        {% include "bar.html" %}
-    {% endif %}
+{#{% if username %}#}
+{#    {% include "bar.html" %}#}
+{#{% endif %}#}
+    {% include "bar.html" %}
 
     {% block auth %}{% endblock %}
     {% block main %}{% endblock %}
