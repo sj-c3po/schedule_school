@@ -40,7 +40,11 @@
                 data-teacher-firstname={{ teacher.first_name }}
                 data-teacher-middlename={{ teacher.middle_name }}
                 data-teacher-id={{ teacher.id }}>
-                <button class="wishes" onclick="add(this);">Добавить</button>
+                {% if teacher.ban_hours == None %}
+                    <button class="wishes buttons green_button" onclick="add(this);">Добавить</button>
+                {% else %}
+                    <button class="wishes buttons blue_button" onclick="add(this);">Изменить</button>
+                {% endif %}
             </td>
             <td>
                 {% if teacher.staff_type == True %}

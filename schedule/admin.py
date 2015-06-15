@@ -41,16 +41,3 @@ admin.site.register(Teacher, TeacherAdmin)
 # admin.site.register(SubjectTeacherRel, SubjectTeacherRelAdmin)
 admin.site.register(CommonRel, CommonRelAdmin)
 
-
-
-#
-# class CategoryAdmin(admin.ModelAdmin):
-#     list_filter = ['products']
-#     filter_horizontal = ['products']
-#
-# class ProductAdmin(admin.ModelAdmin):
-#     list_filter = ['categories']
-#     filter_horizontal = ['categories']
-#
-# admin.site.register(Product, ProductAdmin)
-# admin.site.register(Category, CategoryAdmin)
