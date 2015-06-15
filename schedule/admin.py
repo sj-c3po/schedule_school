@@ -23,7 +23,7 @@ class SubjectTeacherRelAdmin(admin.ModelAdmin):
 
 
 class Schedule_itemsAdmin(admin.ModelAdmin):
-    list_display = ['schedule_id', 'cell_number']
+    list_display = ['schedule_id', 'cell_number', 'sclass', 'subject', 'teacher']
 
 class ScheduleAdmin(admin.ModelAdmin):
     list_display = ['id', 'date']

@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from random import *
 from schedule.models import *
-import copy
+import copy, time
 
 # назначение коэфициентов и сортировка по значению коэфициента
 def set_weight_and_sort(Subjects):
@@ -204,6 +204,8 @@ args = {}
 
 # def generate(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Classes так потом надо юудет с JS
 def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Classes так потом надо юудет с JS
+
+    first_time = time.clock()
     args['c'] = list(Classes)
     args['t'] = list(Teachers)
     args['a'] = list(Audiences)
@@ -421,6 +423,10 @@ def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
 
     args['username'] = request.user.get_username()
     args['schedule'] = 1
+
+    last_time = time.clock()
+    print('Начало:', first_time)
+    print('Конец:', last_time)
 
     # return render_to_response("generate.html", args)
     return render_to_response("schedule.html", args)

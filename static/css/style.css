@@ -371,18 +371,18 @@ table th {
         color:white;
         cursor:pointer;
     }
-    /*.step1,*/
-    /*.step3,*/
-    /*.desc1,*/
-    /*.desc3 {*/
-        /*display:none;*/
-    /*}*/
     .step1,
-    .step2,
+    .step3,
     .desc1,
-    .desc2 {
+    .desc3 {
         display:none;
     }
+    /*.step1,*/
+    /*.step2,*/
+    /*.desc1,*/
+    /*.desc2 {*/
+        /*display:none;*/
+    /*}*/
     .s1, .s3 {
         font-weight: normal;
     }
@@ -446,9 +446,10 @@ table th {
         text-align: center;
     }
 
-    .add_subject, .add_cabinet, .add_teacher,
-    .del_subject, .del_cabinet, .del_teacher,
-    .save_changes {
+    /*.add_subject, .add_cabinet, .add_teacher,*/
+    /*.del_subject, .del_cabinet, .del_teacher,*/
+    /*.save_changes*/
+    .buttons {
         display: inline-block;
         padding:5px 10px;
         border-radius:3px;
@@ -456,18 +457,24 @@ table th {
         margin-bottom: 10px;
     }
 
-    .add_subject,
-    .add_cabinet,
-    .add_teacher {
+    /*.add_subject,*/
+    /*.add_cabinet,*/
+    /*.add_teacher {*/
+    .green_button {
         background: green;
     }
-    .del_subject,
-    .del_cabinet,
-    .del_teacher {
+    /*.del_subject,*/
+    /*.del_cabinet,*/
+    /*.del_teacher*/
+    .red_button {
         background: darkred;
     }
-    .save_changes {
+    /*.save_changes*/
+    .blue_button {
         background:#0000c2;
+    }
+    .grey_button {
+        background: grey;
     }
 /*end new steps*/
 
@@ -595,5 +602,5 @@ button.wishes {
     box-shadow: 1px 1px 2px;
 }
 .archive td {
-    text-align: center;
+    text-align: center        ;
 }
