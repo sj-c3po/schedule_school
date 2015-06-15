@@ -97,3 +97,10 @@ STATICFILES_DIRS = (
 AUTHENTICATION_BACKENDS = (
         'django.contrib.auth.backends.ModelBackend',
     )
+
+TEMPLATE_LOADERS = (
+
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+
+)

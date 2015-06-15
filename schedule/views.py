@@ -260,8 +260,24 @@ def open_schedule(request):
         if request.method == "GET":
             args['id'] = request.GET.get('id', '')
 
+
+            args["sch_items"] = {}
             args["sch_date"] = Schedule.objects.get(id=args['id']).date
-            args["sch_items"] = Schedule_items.objects.all().filter(schedule_id=args['id'])
-            for item in args["sch_items"]:
+            sch_items = Schedule_items.objects.all().filter(schedule_id=args['id'])
+            cell = 0
+            args["sch_items"][cell] = []
+            for item in sch_items:
+                print(item.cell_number)
                 print(item.subject)
+
+                if item.cell_number == cell:
+                    args["sch_items"][cell].append(item)
+                else:
+                    args["sch_items"][item.cell_number] = []
+                    args["sch_items"][item.cell_number].append(item)
+                    cell = item.cell_number
+
+            for k, v in args["sch_items"].items():
+                print(k, type(v), len(v))
+
         return render_to_response('opened_schedule.html', args)

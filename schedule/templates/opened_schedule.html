@@ -4,6 +4,8 @@
 {% block opened_schedule %}
 
     Расписание №{{ id }}, создано {{ sch_date }}
+    <a class="buttons grey_button" style='float:right;' href="javascript:void(0);" onclick="print_schedule('print_schedule');">Распечатать расписание</a>
+
 
     <table class="schedule">
         <tr>
@@ -17,12 +19,19 @@
         <tr>
             <td >5</td>
             <td>
-            {% for item in sch_items %}
-                {% if item.subject != None %}
-                    {{ item.subject }}<br>
-                {% else %}
-                    -<br>
-                {% endif %}
+            {% for item in sch_items.values %}
+                {% for val in item %}
+                    {% if forloop.counter == 2 %}
+                        /
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    {% if val.subject != None %}
+                        {{ val.subject }}
+                    {% else %}
+                        -<br>
+                    {% endif %}
+                {% endfor %}
                 {% if forloop.counter|divisibleby:'7' %}
                    </td><td>
                 {% endif %}

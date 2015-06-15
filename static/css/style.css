@@ -604,3 +604,7 @@ button.wishes {
 .archive td {
     text-align: center        ;
 }
+
+section p {
+    margin-left:10px;
+}
