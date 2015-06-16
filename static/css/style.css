@@ -618,9 +618,13 @@ table th {
     box-shadow: 1px 1px 2px;
 }
 .archive td {
-    text-align: center        ;
+    text-align: center;
 }
 
 section p {
     margin-left:10px;
+}
+
+.table_teachers {
+    display:none;
 }

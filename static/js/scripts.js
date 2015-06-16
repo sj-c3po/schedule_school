@@ -373,9 +373,16 @@ function save_schedule(schedule) {
         });
 }
 
-function show_for_teachers(schedule) {
-
+function show_for_teachers() {
+    $('.table_teachers').show();
+    $('.table_classes').hide();
 }
+
+function show_for_classes() {
+    $('.table_teachers').hide();
+    $('.table_classes').show();
+}
+
 
 
 // НЕ РАБОТАЕТ

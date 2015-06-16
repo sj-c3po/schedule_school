@@ -334,7 +334,6 @@ def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
     # формируем вывод расписания
     args['Schedule'] = {}
     args['H'] = []
-    args['H_teachers'] = []
 
     # для вывода стандартного расписания класс/предмет
     for k, v in H.items():
@@ -348,17 +347,17 @@ def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
             # args['H'].append(v)
             args['H'].append('-')
 
-    # для вывода расписания класс/учитель
-    for v in H.values():
-        if v != 1:
-            if len(v) > params_lenght:  # параметры добавляются по 10 штук
-                args['H_teachers'].append(v[2]+'/'+v[params_lenght+2])
-            else:
-                # args['H_teachers'].append(v[2])
-                args['H_teachers'].append(v[2])
-        else:
-            # args['H_teachers'].append(v)
-            args['H_teachers'].append('-')
+    # # для вывода расписания класс/учитель
+    # for v in H.values():
+    #     if v != 1:
+    #         if len(v) > params_lenght:  # параметры добавляются по 10 штук
+    #             args['H_teachers'].append(v[2]+'/'+v[params_lenght+2])
+    #         else:
+    #             # args['H_teachers'].append(v[2])
+    #             args['H_teachers'].append(v[2])
+    #     else:
+    #         # args['H_teachers'].append(v)
+    #         args['H_teachers'].append('-')
 
 
     # -----------------------составление расписания по учителю ---------------------
@@ -369,20 +368,51 @@ def schedule(request):  # , Teachers, Audiences, Subjects, free_for_ban_hours_Cl
     H_teachers = {}
     teachers = Teacher.objects.all()
     for t in teachers:
-        print(t)
-        H_teachers[t.last_name] = []
+        tname = t.last_name+' '+t.first_name[0]+'.'+t.middle_name[0]+'.'
+        # print(tname)
+        temp_dict = {}
+        H_teachers[tname] = []
         for k, v in H.items():
             if v != 1:
-                if v[2][0:-2] == t.last_name:
+                add = 0
+                hr = k-(v[1]-5)*hours_in_week
+                for l in range(len(v)//11):
+                    if v[2+add][0:-2] == t.last_name:
+                        # print(len(v))
+                        # print('Класс', v[1], 'Час', hr) # узнаем, на какой час поставить
+                        temp_dict[hr] = v[1]
+                        # v.append(k)
+                        # H_teachers[t.last_name].append(v)
 
-                    print(v[1], k-(v[1]-5)*hours_in_week) # узнаем, на какой час поставить
-                    v.append(k)
-                    H_teachers[t.last_name].append(v)
+                    add = add+11
+        # print(t, temp_dict)
 
 
-    # newList = sorted(Subjects.items(), key=lambda x: x[1][10], reverse=True)
+        # сортировка по ключам
+        keys = temp_dict.keys()
+        keys = list(keys)
+        keys.sort()
+        # print('keys', keys)
+        count = 0
+        for key in keys:
+            if count == key:
+                H_teachers[tname].append(temp_dict[key])
+                count += 1
+            else:
+                d = key-count
+                # print(count, key, d)
+                for i in range(d):
+                    # print(i, 'i')
+                    H_teachers[tname].append(0)
+                count = key+1
+                H_teachers[tname].append(temp_dict[key])
+                # print(count, 'count')
+        while len(H_teachers[tname]) != 35:
+            H_teachers[tname].append(0)
 
+        # print('teac',H_teachers[tname])
 
+    args['H_teachers'] = H_teachers
     # -----------------------end составление расписания по учителю -----------------
 
 

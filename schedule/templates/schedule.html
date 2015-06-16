@@ -9,11 +9,15 @@
 
     <a class="save_changes buttons blue_button"  href="javascript:void(0);" onclick="save_schedule(this);" data-schedule='{{ Schedule }}' >Сохранить расписание</a>
     <a class="buttons red_button" href="schedule" onclick="prepare_for_generate();">Сгенерировать новое расписание</a>
-    <a class="buttons green_button" href="javascript:void(0);" onclick="show_for_teachers(this);" data-schedule='{{H}}'>Показать расписание по учителям</a>
+
+
+    <a class="buttons green_button table_classes" href="javascript:void(0);" onclick="show_for_teachers(this);" data-schedule='{{H}}'>Показать расписание по учителям</a>
+    <a class="buttons green_button table_teachers" href="javascript:void(0);" onclick="show_for_classes(this);" >Показать расписание по классам</a>
+
 
     <a class="buttons grey_button" style='float:right;' href="javascript:void(0);" onclick="print_schedule('print_schedule');">Распечатать расписание</a>
 
-    <table id='print_schedule' class="schedule classes">
+    <table id='print_schedule' class="schedule table_classes">
         <tr>
             <th>Класс</th>
             <th >Понедельник</th>
@@ -61,6 +65,38 @@
             </td>
         </tr>
     </table>
+
+    <table class="schedule table_teachers">
+        <tr>
+            <th>Учитель</th>
+            <th >Понедельник</th>
+            <th >Вторник</th>
+            <th >Среда</th>
+            <th >Четверг</th>
+            <th >Пятница</th>
+        </tr>
+        <tr>
+            {% for key, value in H_teachers.items %}
+                <td>{{ key }}</td>
+                <td>
+                {% for v in value %}
+
+                    {% if v != 0 %}
+                        {{ v }}<br>
+                    {% else %}
+                        -<br>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:'7' %}
+                        </td><td>
+                    {% endif %}
+
+                {% endfor %}
+                </tr><tr>
+            {% endfor %}
+        </tr>
+    </table>
+
+
 
 {#    <table class="schedule teachers">#}
 {#        <tr>#}
